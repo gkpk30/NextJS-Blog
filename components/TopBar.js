@@ -36,7 +36,7 @@ export default function topBar() {
     } else {
       return (
         <MoonIcon
-          className=" w-7 h-7 bg-slate-200 rounded-md "
+          className=" w-7 h-7 bg-slate-200 rounded-md text-blue-900 "
           role="button"
           onClick={() => setTheme("dark")}
         />
@@ -86,9 +86,9 @@ export default function topBar() {
                           Home
                         </a>
                       </Link>
-                      <Link href="/blog">
+                      <Link href="/blogs">
                         <a className="border-transparent text-gray-500 dark:text-gray-50 inline-flex items-center px-1 pt-1 border-b-2 text-sm font-medium">
-                          Blog
+                          Blogs
                         </a>
                       </Link>
                       <Link href="/gallery">
@@ -118,7 +118,7 @@ export default function topBar() {
                   // as={Link}
                   as="a"
                   href="/"
-                  className="bg-indigo-50 border-primary text-primary dark:text-gray-50  block pl-3 pr-4 py-2 border-l-4 text-base font-medium"
+                  className="bg-indigo-50 border-primary text-indigo-700 dark:text-gray-50  block pl-3 pr-4 py-2 border-l-4 text-base font-medium"
                 >
                   Home
                 </Disclosure.Button>
