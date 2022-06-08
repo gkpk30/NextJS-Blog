@@ -101,19 +101,19 @@ export default function Post({ post }) {
           </h1>
 
           {/* {post.category &&  */}
-          <div className="font-third mt-12">Category</div>
-          <div className="flex flex-row mt-2">
+          <div className="font-third text-xl mt-4">Category</div>
+          <div className="flex flex-row mt-2 flex-wrap">
             {post.categories.map((category) => (
               <Link href={category.categoryTitle} key={category.categoryTitle}>
-                <h3 className="text-yellow-700 mr-3 cursor-pointer font-fourth dark:text-yellow-500  text-sm uppercase font-bold">
+                <h3 className="text-yellow-700 mr-3 cursor-pointer font-fourth dark:text-yellow-500  text-sm uppercase font-bold underline">
                   {category.categoryTitle}
                 </h3>
               </Link>
             ))}
           </div>
 
-          <div className=" my-4 flex justify-between text-lg font-fourth mr-20  ">
-            <span className="singlePostAuthor">
+          <div className="mt-12 mb-4 flex flex-col sm:flex-row justify-between text-lg font-fourth mr-20  ">
+            <div className="singlePostAuthor">
               Author:{" "}
               <Link
                 className="hover:font-black"
@@ -121,10 +121,10 @@ export default function Post({ post }) {
               >
                 <b>{post.author.name}</b>
               </Link>{" "}
-            </span>
-            <span className="singlePostDate">
+            </div>
+            <div className="singlePostDate">
               {new Date(post.publishDate).toDateString()}
-            </span>
+            </div>
           </div>
 
           <div
