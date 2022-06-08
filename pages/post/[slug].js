@@ -80,12 +80,21 @@ export default function Post({ post }) {
   return (
     <div className="lg:col-span-9 xl:col-span-10 font-primary ">
       <div className="singlePostWrapper p-5  ">
-        <img
+        <div className="h-[20rem] w-full relative xl:h-[40rem] ">
+        <Image
           src={post.coverPhoto.url}
           alt="hello"
-          className="singlePostImage w-full lg:h-[35rem] sm:h-80 object-cover rounded-lg lg:object-top sm:object-center"
-          layout="responsive"
+          className="singlePostImage absolute w-full lg:h-[35rem] sm:h-80 object-cover rounded-lg lg:object-top sm:object-center"
+          layout="fill"
+          priority ="true"
+          // width="842"
+          // height="394"
+          //if using layout="fill you must wrap Image in a div with a height and width"
+          
+        
+         
         />
+        </div>
         <div className="max-w-7xl mx-auto">
           <h1 className=" md:w-[90%] text-left font-third font-bold text-3xl mr-3 mt-5 mb-3">
             {post.title}

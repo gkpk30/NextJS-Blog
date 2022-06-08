@@ -454,6 +454,8 @@ export default function Home({ posts }) {
               alt=""
               priority ="true"
               layout="fill"
+              // width="1042"
+              // height="894"
             />
           </div>
         </main>
