@@ -118,7 +118,7 @@ export default function TopBar() {
                   // as={Link}
                   as="a"
                   href="/"
-                  className="bg-indigo-50 border-primary text-indigo-700 dark:text-gray-50  block pl-3 pr-4 py-2 border-l-4 text-base font-medium"
+                  className="bg-indigo-50 dark:bg-gray-600 border-primary text-indigo-700 dark:text-gray-50  block pl-3 pr-4 py-2 border-l-4 text-base font-medium"
                 >
                   Home
                 </Disclosure.Button>
@@ -128,7 +128,7 @@ export default function TopBar() {
                   href="/posts"
                   className="border-transparent text-gray-500 hover:bg-gray-50 hover:border-gray-300 hover:text-gray-700 dark:text-gray-50 block pl-3 pr-4 py-2 border-l-4 text-base font-medium"
                 >
-                  Posts
+                  Blogs
                 </Disclosure.Button>
                 <Disclosure.Button
                   // as={Link}

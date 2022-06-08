@@ -112,7 +112,7 @@ export default function Post({ post }) {
             ))}
           </div>
 
-          <div className="mt-12 mb-4 flex flex-col sm:flex-row justify-between text-lg font-fourth mr-20  ">
+          <div className="mt-14 mb-4 flex flex-col sm:flex-row justify-between text-lg font-fourth mr-20  ">
             <div className="singlePostAuthor">
               Author:{" "}
               <Link

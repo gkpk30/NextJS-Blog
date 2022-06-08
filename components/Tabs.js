@@ -112,7 +112,7 @@ for (let i = 0; i < keys.length; i++) {
 console.log("new Obj" ,tabs);
 
 tabs[0].current = true;
-
+tabs.push()
 
  
 

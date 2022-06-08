@@ -26,6 +26,12 @@ module.exports = {
         'third' : '#3f4347',
         'text': '#7A7A7A',
         'textPrimary': '#444444',
+        'tags' : {
+          'primary' : '#a35b6a',
+          'second' : '#705ba3',
+          'third' : '#5BA394',
+          'fourth' : '#8ea35b'
+        }
 
         
       },
