@@ -452,7 +452,7 @@ export default function Home({ posts }) {
               className="absolute inset-0 w-full h-full object-cover"
               src={YellowBlonde}
               alt=""
-              priority
+              priority ="true"
               layout="fill"
             />
           </div>
