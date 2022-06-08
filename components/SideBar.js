@@ -4,7 +4,7 @@ import MyPhoto from '../assets/images/man-suit-gray-min.jpeg'
 import { AiFillFacebook, AiFillInstagram } from 'react-icons/ai';
 import { Link } from "react-router-dom";
 
-export default function Sidebar() {
+export default function SideBar() {
     const [cats, setCats] = useState([]);
 
     

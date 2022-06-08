@@ -4,7 +4,7 @@ import { Disclosure, Menu, Transition } from "@headlessui/react";
 import {MenuIcon, XIcon } from "@heroicons/react/outline";
 import { MoonIcon, SunIcon } from "@heroicons/react/solid";
 import Link from "next/link";
-import MyLink from "./MyLink";
+
 
 import { useTheme } from "next-themes";
 
@@ -12,7 +12,7 @@ function classNames(...classes) {
   return classes.filter(Boolean).join(" ");
 }
 
-export default function topBar() {
+export default function TopBar() {
   const { systemTheme, theme, setTheme } = useTheme();
   const [mounted, setMounted] = useState()
 
