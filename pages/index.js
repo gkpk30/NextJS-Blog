@@ -392,8 +392,8 @@ export default function Home({ posts }) {
          
             }
           </div>
-                <span className="inline xl:inline dark:text-gray-50 ">Enrich your</span>{" "}
-                <span className="inline text-primary xl:inline">
+                <span className="inline relative xl:inline dark:text-gray-50 ">Enrich your</span>{" "}
+                <span className="inline relative text-primary xl:inline">
                   salon and business
                 </span>
               </h1>

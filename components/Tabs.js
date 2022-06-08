@@ -14,15 +14,17 @@
   }
   ```
 */
-const tabs = [
-  { name: "Blonde", href: "#", count: "12", current: false },
-  { name: "Product", href: "#", count: "6", current: false },
-  { name: "Color Correction", href: "#", count: "4", current: true },
-  { name: "Offers", href: "#", current: false },
-  { name: "Style", href: "#", current: false },
-];
 
-console.log("tabs: " , tabs)
+
+// const tabs = [
+//   { name: "Blonde", href: "#", count: "12", current: false },
+//   { name: "Product", href: "#", count: "6", current: false },
+//   { name: "Color Correction", href: "#", count: "4", current: true },
+//   { name: "Offers", href: "#", current: false },
+//   { name: "Style", href: "#", current: false },
+// ];
+
+// console.log("tabs: " , tabs)
 
 function classNames(...classes) {
   return classes.filter(Boolean).join(" ");
@@ -34,13 +36,13 @@ export default function Tabs({ className, categories, posts }) {
 
 
   
-  console.table("all Posts: ", posts)
-  console.log("categories prop: ", categories)
+  // console.table("all Posts: ", posts)
+  // console.log("categories prop: ", categories)
   
   //get list of frequency of categories
   const categoryInfo = posts.map(post => post.categories)
 
-  console.log("categoryInfo: ", categoryInfo)
+  // console.log("categoryInfo: ", categoryInfo)
 
   //////////////////////Flatten the multidimensional array
   const flatten = (arr) => {
@@ -72,7 +74,7 @@ export default function Tabs({ className, categories, posts }) {
       acc[titleName] = 1;
     }
     return acc;
-  }, {})
+  }, [])
 
   console.log("numberOfPostsByCategory :" , numberOfPostsByCategory)
   ////////////////////////////////////////////////////////////////////
@@ -81,29 +83,38 @@ export default function Tabs({ className, categories, posts }) {
   const catList = flatten(categoryInfo).map(item => item.categoryTitle)
 
   const uniqueCats = [...new Set(catList)]
-  // console.log("Unique Cats: ", uniqueCats)
+  console.log("Unique Cats: ", uniqueCats)
 
   // console.log("CatList: " , catList )
 
- console.log(numberOfPostsByCategory['blonde'])
+ const count = []
+ for (const key in numberOfPostsByCategory) {
+   if (Object.hasOwnProperty.call(numberOfPostsByCategory, key)) {
+     const element = numberOfPostsByCategory[key];
+     count.push(element)
+     
+   }
+ }
 
- class Tab {
-  constructor (name , count) {
-    this.name = name;
-    this.count = count;
-  }
-} 
-  const tab1 = new Tab("blonde", numberOfPostsByCategory['blonde'])
+//  const tabs = uniqueCats.map((category , index) => { return {name: category , href: "#", count: count[index].toString(), current : "false" }})
 
-  console.log("tab1", tab1)
+// console.log(tabs)
 
-  const tab2 = new Tab("corrections" , numberOfPostsByCategory['corrections'])
-  console.log("tab2", tab2)
 
-  let TabsFromServer 
-  TabsFromServer = tab2, tab1
 
-  console.log("collection of tab objects: ", TabsFromServer)
+const keys = Object.keys(numberOfPostsByCategory);
+const values = Object.values(numberOfPostsByCategory);
+let tabs = [];
+for (let i = 0; i < keys.length; i++) {
+    tabs.push({ categoryName: keys[i], count: '' + values[i], current: false , href: '#'});
+}
+
+console.log("new Obj" ,tabs);
+
+tabs[0].current = true;
+
+
+ 
 
   return (
     <div className={`${className}`}>
@@ -116,35 +127,33 @@ export default function Tabs({ className, categories, posts }) {
           id="tabs"
           name="tabs"
           className="block w-full pl-3 pr-10 py-2 text-base border-gray-300 focus:outline-none focus:ring-indigo-500 focus:border-indigo-500 sm:text-sm rounded-md"
-          defaultValue={tabs.find((tab) => tab.current).name}
+          defaultValue={tabs.find((tab) => tab.current).categoryName}
         >
-          {/* {tabs.map((tab) => (
-              <option key={tab.name}>{tab.name}</option>
-            ))} */}
-          {categories.map((category) => (
-            <option key={category.categoryTitle}>
-              {category.categoryTitle}
-            </option>
-          ))}
-          
+          {tabs.map((tab) => (
+              <option key={tab.categoryName}>{tab.categoryName}</option>
+            ))}
+         
+           
         </select>
       </div>
       <div className="hidden sm:block">
         <div className="border-b border-gray-200">
           <nav className="-mb-px flex space-x-8" aria-label="Tabs">
+
+            
             {tabs.map((tab) => (
               <a
-                key={tab.name}
+                key={tab.categoryName}
                 href="#"
                 className={classNames(
-                  tab.current
-                    ? "border-indigo-500 text-indigo-600"
+                  tab.current 
+                    ? "border-primary text-indigo-600"
                     : "border-transparent text-gray-500 hover:text-gray-700 hover:border-gray-200",
                   "whitespace-nowrap flex py-4 px-1 border-b-2 font-medium text-sm"
                 )}
                 aria-current={tab.current ? "page" : undefined}
               >
-                {tab.name}
+                {tab.categoryName}
                 {tab.count ? (
                   <span
                     className={classNames(
