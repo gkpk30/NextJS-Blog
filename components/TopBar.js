@@ -12,7 +12,7 @@ function classNames(...classes) {
   return classes.filter(Boolean).join(" ");
 }
 
-export default function topBar() {
+export default function TopBar() {
   const { systemTheme, theme, setTheme } = useTheme();
   const [mounted, setMounted] = useState()
 
