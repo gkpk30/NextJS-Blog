@@ -462,7 +462,7 @@ export default function Home({ posts }) {
         </main>
 
         {/* Blog Section */}
-        <div className="h-screen mt-36 sm:mt-96 ">
+        <div className="mt-36 sm:mt-96 ">
           <div
             name="latestBlogs"
             className="flex flex-col justify-center items-center w-full "
