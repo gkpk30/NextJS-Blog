@@ -1,4 +1,5 @@
-import Card from '../components/Card'
+import Card from "../components/Card";
+import { useState } from "react";
 /*
   This example requires Tailwind CSS v2.0+ 
   
@@ -31,6 +32,10 @@ function classNames(...classes) {
 }
 
 export default function Tabs({ className, categories, posts }) {
+  const [blogData, setBlogData] = useState(posts);
+
+  console.log("blogData: ", blogData);
+
   const numberOfPosts = Object.keys(posts).length;
   console.log("number of Posts: ", numberOfPosts);
   // console.table("all Posts: ", posts)
@@ -118,8 +123,18 @@ export default function Tabs({ className, categories, posts }) {
   });
   tabs[0].current = true;
 
-  const handleTabClick = (cat) => {
-    console.log("handled Tab Click: ", cat);
+  const getFiltered = (category) => {
+    console.log("handled Tab Click Filter: ", category);
+    console.log("what is posts before filter", posts);
+    if (category === "All") {
+      setBlogData(posts);
+    } else {
+      const blogsFiltered = posts.filter((blog) =>
+        blog.categories.some((x) => x.categoryTitle === category)
+      );
+      console.log("Blogs Filtered by category :", blogsFiltered);
+      setBlogData(blogsFiltered);
+    }
   };
 
   return (
@@ -136,7 +151,7 @@ export default function Tabs({ className, categories, posts }) {
           defaultValue={tabs.find((tab) => tab.current).categoryName}
         >
           {tabs.map((tab) => (
-            <option key={tab.categoryName}>{tab.categoryName}</option>
+            <option key={tab.categoryName} onSelect={() => getFiltered(tab.categoryName)}>{tab.categoryName}</option>
           ))}
         </select>
       </div>
@@ -154,7 +169,7 @@ export default function Tabs({ className, categories, posts }) {
                   "whitespace-nowrap flex py-4 px-1 border-b-2 font-medium text-sm"
                 )}
                 aria-current={tab.current ? "page" : undefined}
-                onClick={() => handleTabClick(tab.categoryName)}
+                onClick={() => getFiltered(tab.categoryName)}
               >
                 {tab.categoryName}
                 {tab.count ? (
@@ -175,8 +190,8 @@ export default function Tabs({ className, categories, posts }) {
         </div>
       </div>
       <div className="mt-6 max-w-lg mx-auto grid gap-5 lg:grid-cols-3 lg:max-w-none">
-        {posts.map((post, index) => (
-          <Card post={post} key={index} />
+        {blogData.map((blog, index) => (
+          <Card post={blog} key={index} />
         ))}
       </div>
     </div>

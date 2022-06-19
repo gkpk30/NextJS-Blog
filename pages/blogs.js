@@ -73,12 +73,7 @@ const Blog = ({ posts, categories }) => {
           </div>
           
           {/* Blog Card  */}
-          {/* <Tabs className="mt-12  " posts={posts} categories={categories} />
-          <div className="mt-6 max-w-lg mx-auto grid gap-5 lg:grid-cols-3 lg:max-w-none">
-            {posts.map((post, index) => (
-              <Card post={post} key={index} />
-            ))}
-          </div> */}
+         
           <Tabs className="mt-12  " posts={posts} categories={categories} />
          
           <Pagination className="dark:bg-gray-900 mt-8" />
