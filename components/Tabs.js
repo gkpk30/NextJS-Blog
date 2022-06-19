@@ -1,3 +1,4 @@
+import Card from '../components/Card'
 /*
   This example requires Tailwind CSS v2.0+ 
   
@@ -15,7 +16,6 @@
   ```
 */
 
-
 // const tabs = [
 //   { name: "Blonde", href: "#", count: "12", current: false },
 //   { name: "Product", href: "#", count: "6", current: false },
@@ -31,90 +31,96 @@ function classNames(...classes) {
 }
 
 export default function Tabs({ className, categories, posts }) {
-
- 
-
-
-  
+  const numberOfPosts = Object.keys(posts).length;
+  console.log("number of Posts: ", numberOfPosts);
   // console.table("all Posts: ", posts)
   // console.log("categories prop: ", categories)
-  
+
   //get list of frequency of categories
-  const categoryInfo = posts.map(post => post.categories)
+  const categoryInfo = posts.map((post) => post.categories);
 
   // console.log("categoryInfo: ", categoryInfo)
 
   //////////////////////Flatten the multidimensional array
   const flatten = (arr) => {
-    let someNewArray = arr.reduce((acc, item) =>{
-      //if item is an array 
+    let someNewArray = arr.reduce((acc, item) => {
+      //if item is an array
       //or the item will be an item
-      if(Array.isArray(item)){
-        acc =  acc.concat(flatten(item));
-      }
-      else{
+      if (Array.isArray(item)) {
+        acc = acc.concat(flatten(item));
+      } else {
         //acc.push(item)
-        acc = [...acc, item]
+        acc = [...acc, item];
       }
       return acc;
-    }, [])
-      return someNewArray
-  }
+    }, []);
+    return someNewArray;
+  };
 
-  console.log("flatten(categoryInfo): ", flatten(categoryInfo))
+  console.log("flatten(categoryInfo): ", flatten(categoryInfo));
 
   ////////////////////////Get count of each caegory used
-  const categoriesUsed =  flatten(categoryInfo);
+  const categoriesUsed = flatten(categoryInfo);
 
   const numberOfPostsByCategory = categoriesUsed.reduce((acc, cur) => {
-    const titleName = cur.categoryTitle
-    if(acc[titleName]) {
-      acc[titleName] ++;
+    const titleName = cur.categoryTitle;
+    if (acc[titleName]) {
+      acc[titleName]++;
     } else {
       acc[titleName] = 1;
     }
     return acc;
-  }, [])
+  }, []);
 
-  console.log("numberOfPostsByCategory :" , numberOfPostsByCategory)
+  console.log("numberOfPostsByCategory :", numberOfPostsByCategory);
   ////////////////////////////////////////////////////////////////////
 
   ///////////////////////////////////////findUnique List of Categories
-  const catList = flatten(categoryInfo).map(item => item.categoryTitle)
+  const catList = flatten(categoryInfo).map((item) => item.categoryTitle);
 
-  const uniqueCats = [...new Set(catList)]
-  console.log("Unique Cats: ", uniqueCats)
+  const uniqueCats = [...new Set(catList)];
+  console.log("Unique Cats: ", uniqueCats);
 
   // console.log("CatList: " , catList )
 
- const count = []
- for (const key in numberOfPostsByCategory) {
-   if (Object.hasOwnProperty.call(numberOfPostsByCategory, key)) {
-     const element = numberOfPostsByCategory[key];
-     count.push(element)
-     
-   }
- }
+  const count = [];
+  for (const key in numberOfPostsByCategory) {
+    if (Object.hasOwnProperty.call(numberOfPostsByCategory, key)) {
+      const element = numberOfPostsByCategory[key];
+      count.push(element);
+    }
+  }
 
-//  const tabs = uniqueCats.map((category , index) => { return {name: category , href: "#", count: count[index].toString(), current : "false" }})
+  //  const tabs = uniqueCats.map((category , index) => { return {name: category , href: "#", count: count[index].toString(), current : "false" }})
 
-// console.log(tabs)
+  // console.log(tabs)
 
+  const keys = Object.keys(numberOfPostsByCategory);
+  const values = Object.values(numberOfPostsByCategory);
+  let tabs = [];
+  for (let i = 0; i < keys.length; i++) {
+    tabs.push({
+      categoryName: keys[i],
+      count: "" + values[i],
+      current: false,
+      href: "#",
+    });
+  }
 
+  console.log("new Obj", tabs);
 
-const keys = Object.keys(numberOfPostsByCategory);
-const values = Object.values(numberOfPostsByCategory);
-let tabs = [];
-for (let i = 0; i < keys.length; i++) {
-    tabs.push({ categoryName: keys[i], count: '' + values[i], current: false , href: '#'});
-}
+  //add all category with total count of posts
+  tabs.unshift({
+    categoryName: "All",
+    count: numberOfPosts,
+    current: false,
+    href: "#",
+  });
+  tabs[0].current = true;
 
-console.log("new Obj" ,tabs);
-
-tabs[0].current = true;
-tabs.push()
-
- 
+  const handleTabClick = (cat) => {
+    console.log("handled Tab Click: ", cat);
+  };
 
   return (
     <div className={`${className}`}>
@@ -126,32 +132,29 @@ tabs.push()
         <select
           id="tabs"
           name="tabs"
-          className="block w-full pl-3 pr-10 py-2 text-base border-gray-300 focus:outline-none focus:ring-indigo-500 focus:border-indigo-500 sm:text-sm rounded-md"
+          className="block w-full pl-3 pr-10 py-2 dark:text-gray-900 text-base border-gray-300 focus:outline-none focus:ring-indigo-500 focus:border-indigo-500 sm:text-sm rounded-md"
           defaultValue={tabs.find((tab) => tab.current).categoryName}
         >
           {tabs.map((tab) => (
-              <option key={tab.categoryName}>{tab.categoryName}</option>
-            ))}
-         
-           
+            <option key={tab.categoryName}>{tab.categoryName}</option>
+          ))}
         </select>
       </div>
       <div className="hidden sm:block">
         <div className="border-b border-gray-200">
           <nav className="-mb-px flex space-x-8" aria-label="Tabs">
-
-            
             {tabs.map((tab) => (
               <a
                 key={tab.categoryName}
                 href="#"
                 className={classNames(
-                  tab.current 
+                  tab.current
                     ? "border-primary text-indigo-600"
                     : "border-transparent text-gray-500 hover:text-gray-700 hover:border-gray-200",
                   "whitespace-nowrap flex py-4 px-1 border-b-2 font-medium text-sm"
                 )}
                 aria-current={tab.current ? "page" : undefined}
+                onClick={() => handleTabClick(tab.categoryName)}
               >
                 {tab.categoryName}
                 {tab.count ? (
@@ -170,6 +173,11 @@ tabs.push()
             ))}
           </nav>
         </div>
+      </div>
+      <div className="mt-6 max-w-lg mx-auto grid gap-5 lg:grid-cols-3 lg:max-w-none">
+        {posts.map((post, index) => (
+          <Card post={post} key={index} />
+        ))}
       </div>
     </div>
   );

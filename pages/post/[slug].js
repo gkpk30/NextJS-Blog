@@ -17,6 +17,9 @@ const QUERY = gql`
       publishDate
       author {
         name
+        avatar {
+          url
+        }
       }
       publishDate
       coverPhoto {
@@ -80,7 +83,7 @@ export default function Post({ post }) {
   return (
     <div className="lg:col-span-9 xl:col-span-10 font-primary ">
       <div className="singlePostWrapper p-5  ">
-        <div className="h-[20rem] w-full relative xl:h-[40rem] ">
+        {/* <div className="h-[20rem] w-full relative xl:h-[40rem] ">
         <Image
           src={post.coverPhoto.url}
           alt="hello"
@@ -94,9 +97,9 @@ export default function Post({ post }) {
         
          
         />
-        </div>
+        </div> */}
         <div className="max-w-7xl mx-auto">
-          <h1 className=" md:w-[90%] text-left font-third font-bold text-3xl mr-3 mt-5 mb-3">
+          <h1 className=" md:w-[70%] text-left font-third font-bold text-3xl mr-3 mt-5 mb-3">
             {post.title}
           </h1>
 
@@ -113,27 +116,54 @@ export default function Post({ post }) {
           </div>
 
           <div className="mt-14 mb-4 flex flex-col sm:flex-row justify-between text-lg font-fourth mr-20  ">
-            <div className="singlePostAuthor">
-              Author:{" "}
-              <Link
-                className="hover:font-black"
-                href={`/?user=${post.author.name}`}
-              >
-                <b>{post.author.name}</b>
-              </Link>{" "}
+            <div className="singlePostAuthor flex">
+              <div>
+                Author:{" "}
+                {
+                  <Link
+                    className=" ml-3 hover:font-black cursor-pointer"
+                    href={`/?user=${post.author.name}`}
+                  >
+                    <b>{post.author.name}</b>
+                  </Link>
+                }
+              </div>
+              <div className="ml-3 ">
+                <Image
+                  className="h-10 w-10 rounded-full text-gray-500 dark:text-gray-200"
+                  width={40}
+                  height={40}
+                  src={post.author.avatar.url}
+                  alt=""
+                />
+              </div>
             </div>
             <div className="singlePostDate">
               {new Date(post.publishDate).toDateString()}
             </div>
           </div>
-
-          <div
-            className=" text-lg first-line:uppercase first-line:tracking-widest
-                        first-letter:text-7xl first-letter:font-bold first-letter:text-slate-900 dark:first-letter:text-gray-200
-                        first-letter:mr-3 first-letter:float-left "
-          >
-            {/* {post.content.html} */}
-            <div dangerouslySetInnerHTML={{ __html: post.content.html }} />
+          <div className="md:grid grid-cols-2 gap-14">
+            <div
+              className=" text-lg first-line:uppercase first-line:tracking-widest
+                          first-letter:text-7xl first-letter:font-bold first-letter:text-slate-900 dark:first-letter:text-gray-200
+                          first-letter:mr-3 first-letter:float-left "
+            >
+              {/* {post.content.html} */}
+              <div dangerouslySetInnerHTML={{ __html: post.content.html }} />
+              
+            </div>
+            <div className="h-[20rem] w-full relative xl:h-[40rem] ">
+              <Image
+                src={post.coverPhoto.url}
+                alt="hello"
+                className="singlePostImage absolute w-full lg:h-[35rem] sm:h-80 object-cover rounded-lg lg:object-top sm:object-center"
+                layout="fill"
+                priority="true"
+                // width="842"
+                // height="394"
+                //if using layout="fill you must wrap Image in a div with a height and width"
+              />
+            </div>
           </div>
         </div>
       </div>

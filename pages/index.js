@@ -19,7 +19,7 @@ const graphcms = new GraphQLClient(
 
 const QUERY = gql`
   {
-    posts {
+    posts(first: 3, orderBy: publishDate_DESC) {
       title
       slug
       coverPhoto {
