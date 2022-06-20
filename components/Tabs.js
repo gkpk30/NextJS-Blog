@@ -1,5 +1,5 @@
 import Card from "../components/Card";
-import { useState } from "react";
+import { useState, useEffect } from "react";
 /*
   This example requires Tailwind CSS v2.0+ 
   
@@ -32,7 +32,10 @@ function classNames(...classes) {
 }
 
 export default function Tabs({ className, categories, posts }) {
+ 
+  
   const [blogData, setBlogData] = useState(posts);
+  const [currentTabIndex , setCurrentTabIndex] = useState('0');
 
   console.log("blogData: ", blogData);
 
@@ -114,18 +117,29 @@ export default function Tabs({ className, categories, posts }) {
 
   console.log("new Obj", tabs);
 
-  //add all category with total count of posts
+  //add 'All' category with total count of posts
   tabs.unshift({
     categoryName: "All",
     count: numberOfPosts,
     current: false,
     href: "#",
   });
-  tabs[0].current = true;
+  tabs[currentTabIndex].current = true;
 
-  const getFiltered = (category) => {
+  const handleGetFiltered = (category) => {
     console.log("handled Tab Click Filter: ", category);
     console.log("what is posts before filter", posts);
+    console.log("tabs before filter: " ,tabs)
+    const currentTabTrueIndex = tabs.findIndex(tab => tab.current === true  )
+    tabs[currentTabTrueIndex].current = false;
+    // const currentTab = tabs.filter((tab) => tab.categoryName === category);
+    // currentTab.current = true;
+    const currentIndex = tabs.findIndex( tab => tab.categoryName === category)
+    setCurrentTabIndex(currentIndex)
+    tabs[currentTabIndex].current = true
+    console.log("tabs after filter: " ,tabs)
+    console.log("which index is current: ", currentTabIndex);
+    console.log("tabs after filter is which one is current true: " ,tabs)
     if (category === "All") {
       setBlogData(posts);
     } else {
@@ -136,6 +150,11 @@ export default function Tabs({ className, categories, posts }) {
       setBlogData(blogsFiltered);
     }
   };
+
+  // const setCurrent = (category) => {
+  //   const currentTab = tabs.filter((tab) => tab.categoryName === category);
+  //   currentTab.current = true;
+  // };
 
   return (
     <div className={`${className}`}>
@@ -149,9 +168,12 @@ export default function Tabs({ className, categories, posts }) {
           name="tabs"
           className="block w-full pl-3 pr-10 py-2 dark:text-gray-900 text-base border-gray-300 focus:outline-none focus:ring-indigo-500 focus:border-indigo-500 sm:text-sm rounded-md"
           defaultValue={tabs.find((tab) => tab.current).categoryName}
+          onChange={(e) => handleGetFiltered(e.target.value)}
         >
           {tabs.map((tab) => (
-            <option key={tab.categoryName} onSelect={() => getFiltered(tab.categoryName)}>{tab.categoryName}</option>
+            <option key={tab.categoryName} value={tab.categoryName}>
+              {tab.categoryName}
+            </option>
           ))}
         </select>
       </div>
@@ -163,13 +185,13 @@ export default function Tabs({ className, categories, posts }) {
                 key={tab.categoryName}
                 href="#"
                 className={classNames(
-                  tab.current
+                  tab.current === true
                     ? "border-primary text-indigo-600"
                     : "border-transparent text-gray-500 hover:text-gray-700 hover:border-gray-200",
                   "whitespace-nowrap flex py-4 px-1 border-b-2 font-medium text-sm"
                 )}
                 aria-current={tab.current ? "page" : undefined}
-                onClick={() => getFiltered(tab.categoryName)}
+                onClick={() => handleGetFiltered(tab.categoryName)}
               >
                 {tab.categoryName}
                 {tab.count ? (
