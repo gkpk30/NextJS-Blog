@@ -10,8 +10,8 @@ const graphcms = new GraphQLClient(
 const limit = 1;
 
 export default function Gallery({ images }) {
-  return images.map(({ node: image }) => (
-    <pre>{JSON.stringify(image, 2, null)}</pre>
+  return images.map(({ node: image }, index) => (
+    <pre key={index} >{JSON.stringify(image, 2, null)}</pre>
   ));
 }
 
