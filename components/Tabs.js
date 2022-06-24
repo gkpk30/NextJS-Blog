@@ -32,10 +32,8 @@ function classNames(...classes) {
 }
 
 export default function Tabs({ className, categories, posts }) {
- 
-  
   const [blogData, setBlogData] = useState(posts);
-  const [currentTabIndex , setCurrentTabIndex] = useState('0');
+  const [currentTabIndex, setCurrentTabIndex] = useState("0");
 
   console.log("blogData: ", blogData);
 
@@ -129,17 +127,17 @@ export default function Tabs({ className, categories, posts }) {
   const handleGetFiltered = (category) => {
     console.log("handled Tab Click Filter: ", category);
     console.log("what is posts before filter", posts);
-    console.log("tabs before filter: " ,tabs)
-    const currentTabTrueIndex = tabs.findIndex(tab => tab.current === true  )
+    console.log("tabs before filter: ", tabs);
+    const currentTabTrueIndex = tabs.findIndex((tab) => tab.current === true);
     tabs[currentTabTrueIndex].current = false;
     // const currentTab = tabs.filter((tab) => tab.categoryName === category);
     // currentTab.current = true;
-    const currentIndex = tabs.findIndex( tab => tab.categoryName === category)
-    setCurrentTabIndex(currentIndex)
-    tabs[currentTabIndex].current = true
-    console.log("tabs after filter: " ,tabs)
+    const currentIndex = tabs.findIndex((tab) => tab.categoryName === category);
+    setCurrentTabIndex(currentIndex);
+    tabs[currentTabIndex].current = true;
+    console.log("tabs after filter: ", tabs);
     console.log("which index is current: ", currentTabIndex);
-    console.log("tabs after filter is which one is current true: " ,tabs)
+    console.log("tabs after filter is which one is current true: ", tabs);
     if (category === "All") {
       setBlogData(posts);
     } else {
@@ -172,7 +170,21 @@ export default function Tabs({ className, categories, posts }) {
         >
           {tabs.map((tab) => (
             <option key={tab.categoryName} value={tab.categoryName}>
-              {tab.categoryName}
+              <div className="flex  justify-between ">
+                {tab.categoryName + " "} 
+                {tab.count ? (
+                  <span
+                    className={classNames(
+                      tab.current === true
+                        ? "bg-indigo-200 dark:bg-indigo-300 dark:text-indigo-900 text-indigo-900"
+                        : "bg-gray-100 text-gray-900",
+                      "hidden ml-3 py-0.5 px-2.5 rounded-full text-xs font-medium md:inline-block"
+                    )}
+                  >
+                    {tab.count}
+                  </span>
+                ) : null}
+              </div>
             </option>
           ))}
         </select>
@@ -197,8 +209,8 @@ export default function Tabs({ className, categories, posts }) {
                 {tab.count ? (
                   <span
                     className={classNames(
-                      tab.current
-                        ? "bg-indigo-100 text-indigo-600"
+                      tab.current === true
+                        ? "bg-indigo-200 dark:bg-indigo-300 dark:text-indigo-900 text-indigo-900"
                         : "bg-gray-100 text-gray-900",
                       "hidden ml-3 py-0.5 px-2.5 rounded-full text-xs font-medium md:inline-block"
                     )}
