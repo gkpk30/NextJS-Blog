@@ -104,7 +104,7 @@ export default function TopBar() {
                       </Link>
                       <Link href="/gallery/1">
                         <a 
-                         className={classNames(router.pathname === '/gallery/1' ? "border-primary font-bold" : "border-transparent ", " hover:border-gray-300 text-gray-500  dark:text-gray-50 inline-flex items-center px-1 pt-1 border-b-2 text-sm font-medium")}
+                         className={classNames(router.pathname === '/gallery/[page]' ? "border-primary font-bold" : "border-transparent ", " hover:border-gray-300 text-gray-500  dark:text-gray-50 inline-flex items-center px-1 pt-1 border-b-2 text-sm font-medium")}
                         >
                           Gallery
                         </a>

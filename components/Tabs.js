@@ -170,21 +170,8 @@ export default function Tabs({ className, categories, posts }) {
         >
           {tabs.map((tab) => (
             <option key={tab.categoryName} value={tab.categoryName}>
-              <div className="flex  justify-between ">
-                {tab.categoryName + " "} 
-                {tab.count ? (
-                  <span
-                    className={classNames(
-                      tab.current === true
-                        ? "bg-indigo-200 dark:bg-indigo-300 dark:text-indigo-900 text-indigo-900"
-                        : "bg-gray-100 text-gray-900",
-                      "hidden ml-3 py-0.5 px-2.5 rounded-full text-xs font-medium md:inline-block"
-                    )}
-                  >
-                    {tab.count}
-                  </span>
-                ) : null}
-              </div>
+              {" "}
+              {tab.categoryName}{" "}
             </option>
           ))}
         </select>
