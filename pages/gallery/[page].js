@@ -3,6 +3,11 @@ import Image from "next/image";
 import { gql } from "graphql-request";
 import { GraphQLClient } from "graphql-request";
 import styles from "../../styles/Gallery.module.css";
+import { ArrowNarrowLeftIcon, ArrowNarrowRightIcon } from '@heroicons/react/solid'
+
+function classNames(...classes) {
+  return classes.filter(Boolean).join(" ");
+}
 
 const graphcms = new GraphQLClient(
   "https://api-us-west-2.graphcms.com/v2/cl3uirm1te1df01xk03pcdmi5/master"
@@ -38,20 +43,34 @@ function GalleryPage({
   return (
     <div className="max-w-7xl mx-auto pt-16 pb-20 px-4 sm:px-6 lg:pt-24 lg:pb-28 lg:px-8">
       <div className="my-7 flex justify-between">
-        {hasPreviousPage ? (
-          <Link href={`/gallery/${currentPageNumber - 1}`} >
-            <a className="bg-white text-gray-800 rounded-md p-2 mr-20 ">
-              Previous page
-            </a>
-          </Link>
-        ) : null}
-        {hasNextPage ? (
-          <Link href={`/gallery/${currentPageNumber + 1}`}>
-            <a className="bg-white text-gray-800 rounded-md p-2 mr-20 ">
-              Next page
-            </a>
-          </Link>
-        ) : null}
+        {
+          <button
+            disabled={hasPreviousPage === false}
+            className={classNames(
+              hasPreviousPage ? "bg-white " : "bg-gray-50 dark:bg-gray-900",
+              " text-gray-800 rounded-md p-2 mr-20 disabled:text-gray-200 disabled:cursor-none "
+            )}
+          >
+            {hasPreviousPage && (
+              <Link href={`/gallery/${currentPageNumber - 1}`}>
+                <a>Previous page</a>
+              </Link>
+            )}
+          </button>
+        }
+        {
+          <button
+            disabled={hasNextPage === false}
+            className={classNames(
+              hasNextPage ? "bg-white" : "bg-gray-50 dark:bg-gray-900",
+              "text-gray-900 rounded-md p-2 mr-20 disabled:text-gray-200 disabled:cursor-none  "
+            )}
+          >
+            {hasNextPage && (
+              <Link href={`/gallery/${currentPageNumber + 1}`}>Next page</Link>
+            )}
+          </button>
+        }
       </div>
       <div
         // className="grid grid-cols-7 gap-4 grid-rows-6 "
@@ -61,7 +80,7 @@ function GalleryPage({
           <div
             // className={styles.div + index}
             key={image.node.id}
-            className={`div${index}` +  " relative" }
+            className={`div${index}` + " relative"}
           >
             <Image
               // className="h-64  object-cover"
@@ -76,9 +95,8 @@ function GalleryPage({
               // height={200}
               layout="fill"
               objectFit="cover"
-              objectPosition={'center'}
+              objectPosition={"center"}
               quality="50"
-              
             />
           </div>
         ))}
@@ -86,20 +104,34 @@ function GalleryPage({
       {/* <pre>{images}</pre> */}
       {/* <pre>{JSON.stringify(images, 2, null)}</pre> */}
       <div className="my-7 flex justify-between">
-        {hasPreviousPage ? (
-          <Link href={`/gallery/${currentPageNumber - 1}`} >
-            <a className="bg-white text-gray-800 rounded-md p-2 mr-20 ">
-              Previous page
-            </a>
-          </Link>
-        ) : null}
-        {hasNextPage ? (
-          <Link href={`/gallery/${currentPageNumber + 1}`}>
-            <a className="bg-white text-gray-800 rounded-md p-2 mr-20 ">
-              Next page
-            </a>
-          </Link>
-        ) : null}
+      {
+          <button
+          disabled={hasPreviousPage === false}
+          className={classNames(
+            hasPreviousPage ? "bg-white " : "bg-gray-50 dark:bg-gray-900",
+            " text-gray-800 rounded-md p-2 mr-20 disabled:text-gray-200 disabled:cursor-none "
+          )}
+        >
+          {hasPreviousPage && (
+            <Link href={`/gallery/${currentPageNumber - 1}`}>
+              <a>Previous page</a>
+            </Link>
+          )}
+        </button>
+        }
+        {
+          <button
+            disabled={hasNextPage === false}
+            className={classNames(
+              hasNextPage ? "bg-white" : "bg-gray-50 dark:bg-gray-900",
+              "text-gray-900 rounded-md p-2 mr-20 disabled:text-gray-200 disabled:cursor-none  "
+            )}
+          >
+            {hasNextPage && (
+              <Link href={`/gallery/${currentPageNumber + 1}`}>Next page</Link>
+            )}
+          </button>
+        }
       </div>
     </div>
   );
