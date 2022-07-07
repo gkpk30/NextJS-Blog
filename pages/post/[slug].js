@@ -80,6 +80,8 @@ export default function Post({ post }) {
   // }, [])
   console.log("slug post: ", post);
 
+ 
+
   return (
     <div className="lg:col-span-9 xl:col-span-10 font-primary ">
       <div className="singlePostWrapper p-5  ">
