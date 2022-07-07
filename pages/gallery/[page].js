@@ -51,7 +51,15 @@ function GalleryPage({
   console.log("Number of Pages: ", numberOfPhotos / limit);
   const numberOfPages = numberOfPhotos / limit;
 
-  const getPaginationArray = (number) => {
+  const getPaginationArray = (number, position) => {
+    let at = ""
+    if (position === 'top') {
+      at = 'b'
+    }
+    if (position === "bottom") {
+      at = 't'
+    }
+
     let content = [];
     for (let i = 1; i < number + 1; i++) {
       //   <span className="border-transparent text-gray-500 border-t-2 pt-4 px-4 inline-flex items-center text-sm font-medium">
@@ -64,10 +72,11 @@ function GalleryPage({
               router.asPath === `/gallery/${i}`
                 ? "border-primary text-indigo-600 font-bold"
                 : "border-transparent text-gray-500 hover:text-gray-700 hover:border-gray-300",
-              "border-t-2 pt-4 px-4 inline-flex items-center text-sm font-medium"
+              `border-${at}-2 p${at}-4 px-4 inline-flex items-center text-sm font-medium`
             )}
           >
             {i}
+            {console.log("at: ", at)}
           </a>
         </Link>
       );
@@ -77,10 +86,10 @@ function GalleryPage({
 
   return (
     <div className="max-w-7xl mx-auto pt-16 pb-20 px-4 sm:px-6 lg:pt-24 lg:pb-28 lg:px-8">
-      <nav className="my-9 border-t border-gray-200 px-4 flex items-center justify-between sm:px-0">
+      <nav className="my-9 border-b border-gray-200 px-4 flex items-center justify-between sm:px-0">
         <div className="-mt-px w-0 flex-1 flex">
           <Link href={`/gallery/${currentPageNumber - 1}`}>
-            <a className="border-t-2 border-transparent pt-4 pr-1 inline-flex items-center text-sm font-medium text-gray-500 hover:text-gray-700 hover:border-gray-300">
+            <a className="border-b-2 border-transparent pb-4 pr-1 inline-flex items-center text-sm font-medium text-gray-500 hover:text-gray-700 hover:border-gray-300">
               {hasPreviousPage && (
                 <>
                   <ArrowNarrowLeftIcon
@@ -95,11 +104,11 @@ function GalleryPage({
         </div>
         <div className="hidden md:-mt-px md:flex">
           {/* Current: "border-indigo-500 text-indigo-600", Default: "border-transparent text-gray-500 hover:text-gray-700 hover:border-gray-300" */}
-          {getPaginationArray(numberOfPages)}
+          {getPaginationArray(numberOfPages, 'top')}
         </div>
         <div className="-mt-px w-0 flex-1 flex justify-end">
           <Link href={`/gallery/${currentPageNumber + 1}`}>
-            <a className="border-t-2 border-transparent pt-4 pl-1 inline-flex items-center text-sm font-medium text-gray-500 hover:text-gray-700 hover:border-gray-300">
+            <a className="border-b-2 border-transparent pb-4 pl-1 inline-flex items-center text-sm font-medium text-gray-500 hover:text-gray-700 hover:border-gray-300">
               {hasNextPage && (
                 <>
                   Next{" "}
@@ -166,7 +175,7 @@ function GalleryPage({
         </div>
         <div className="hidden md:-mt-px md:flex">
           {/* Current: "border-indigo-500 text-indigo-600", Default: "border-transparent text-gray-500 hover:text-gray-700 hover:border-gray-300" */}
-          {getPaginationArray(numberOfPages)}
+          {getPaginationArray(numberOfPages, "bottom")}
         </div>
         <div className="-mt-px w-0 flex-1 flex justify-end">
           <Link href={`/gallery/${currentPageNumber + 1}`}>
