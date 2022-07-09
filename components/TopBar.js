@@ -90,28 +90,28 @@ export default function TopBar() {
                       <Link href="/">
                      
                         <a  
-                        className={classNames(router.pathname === '/' ? "border-primary font-bold" : "border-transparent ", " hover:border-gray-300  text-gray-500 dark:text-gray-50 inline-flex items-center px-1 pt-1 border-b-2 text-sm font-medium")}
+                        className={classNames(router.pathname === '/' ? "border-primary font-semibold" : "border-transparent font-medium ", " hover:border-gray-300  text-gray-500 dark:text-gray-50 inline-flex items-center px-1 pt-1 border-b-2 text-sm ")}
                         >
                           Home
                         </a>
                       </Link>
                       <Link href="/blogs"   >
                         <a  
-                        className={classNames(router.pathname === '/blogs' || router.pathname === '/post/[slug]' ? "border-primary  font-bold" : "border-transparent ", " hover:border-gray-300 text-gray-500  dark:text-gray-50 inline-flex items-center px-1 pt-1 border-b-2 text-sm font-medium")}
+                        className={classNames(router.pathname === '/blogs' || router.pathname === '/post/[slug]' ? "border-primary  font-semibold" : "border-transparent font-medium ", " hover:border-gray-300 text-gray-500  dark:text-gray-50 inline-flex items-center px-1 pt-1 border-b-2 text-sm ")}
                         >
                           Blogs
                         </a>
                       </Link>
                       <Link href="/gallery/1">
                         <a 
-                         className={classNames(router.pathname === '/gallery/[page]' ? "border-primary font-bold" : "border-transparent ", " hover:border-gray-300 text-gray-500  dark:text-gray-50 inline-flex items-center px-1 pt-1 border-b-2 text-sm font-medium")}
+                         className={classNames(router.pathname === '/gallery/[page]' ? "border-primary font-semibold" : "border-transparent font-medium ", " hover:border-gray-300 text-gray-500  dark:text-gray-50 inline-flex items-center px-1 pt-1 border-b-2 text-sm ")}
                         >
                           Gallery
                         </a>
                       </Link>
                       <a
                         href="#"
-                        className={classNames(router.pathname === '/projects' ? "border-primary font-bold" : "border-transparent ", " hover:border-gray-300 text-gray-500  dark:text-gray-50 inline-flex items-center px-1 pt-1 border-b-2 text-sm font-medium")}
+                        className={classNames(router.pathname === '/projects' ? "border-primary font-semibold" : "border-transparent font-medium", " hover:border-gray-300 text-gray-500  dark:text-gray-50 inline-flex items-center px-1 pt-1 border-b-2 text-sm ")}
                         >
                         Projects
                       </a>

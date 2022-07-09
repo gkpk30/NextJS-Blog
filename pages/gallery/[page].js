@@ -148,8 +148,8 @@ function GalleryPage({
               objectPosition={"center"}
               quality="75"
             />
-            <div className="absolute bottom-0 min-w-full left-0 p-1  text-slate-900 font-third backdrop-blur-sm backdrop-hue-rotate-180 bg-white/50 ">
-              <h4>Title</h4>
+            <div className="absolute bottom-0 min-w-full left-0 p-2  text-slate-900 font-third backdrop-blur-sm backdrop-hue-rotate-180 bg-white/50 ">
+              <h4 className="border-b border-yellow-500">Title</h4>
               <h6>Stylist</h6>
             </div>
           </div>
