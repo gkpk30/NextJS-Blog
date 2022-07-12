@@ -1,6 +1,8 @@
 import Link from "next/link";
 import { useRouter } from "next/router";
 import Image from "next/image";
+import PropTypes from 'prop-types';
+import {useState} from 'react'
 import { gql } from "graphql-request";
 import { GraphQLClient } from "graphql-request";
 import styles from "../../styles/Gallery.module.css";
@@ -46,6 +48,9 @@ function GalleryPage({
   numberOfPhotos,
 }) {
   const router = useRouter();
+  
+  const currentPage = + router.asPath.split("/")[2]
+  console.log("current path: ", router.asPath.split("/")[2])
 
   console.log("numberOfPhotos: ", numberOfPhotos);
   console.log("Number of Pages: ", numberOfPhotos / limit);
@@ -84,6 +89,75 @@ function GalleryPage({
     return content;
   };
 
+  getPaginationArray.propTypes = {
+    number: PropTypes.number,
+    position: PropTypes.string
+   
+  };
+
+
+
+
+  const pagination = (current, total, position) => {
+    let at = ""
+    if (position === 'top') {
+      at = 'b'
+    }
+    if (position === "bottom") {
+      at = 't'
+    }
+    const center = [current - 2, current - 1, current, current + 1, current + 2],
+        filteredCenter = center.filter((p) => p > 1 && p < total),
+        includeThreeLeft = current === 5,
+        includeThreeRight = current === total - 4,
+        includeLeftDots = current > 5,
+        includeRightDots = current < total - 4;
+
+    if (includeThreeLeft) filteredCenter.unshift(2)
+    if (includeThreeRight) filteredCenter.push(total - 1)
+
+    if (includeLeftDots) filteredCenter.unshift('...');
+    if (includeRightDots) filteredCenter.push('...');
+
+    
+    return [1, ...filteredCenter, total].map((item, index) => { return (
+      !isNaN(item) ? 
+      <Link href={`/gallery/${item}`} key={index}>
+        <a
+            className={classNames(
+              router.asPath === `/gallery/${item}`
+                ? "border-primary text-indigo-600 font-bold"
+                : "border-transparent text-gray-500 hover:text-gray-700 hover:border-gray-300",
+              `border-${at}-2 p${at}-4 px-4 inline-flex items-center text-sm font-medium`
+            )}
+            // className={classNames(current === index ? " border-primary text-indigo-600 font-bold" : "border-transparent text-gray-500 hover:text-gray-700 hover:border-gray-300" ,  `border-${at}-2 p${at}-4 px-4 inline-flex items-center text-sm font-medium` )}
+          >
+            {item}
+            {console.log("at: ", at)}
+          </a>
+      </Link>
+      : <span key={index}>{item}</span>
+    )})
+    
+    // return content.map((item, index) => {
+    //   <Link href={`/gallery/${item}`} key={index}>
+    //       <a
+    //         className={classNames(
+    //           router.asPath === `/gallery/${item}`
+    //             ? "border-primary text-indigo-600 font-bold"
+    //             : "border-transparent text-gray-500 hover:text-gray-700 hover:border-gray-300",
+    //           `border-${at}-2 p${at}-4 px-4 inline-flex items-center text-sm font-medium`
+    //         )}
+    //       >
+    //         {item}
+    //         {console.log("at: ", at)}
+    //       </a>
+    //     </Link>
+    // })
+}
+
+
+
   return (
     <div className="max-w-7xl mx-auto pt-16 pb-20 px-4 sm:px-6 lg:pt-24 lg:pb-28 lg:px-8">
       <nav className="my-9 border-b border-gray-200 px-4 flex items-center justify-between sm:px-0">
@@ -104,7 +178,10 @@ function GalleryPage({
         </div>
         <div className="hidden md:-mt-px md:flex">
           {/* Current: "border-indigo-500 text-indigo-600", Default: "border-transparent text-gray-500 hover:text-gray-700 hover:border-gray-300" */}
-          {getPaginationArray(numberOfPages, 'top')}
+          {/* {getPaginationArray(numberOfPages, 'top')}
+          {console.log("pagination: ", pagination(currentPage, numberOfPages, 'top'))} */}
+          {pagination(currentPage, numberOfPages, 'top')}
+      
         </div>
         <div className="-mt-px w-0 flex-1 flex justify-end">
           <Link href={`/gallery/${currentPageNumber + 1}`}>
