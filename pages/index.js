@@ -452,7 +452,7 @@ export default function Home({ posts }) {
               className="absolute inset-0 w-full h-full object-cover"
               src={YellowBlonde}
               alt=""
-              priority ="true"
+              priority = {true}
               layout="fill"
               // width="1042"
               // height="894"
