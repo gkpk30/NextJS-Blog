@@ -29,6 +29,6 @@ function classNames(...classes) {
       : window.btoa(str);
 
 const StylistPage = () => {
-  return <div>Artist's Page</div>;
+  return <div>Artist&apos;s Page</div>;
 };
 export default ArtistPage;
