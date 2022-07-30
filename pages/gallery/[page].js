@@ -6,6 +6,8 @@ import {useState} from 'react'
 import { gql } from "graphql-request";
 import { GraphQLClient } from "graphql-request";
 import styles from "../../styles/Gallery.module.css";
+import ImageModal from "../../components/ImageModal";
+import ModalTailwind from "../../components/ModalTailwind";
 import {
   ArrowNarrowLeftIcon,
   ArrowNarrowRightIcon,
@@ -48,13 +50,17 @@ function GalleryPage({
   numberOfPhotos,
 }) {
   const router = useRouter();
+  const [openModal, setOpenModal] = useState(false)
+  const [imageSrc , setImageSrc] = useState("")
+  const [modalContent, setModalContent] = useState("")
   
   const currentPage = + router.asPath.split("/")[2]
   console.log("current path: ", router.asPath.split("/")[2])
 
   console.log("numberOfPhotos: ", numberOfPhotos);
-  console.log("Number of Pages: ", numberOfPhotos / limit);
-  const numberOfPages = numberOfPhotos / limit;
+ 
+  const numberOfPages = Math.ceil(numberOfPhotos / limit);
+  console.log("Number of Pages: ", numberOfPages);
 
   const getPaginationArray = (number, position) => {
     let at = ""
@@ -156,6 +162,12 @@ function GalleryPage({
     // })
 }
 
+  const handleOpen = (src, content) => {
+    setImageSrc(src)
+    setModalContent(content)
+    setOpenModal(true)
+
+  }
 
 
   return (
@@ -203,15 +215,20 @@ function GalleryPage({
         // className="grid grid-cols-7 gap-4 grid-rows-6 "
         className={styles.container}
       >
+        <ModalTailwind imageUrl={imageSrc} content={modalContent} open={openModal} onClose={() => setOpenModal(false)}/>
+
         {images.map((image, index) => (
           <div
             // className={styles.div + index}
             key={image.node.id}
             className={`div${index}` + " relative "}
+            onClick={() => handleOpen(image.node.image.url, image)}
           >
+           
+           
             <Image
               // className="h-64  object-cover"
-              src={image.node.url}
+              src={image.node.image.url}
               alt=""
               placeholder="blur"
               key={image.node.id}
@@ -222,12 +239,14 @@ function GalleryPage({
               // height={200}
               layout="fill"
               objectFit="cover"
-              objectPosition={"center"}
+              objectPosition={image?.node.position || "center"}
               quality="75"
+              
             />
+          
             <div className="absolute bottom-0 min-w-full left-0 p-2  text-slate-900 font-third backdrop-blur-sm backdrop-hue-rotate-180 bg-white/50 ">
-              <h4 className="border-b border-yellow-500">Title</h4>
-              <h6>Stylist</h6>
+              <h4 className="border-b border-yellow-500"> {image.node.title}</h4>
+              <span className="text-xs">Styled by:{" "} {image.node.stylist.name}</span>
             </div>
           </div>
         ))}
@@ -277,14 +296,14 @@ function GalleryPage({
 export async function getStaticPaths() {
   const query = gql`
     {
-      assetsConnection {
+        galleriesConnection {
         aggregate {
           count
         }
       }
     }
   `;
-  const { assetsConnection } = await graphcms.request(query);
+  const { galleriesConnection } = await graphcms.request(query);
 
   //generator function to increment page and offset
   function* numberOfPages({ total, limit }) {
@@ -301,7 +320,7 @@ export async function getStaticPaths() {
 
   const paths = [
     ...numberOfPages({
-      total: assetsConnection.aggregate.count,
+      total: galleriesConnection.aggregate.count,
       limit,
     }),
   ].map((page) => ({
@@ -316,14 +335,25 @@ export async function getStaticPaths() {
 
 //Paths passing in taking in limit and offset
 export async function getStaticProps({ params }) {
+
   const query = gql`
     query imagePageQuery($limit: Int!, $offset: Int!) {
-      assetsConnection(first: $limit, skip: $offset) {
+      galleriesConnection(first: $limit, skip: $offset) {
         images: edges {
           node {
             id
-            fileName
-            url
+            title
+            stylist {
+              name
+              avatar {
+                url
+              }
+            }
+            image {
+              url
+            }
+            description
+            position
           }
         }
         pageInfo {
@@ -338,7 +368,7 @@ export async function getStaticProps({ params }) {
   `;
 
   const {
-    assetsConnection: { images, pageInfo, aggregate },
+    galleriesConnection: { images, pageInfo, aggregate },
   } = await graphcms.request(query, {
     limit,
     offset: Number((params.page - 1) * limit),

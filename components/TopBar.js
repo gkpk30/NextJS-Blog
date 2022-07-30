@@ -109,12 +109,22 @@ export default function TopBar() {
                           Gallery
                         </a>
                       </Link>
+                      <Link href="/artists" >
                       <a
-                        href="#"
-                        className={classNames(router.pathname === '/projects' ? "border-primary font-semibold" : "border-transparent font-medium", " hover:border-gray-300 text-gray-500  dark:text-gray-50 inline-flex items-center px-1 pt-1 border-b-2 text-sm ")}
+                       
+                        className={classNames(router.pathname === '/artists' || router.pathname === '/artist/[page].js' ? "border-primary font-semibold" : "border-transparent font-medium", " hover:border-gray-300 text-gray-500  dark:text-gray-50 inline-flex items-center px-1 pt-1 border-b-2 text-sm ")}
                         >
-                        Projects
+                        Artists
                       </a>
+                      </Link>
+                      <Link href="/services" >
+                      <a
+                       
+                        className={classNames(router.pathname === '/services' || router.pathname === '/artist/[page].js' ? "border-primary font-semibold" : "border-transparent font-medium", " hover:border-gray-300 text-gray-500  dark:text-gray-50 inline-flex items-center px-1 pt-1 border-b-2 text-sm ")}
+                        >
+                        Services
+                      </a>
+                      </Link>
                     </div>
                   </div>
                   <div className="flex self-center " style={{}}>
@@ -151,6 +161,14 @@ export default function TopBar() {
                   className="border-transparent text-gray-500 hover:bg-gray-50 hover:border-gray-300 hover:text-gray-700 dark:text-gray-50 block pl-3 pr-4 py-2 border-l-4 text-base font-medium"
                 >
                   gallery
+                </Disclosure.Button>
+                <Disclosure.Button
+                  // as={Link}
+                  as="a"
+                  href="/services"
+                  className="border-transparent text-gray-500 hover:bg-gray-50 hover:border-gray-300 hover:text-gray-700 dark:text-gray-50 block pl-3 pr-4 py-2 border-l-4 text-base font-medium"
+                >
+                  services
                 </Disclosure.Button>
               </div>
             </Disclosure.Panel>
