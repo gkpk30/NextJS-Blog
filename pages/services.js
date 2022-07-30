@@ -118,7 +118,7 @@ export default function services() {
           </h2>
           <p className="mt-4 text-gray-700 dark:text-gray-400 ">
             The most technically advanced haircutting salon in Los Angeles. Our
-            stylist's training is unparalleled, we start with a firm foundation
+            stylist training is unparalleled, we start with a firm foundation
             of Vidal Sassoons geometric theory and finish with a flair for
             fashion.
           </p>
@@ -151,7 +151,7 @@ export default function services() {
                   dangerouslySetInnerHTML={{ __html: feature.description }}
                 ></div>
                 <button className="flex bg-yellow-400 font-semibold text-sm mt-4 p-2 rounded-lg dark:text-gray-700">
-                  <span>What's included{" "}</span>
+                  <span>What&apos;s included{" "}</span>
                   <ChevronDownIcon
                     className={classNames(
                      
