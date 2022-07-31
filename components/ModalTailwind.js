@@ -26,8 +26,8 @@ const toBase64 = (str) =>
     : window.btoa(str);
 
 export default function ModalTailwind({ open, onClose, imageUrl, content }) {
-  if (!open) return null;
   const [closeModal, setCloseModal] = useState(false);
+  if (!open) return null;
   console.log("open in Modal Comp: ", open);
   console.log("modalContent: ", content);
 

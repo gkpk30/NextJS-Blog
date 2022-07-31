@@ -215,7 +215,7 @@ function GalleryPage({
         // className="grid grid-cols-7 gap-4 grid-rows-6 "
         className={styles.container}
       >
-        <ModalTailwind imageUrl={imageSrc} content={modalContent} open={openModal} />
+        <ModalTailwind imageUrl={imageSrc} content={modalContent} open={openModal} onClose={() => setOpenModal(false)}/>
 
         {images.map((image, index) => (
           <div
