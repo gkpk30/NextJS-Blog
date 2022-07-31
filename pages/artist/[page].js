@@ -28,7 +28,7 @@ function classNames(...classes) {
       ? Buffer.from(str).toString("base64")
       : window.btoa(str);
 
-const StylistPage = () => {
+const ArtistPage = () => {
   return <div>Artist&apos;s Page</div>;
 };
 export default ArtistPage;
