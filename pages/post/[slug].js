@@ -4,6 +4,7 @@ import { GraphQLClient } from "graphql-request";
 import { gql } from "graphql-request";
 import Link from "next/link";
 import Image from "next/image";
+import BreadCrumbs from '../../components/BreadCrumbs'
 
 const graphcms = new GraphQLClient(
   "https://api-us-west-2.graphcms.com/v2/cl3uirm1te1df01xk03pcdmi5/master"
@@ -81,7 +82,10 @@ export default function Post({ post }) {
   // }, [])
   console.log("slug post: ", post);
 
- 
+  const pages = [
+    { name: 'all blogs', href: '/blogs', current: false },
+    { name: post.title, href: `/post/${post.slug}`, current: true },
+  ]
 
   return (
     <div className="lg:col-span-9 xl:col-span-10 font-primary ">
@@ -102,6 +106,9 @@ export default function Post({ post }) {
         />
         </div> */}
         <div className="max-w-7xl mx-auto">
+          <div className="mt-5 mb-20">
+          <BreadCrumbs  pages={pages} />
+          </div>
           <h1 className=" md:w-[70%] text-left font-third font-bold text-3xl mr-3 mt-5 mb-3">
             {post.title}
           </h1>

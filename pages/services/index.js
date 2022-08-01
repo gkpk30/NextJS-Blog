@@ -65,7 +65,6 @@ const features = [
     imageSrc: styling,
     imageAlt: "Detail of zipper pull with tan leather and silver rivet.",
     price: "$75-$200",
-    href: "/services/styling",
   },
   {
     name: "Make-up",
@@ -76,7 +75,6 @@ const features = [
     imageSrc: makeup,
     imageAlt: "Detail of zipper pull with tan leather and silver rivet.",
     price: "$150-$250",
-    href: "/services/make-up",
   },
   {
     name: "Extensions",
@@ -87,7 +85,7 @@ const features = [
     imageSrc: extensions,
     imageAlt: "Detail of zipper pull with tan leather and silver rivet.",
     price: "$500-$2500",
-    href: "/services/extensions",
+   
   },
   {
     name: "Weddings",
@@ -158,17 +156,19 @@ export default function services() {
                 <div
                   dangerouslySetInnerHTML={{ __html: feature.description }}
                 ></div>
-                <Link href={feature.href}>
-                  <button className="flex bg-yellow-400 font-semibold text-sm mt-4 p-2 rounded-lg dark:text-gray-700">
-                    <span>What&apos;s included </span>
-                    <ChevronDownIcon
-                      className={classNames(
-                        "ml-2 h-5 w-5 group-hover:text-gray-500"
-                      )}
-                      aria-hidden="true"
-                    />
-                  </button>
-                </Link>
+                {feature.href && (
+                  <Link href={feature.href}>
+                    <button className="flex bg-yellow-400 font-semibold text-sm mt-4 p-2 rounded-lg dark:text-gray-700">
+                      <span>What&apos;s included </span>
+                      <ChevronDownIcon
+                        className={classNames(
+                          "ml-2 h-5 w-5 group-hover:text-gray-500"
+                        )}
+                        aria-hidden="true"
+                      />
+                    </button>
+                  </Link>
+                )}
               </div>
               <div
                 className={classNames(
