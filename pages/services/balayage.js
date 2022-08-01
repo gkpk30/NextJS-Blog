@@ -66,7 +66,7 @@ export default function Balayage() {
                 <li>Blowout</li>
               </ul>
             </div>
-            <h3 className="mt-8">We’re here to help</h3>
+            <h3 className="mt-8">We&apos;re here to help</h3>
             <div className="mt-4 flex text-base max-w-prose mx-auto lg:max-w-none">
               <div className="rounded-md shadow">
                 <a
