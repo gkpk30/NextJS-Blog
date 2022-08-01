@@ -1,4 +1,5 @@
 import React, { useEffect, useState } from "react";
+import styles from '../../styles/Post.module.css'
 import { GraphQLClient } from "graphql-request";
 import { gql } from "graphql-request";
 import Link from "next/link";
@@ -151,7 +152,7 @@ export default function Post({ post }) {
                           first-letter:mr-3 first-letter:float-left "
             >
               {/* {post.content.html} */}
-              <div dangerouslySetInnerHTML={{ __html: post.content.html }} />
+              <div className={`post ${styles.post}`} dangerouslySetInnerHTML={{ __html: post.content.html }} />
               
             </div>
             <div className="h-[20rem] w-full relative xl:h-[40rem] ">

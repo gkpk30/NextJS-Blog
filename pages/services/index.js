@@ -1,15 +1,16 @@
 import Image from "next/image";
+import Link from "next/link";
 import { ChevronDownIcon } from "@heroicons/react/solid";
-import serviceBanner from "../public/images/services-banner.jpeg";
+import serviceBanner from "../../public/images/services-banner.jpeg";
 
-import balayage from "../public/images/balayage.jpg";
-import coloring from "../public/images/coloring.jpg";
-import creativeColor from "../public/images/creative-color.jpeg";
-import extensions from "../public/images/extensions.jpg";
-import cutting from "../public/images/cutting.jpg";
-import styling from "../public/images/styling.jpg";
-import wedding from "../public/images/wedding.jpg";
-import makeup from "../public/images/makeup.jpeg";
+import balayage from "../../public/images/balayage.jpg";
+import coloring from "../../public/images/coloring.jpg";
+import creativeColor from "../../public/images/creative-color.jpeg";
+import extensions from "../../public/images/extensions.jpg";
+import cutting from "../../public/images/cutting.jpg";
+import styling from "../../public/images/styling.jpg";
+import wedding from "../../public/images/wedding.jpg";
+import makeup from "../../public/images/makeup.jpeg";
 
 const features = [
   {
@@ -22,6 +23,7 @@ const features = [
     imageAlt:
       "White canvas laptop sleeve with gray felt interior, silver zipper, and tan leather zipper pull.",
     price: "$90-$150",
+    href: "/services/cutting",
   },
   {
     name: "Highlights/Balayage",
@@ -31,6 +33,7 @@ const features = [
     imageSrc: balayage,
     imageAlt: "Detail of zipper pull with tan leather and silver rivet.",
     price: "$200-$500",
+    href: "/services/balayage",
   },
   {
     name: "Coloring",
@@ -41,6 +44,7 @@ const features = [
     imageSrc: coloring,
     imageAlt: "Detail of zipper pull with tan leather and silver rivet.",
     price: "$100-$200",
+    href: "/services/coloring",
   },
   {
     name: "Creative Coloring",
@@ -51,6 +55,7 @@ const features = [
     imageSrc: creativeColor,
     imageAlt: "Detail of zipper pull with tan leather and silver rivet.",
     price: "$200-$1000",
+    href: "/services/creative-coloring",
   },
   {
     name: "Styling",
@@ -60,6 +65,7 @@ const features = [
     imageSrc: styling,
     imageAlt: "Detail of zipper pull with tan leather and silver rivet.",
     price: "$75-$200",
+    href: "/services/styling",
   },
   {
     name: "Make-up",
@@ -70,6 +76,7 @@ const features = [
     imageSrc: makeup,
     imageAlt: "Detail of zipper pull with tan leather and silver rivet.",
     price: "$150-$250",
+    href: "/services/make-up",
   },
   {
     name: "Extensions",
@@ -80,6 +87,7 @@ const features = [
     imageSrc: extensions,
     imageAlt: "Detail of zipper pull with tan leather and silver rivet.",
     price: "$500-$2500",
+    href: "/services/extensions",
   },
   {
     name: "Weddings",
@@ -88,6 +96,7 @@ const features = [
     imageSrc: wedding,
     imageAlt: "Detail of zipper pull with tan leather and silver rivet.",
     price: "$500-$2500",
+    href: "/services/wedding",
   },
 ];
 
@@ -118,9 +127,8 @@ export default function services() {
           </h2>
           <p className="mt-4 text-gray-700 dark:text-gray-400 ">
             The most technically advanced haircutting salon in Los Angeles. Our
-            stylist training is unparalleled, we start with a firm foundation
-            of Vidal Sassoons geometric theory and finish with a flair for
-            fashion.
+            stylist training is unparalleled, we start with a firm foundation of
+            Vidal Sassoons geometric theory and finish with a flair for fashion.
           </p>
         </div>
 
@@ -150,16 +158,17 @@ export default function services() {
                 <div
                   dangerouslySetInnerHTML={{ __html: feature.description }}
                 ></div>
-                <button className="flex bg-yellow-400 font-semibold text-sm mt-4 p-2 rounded-lg dark:text-gray-700">
-                  <span>What&apos;s included{" "}</span>
-                  <ChevronDownIcon
-                    className={classNames(
-                     
-                      "ml-2 h-5 w-5 group-hover:text-gray-500"
-                    )}
-                    aria-hidden="true"
-                  />
-                </button>
+                <Link href={feature.href}>
+                  <button className="flex bg-yellow-400 font-semibold text-sm mt-4 p-2 rounded-lg dark:text-gray-700">
+                    <span>What&apos;s included </span>
+                    <ChevronDownIcon
+                      className={classNames(
+                        "ml-2 h-5 w-5 group-hover:text-gray-500"
+                      )}
+                      aria-hidden="true"
+                    />
+                  </button>
+                </Link>
               </div>
               <div
                 className={classNames(

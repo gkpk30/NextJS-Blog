@@ -1,0 +1,11 @@
+.post p {
+    @apply my-2 text-sm
+}
+
+.post h1 {
+    @apply my-2 text-3xl text-primary font-extrabold
+}
+
+.post h2 {
+    @apply my-2 text-xl text-primary font-extrabold
+}
