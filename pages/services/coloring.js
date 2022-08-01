@@ -1,14 +1,14 @@
 import Image from "next/image";
-import balayage from "../../public/images/balayage.jpg";
+import blowout from "../../public/images/blowout.jpeg";
 import cappucino from "../../public/images/cappucino.jpeg";
 import conditioning from "../../public/images/conditioning.jpg";
 import robe from "../../public/images/robe.jpeg";
 import BreadCrumbs from "../../components/BreadCrumbs";
 
-export default function Balayage() {
+export default function Coloring() {
   const pages = [
     { name: "services", href: "/services", current: false },
-    { name: "balayage", href: "/services/balayage", current: true },
+    { name: "coloring", href: "/services/coloring", current: true },
   ];
 
   return (
@@ -18,28 +18,22 @@ export default function Balayage() {
           <BreadCrumbs pages={pages} />
         </div>
         <div className="text-base max-w-prose mx-auto lg:max-w-none">
-          <h2 className="text-base text-indigo-700 dark:text-indigo-300  font-semibold tracking-wide uppercase">
-            Balayage
+          <h2 className="text-base text-indigo-700 dark:text-indigo-300 font-semibold tracking-wide uppercase">
+            Coloring
           </h2>
           <p className="mt-2 text-3xl leading-8 font-extrabold tracking-tight text-gray-900 dark:text-gray-50 sm:text-4xl">
-            On the forefront of Balayage and Highlighting innovation
+          SHERMAN OAKS MOST VIVID FULL SERVICE HAIRCOLOR
           </p>
         </div>
         <div className="relative z-10 text-base max-w-prose mx-auto lg:max-w-5xl lg:mx-0 lg:pr-72">
           <p className="text-lg text-gray-500 dark:text-gray-300">
-            What started as a flair for slight natural dimension has blossomed
-            over the years into a full fledged artform and has become the most
-            requested service that we offer. Balayage is a technique similar to
-            highlighting, though it is usually hand painted and left in open air
-            as opposed to tightly wrapping into a folded foil. Balayage styles
-            can range from relaxed and natural to full blown black/white
-            contrast and the sky is the limit when it comes to creativity.
+          Our stylists take Haircolor seriously,  No expense is spared when it comes to our choices in quality color for our clients. we mainly use L'oreal Professionnel Majirel Line of permanent haircolor, which we believe is the safest and most vivid haircolor on the market. Organic and low- ammonia choices are available with prior consultation
           </p>
         </div>
         <div className="lg:grid lg:grid-cols-2 lg:gap-8 lg:items-start">
           <div className="relative z-10">
             <div className="prose prose-indigo text-gray-500 dark:text-gray-300 mx-auto lg:max-w-none">
-              <p>
+              {/* <p>
                 One of the main benifits of balayage is that clients feel less
                 need to return for a &quot;root touch up&quot; because generally
                 the highlights are starting inches away from the root.
@@ -48,20 +42,18 @@ export default function Balayage() {
                 Our stylists take the time to work with you to discover the look
                 you want and the colors and contrasts that suit your personality
                 and lifestyle.
-              </p>
-              <h3 className="mt-8 text-base text-indigo-700 dark:text-indigo-300 font-semibold tracking-wide uppercase">
-                All Balayage services include the following{" "}
+              </p> */}
+              <h3 className="mt-8 text-base text-indigo-700  dark:text-indigo-300 font-semibold tracking-wide uppercase">
+                All Coloring services include the following{" "}
               </h3>
               <ul className="mt-2 ml-4 !list-disc" role="list">
                 <li>Greeting</li>
                 <li>Coffee and Refreshments</li>
                 <li>Consultation</li>
                 <li>Robe</li>
-                <li>Balayage Application</li>
-                <li>Root Color or Lowlight Application (if desired)</li>
+                <li>Root color Application</li>
+                <li>Refresh Ends (if desired)</li>
                 <li>Shampoo</li>
-                <li>Toner</li>
-                <li>Condition</li>
                 <li>Double Check with Client for Desired Tones</li>
                 <li>Blowout</li>
               </ul>
@@ -125,7 +117,7 @@ export default function Balayage() {
               <Image src={cappucino} />
               <Image src={robe} />
               <Image src={conditioning} />
-              <Image src={balayage} />
+              <Image src={blowout} />
             </div>
           </div>
         </div>
