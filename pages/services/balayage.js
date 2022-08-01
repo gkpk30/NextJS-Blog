@@ -23,7 +23,7 @@ export default function Balayage() {
           <div className="relative z-10">
             <div className="prose prose-indigo text-gray-500 mx-auto lg:max-w-none">
               <p>
-              One of the main benifits of balayage is that clients feel less need to return for a "root touch up" because generally the highlights are starting inches  away from the root.
+              One of the main benifits of balayage is that clients feel less need to return for a &quot;root touch up&quot; because generally the highlights are starting inches  away from the root.
               </p>
               <p>Our stylists take the time to work with you to discover the look you want and the colors and contrasts that suit your personality and lifestyle.
               </p>
