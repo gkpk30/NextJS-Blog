@@ -79,7 +79,7 @@ export default function ModalTailwind({ open, onClose, imageUrl, content }) {
                       aria-hidden="true"
                     />
                   </div> */}
-                  <div className="flex justify-center w-[80%]  opacity-[.03] absolute right-0 -top-10 -z-20 ">
+                  <div className="flex justify-center w-[80%]  opacity-[.03] absolute right-0 top-0 -z-20 ">
                     <Image src={logo} alt="logo" width={500} height={150} />
                   </div>
                   <div className="flex-shrink-0 w-[90%] relative block mb-4 ml-4">
