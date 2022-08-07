@@ -32,7 +32,7 @@ export default function ModalTailwind({ open, onClose, imageUrl, content }) {
   console.log("modalContent: ", content);
 
   return (
-    <Transition.Root show={open} as={Fragment}>
+    <Transition.Root show={open} as={Fragment} >
       <Dialog
         as="div"
         className="relative z-10"
@@ -47,7 +47,10 @@ export default function ModalTailwind({ open, onClose, imageUrl, content }) {
           leaveFrom="opacity-100"
           leaveTo="opacity-0"
         >
+           {/* The backdrop, rendered as a fixed sibling to the panel container */}
           <div className="fixed inset-0 bg-gray-700 bg-opacity-75 transition-opacity" />
+          {/* ////////////////Backdrop above///////////////////// */}
+
         </Transition.Child>
 
         <div className="fixed z-10 inset-0 overflow-y-auto">
@@ -98,7 +101,7 @@ export default function ModalTailwind({ open, onClose, imageUrl, content }) {
                         <p className="text-xs font-medium text-gray-700  p-1 ">
                           {content.node.stylist.name}
                         </p>
-                        <Link href="#">
+                        <Link href={`/artist/${content.node.stylist.name}`}>
                           <a className="text-xs font-medium text-gray-200 hover:text-gray-600 ml-3 bg-gray-500 p-1 pl-2 pr-2 rounded-xl ">
                             View profile
                           </a>
@@ -114,6 +117,7 @@ export default function ModalTailwind({ open, onClose, imageUrl, content }) {
                     >
                       {content?.node.title || `Title of Image`}
                     </Dialog.Title>
+                    <Dialog.Description>
                     <div className="mt-2">
                       <p className="text-sm text-gray-500">
                         {content?.node.description
@@ -129,6 +133,7 @@ export default function ModalTailwind({ open, onClose, imageUrl, content }) {
                         quas nihil minima sit totam itaque quos, fugit rerum.`}
                       </p>
                     </div>
+                    </Dialog.Description>
                   </div>
                 </div>
                 <div className="mt-5 sm:mt-4 sm:flex sm:flex-row-reverse relative">

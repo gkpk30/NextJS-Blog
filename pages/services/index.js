@@ -44,7 +44,7 @@ const features = [
     imageSrc: coloring,
     imageAlt: "Detail of zipper pull with tan leather and silver rivet.",
     price: "$100-$200",
-    href: "/services/coloring",
+    href: "/services/color",
   },
   {
     name: "Creative Coloring",
@@ -55,7 +55,7 @@ const features = [
     imageSrc: creativeColor,
     imageAlt: "Detail of zipper pull with tan leather and silver rivet.",
     price: "$200-$1000",
-    href: "/services/creative-coloring",
+    href: "/services/creative-color",
   },
   {
     name: "Styling",
@@ -120,7 +120,7 @@ export default function services() {
       </div>
       <div className="relative -mt-20 max-w-7xl mx-auto pb-16 px-4 sm:pb-24 sm:px-6 lg:px-8">
         <div className="max-w-2xl mx-auto text-center lg:max-w-4xl">
-          <h2 className="text-3xl font-extrabold tracking-tight text-gray-900 dark:text-gray-300 sm:text-4xl">
+          <h2 className="text-3xl font-primary font-extrabold tracking-tight text-gray-900 dark:text-gray-300 sm:text-4xl">
             Sherman Oaks Most Luxurious Full Service Haircut
           </h2>
           <p className="mt-4 text-gray-700 dark:text-gray-400 ">

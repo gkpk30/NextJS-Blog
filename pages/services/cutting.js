@@ -1,14 +1,14 @@
 import Image from "next/image";
-import balayage from "../../public/images/balayage.jpg";
+import blowout from "../../public/images/blowout.jpeg";
 import cappucino from "../../public/images/cappucino.jpeg";
 import conditioning from "../../public/images/conditioning.jpg";
 import robe from "../../public/images/robe.jpeg";
 import BreadCrumbs from "../../components/BreadCrumbs";
 
-export default function Balayage() {
+export default function Coloring() {
   const pages = [
     { name: "services", href: "/services", current: false },
-    { name: "balayage", href: "/services/balayage", current: true },
+    { name: "cutting", href: "/services/cutting", current: true },
   ];
 
   return (
@@ -18,51 +18,40 @@ export default function Balayage() {
           <BreadCrumbs pages={pages} />
         </div>
         <div className="text-base max-w-prose mx-auto lg:max-w-none">
-          <h2 className="text-base text-indigo-700 dark:text-indigo-300  font-semibold tracking-wide uppercase">
-            Balayage
+          <h2 className="text-base text-indigo-700 dark:text-indigo-300 font-semibold tracking-wide uppercase">
+            Cutting
           </h2>
-          <p className="mt-2 font-primary text-3xl leading-8 font-extrabold tracking-tight text-gray-900 dark:text-gray-50 sm:text-4xl">
-            On the forefront of Balayage and Highlighting innovation
+          <p className="mt-2 text-3xl leading-8 font-primary font-extrabold tracking-tight text-gray-900 dark:text-gray-50 sm:text-4xl">
+          SHERMAN OAKS MOST LUXURIOUS FULL SERVICE HAIRCUT
           </p>
         </div>
         <div className="relative z-10 text-base max-w-prose mx-auto lg:max-w-5xl lg:mx-0 lg:pr-72">
           <p className="text-lg text-gray-500 dark:text-gray-300">
-            What started as a flair for slight natural dimension has blossomed
-            over the years into a full fledged artform and has become the most
-            requested service that we offer. Balayage is a technique similar to
-            highlighting, though it is usually hand painted and left in open air
-            as opposed to tightly wrapping into a folded foil. Balayage styles
-            can range from relaxed and natural to full blown black/white
-            contrast and the sky is the limit when it comes to creativity.
+          Headbetter Salon prides itself on being the most technically advanced haircutting salon in Los Angeles. Our stylists training is unparalleled, we start with a firm foundation of Vidal Sassoons geometric theory and finish with a flair for fashion. We have poignant and meaningful consultations that set the stage for flawless execution. We take time to get to know our clients, we want to understand you and to work with you to help you uncover the Goddess that you are.  
           </p>
         </div>
         <div className="lg:grid lg:grid-cols-2 lg:gap-8 lg:items-start">
           <div className="relative z-10">
             <div className="prose prose-indigo text-gray-500 dark:text-gray-300 mx-auto lg:max-w-none">
               <p>
-                One of the main benifits of balayage is that clients feel less
-                need to return for a &quot;root touch up&quot; because generally
-                the highlights are starting inches away from the root.
+                Whether its short and sassy or long and luxurious, Headbetter Salons hairstylists go above and beyond to create a masterpiece that will give you the confidence and character that best suits you.
               </p>
-              <p>
+              {/* <p>
                 Our stylists take the time to work with you to discover the look
                 you want and the colors and contrasts that suit your personality
                 and lifestyle.
-              </p>
-              <h3 className="mt-8 text-base text-indigo-700 dark:text-indigo-300 font-semibold tracking-wide uppercase">
-                All Balayage services include the following{" "}
+              </p> */}
+              <h3 className="mt-8 text-base text-indigo-700  dark:text-indigo-300 font-semibold tracking-wide uppercase">
+                All haircut services include the following{" "}
               </h3>
               <ul className="mt-2 ml-4 !list-disc" role="list">
                 <li>Greeting</li>
                 <li>Coffee and Refreshments</li>
                 <li>Consultation</li>
                 <li>Robe</li>
-                <li>Balayage Application</li>
-                <li>Root Color or Lowlight Application (if desired)</li>
-                <li>Shampoo</li>
-                <li>Toner</li>
-                <li>Condition</li>
-                <li>Double Check with Client for Desired Tones</li>
+                <li>Shampoo and Conditioner</li>
+                <li>Haircut</li>
+                <li>Style Consultation</li>
                 <li>Blowout</li>
               </ul>
             </div>
@@ -125,7 +114,7 @@ export default function Balayage() {
               <Image src={cappucino} />
               <Image src={robe} />
               <Image src={conditioning} />
-              <Image src={balayage} />
+              <Image src={blowout} />
             </div>
           </div>
         </div>

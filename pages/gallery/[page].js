@@ -1,12 +1,12 @@
 import Link from "next/link";
 import { useRouter } from "next/router";
 import Image from "next/image";
-import PropTypes from 'prop-types';
-import {useState} from 'react'
+import logo from "../../public/images/headbetterlogo.png";
+import PropTypes from "prop-types";
+import { useState, useEffect } from "react";
 import { gql } from "graphql-request";
 import { GraphQLClient } from "graphql-request";
 import styles from "../../styles/Gallery.module.css";
-import ImageModal from "../../components/ImageModal";
 import ModalTailwind from "../../components/ModalTailwind";
 import {
   ArrowNarrowLeftIcon,
@@ -50,90 +50,55 @@ function GalleryPage({
   numberOfPhotos,
 }) {
   const router = useRouter();
-  const [openModal, setOpenModal] = useState(false)
-  const [imageSrc , setImageSrc] = useState("")
-  const [modalContent, setModalContent] = useState("")
-  
-  const currentPage = + router.asPath.split("/")[2]
-  console.log("current path: ", router.asPath.split("/")[2])
+  const [openModal, setOpenModal] = useState(false);
+  const [imageSrc, setImageSrc] = useState("");
+  const [modalContent, setModalContent] = useState("");
+
+  const currentPage = +router.asPath.split("/")[2];
+  console.log("current path: ", router.asPath.split("/")[2]);
 
   console.log("numberOfPhotos: ", numberOfPhotos);
- 
+
   const numberOfPages = Math.ceil(numberOfPhotos / limit);
   console.log("Number of Pages: ", numberOfPages);
 
-  const getPaginationArray = (number, position) => {
-    let at = ""
-    if (position === 'top') {
-      at = 'b'
-    }
-    if (position === "bottom") {
-      at = 't'
-    }
-
-    let content = [];
-    for (let i = 1; i < number + 1; i++) {
-      //   <span className="border-transparent text-gray-500 border-t-2 pt-4 px-4 inline-flex items-center text-sm font-medium">
-      //   ...
-      // </span>
-      content.push(
-        <Link href={`/gallery/${i}`} key={i}>
-          <a
-            className={classNames(
-              router.asPath === `/gallery/${i}`
-                ? "border-primary text-indigo-600 font-bold"
-                : "border-transparent text-gray-500 hover:text-gray-700 hover:border-gray-300",
-              `border-${at}-2 p${at}-4 px-4 inline-flex items-center text-sm font-medium`
-            )}
-          >
-            {i}
-            {console.log("at: ", at)}
-          </a>
-        </Link>
-      );
-    }
-    return content;
-  };
-
-  getPaginationArray.propTypes = {
-    number: PropTypes.number,
-    position: PropTypes.string
-   
-  };
-
-
-
+  
 
   const pagination = (current, total, position) => {
-    let at = ""
-    if (position === 'top') {
-      at = 'b'
+    let at = "";
+    if (position === "top") {
+      at = "b";
     }
     if (position === "bottom") {
-      at = 't'
+      at = "t";
     }
-    const center = [current - 2, current - 1, current, current + 1, current + 2],
-        filteredCenter = center.filter((p) => p > 1 && p < total),
-        includeThreeLeft = current === 5,
-        includeThreeRight = current === total - 4,
-        includeLeftDots = current > 5,
-        includeRightDots = current < total - 4;
+    const center = [
+        current - 2,
+        current - 1,
+        current,
+        current + 1,
+        current + 2,
+      ],
+      filteredCenter = center.filter((p) => p > 1 && p < total),
+      includeThreeLeft = current === 5,
+      includeThreeRight = current === total - 4,
+      includeLeftDots = current > 5,
+      includeRightDots = current < total - 4;
 
-    if (includeThreeLeft) filteredCenter.unshift(2)
-    if (includeThreeRight) filteredCenter.push(total - 1)
+    if (includeThreeLeft) filteredCenter.unshift(2);
+    if (includeThreeRight) filteredCenter.push(total - 1);
 
-    if (includeLeftDots) filteredCenter.unshift('...');
-    if (includeRightDots) filteredCenter.push('...');
+    if (includeLeftDots) filteredCenter.unshift("...");
+    if (includeRightDots) filteredCenter.push("...");
 
-    
-    return [1, ...filteredCenter, total].map((item, index) => { return (
-      !isNaN(item) ? 
-      <Link href={`/gallery/${item}`} key={index}>
-        <a
+    return [1, ...filteredCenter, total].map((item, index) => {
+      return !isNaN(item) ? (
+        <Link href={`/gallery/${item}`} key={index}>
+          <a
             className={classNames(
               router.asPath === `/gallery/${item}`
-                ? "border-primary text-indigo-600 font-bold"
-                : "border-transparent text-gray-500 hover:text-gray-700 hover:border-gray-300",
+                ? "border-primary text-indigo-300 font-bold"
+                : "border-transparent text-gray-500 dark:text-gray-300 hover:text-gray-700 hover:border-gray-300",
               `border-${at}-2 p${at}-4 px-4 inline-flex items-center text-sm font-medium`
             )}
             // className={classNames(current === index ? " border-primary text-indigo-600 font-bold" : "border-transparent text-gray-500 hover:text-gray-700 hover:border-gray-300" ,  `border-${at}-2 p${at}-4 px-4 inline-flex items-center text-sm font-medium` )}
@@ -141,10 +106,12 @@ function GalleryPage({
             {item}
             {console.log("at: ", at)}
           </a>
-      </Link>
-      : <span key={index}>{item}</span>
-    )})
-    
+        </Link>
+      ) : (
+        <span key={index}>{item}</span>
+      );
+    });
+
     // return content.map((item, index) => {
     //   <Link href={`/gallery/${item}`} key={index}>
     //       <a
@@ -160,135 +127,167 @@ function GalleryPage({
     //       </a>
     //     </Link>
     // })
-}
+  };
 
   const handleOpen = (src, content) => {
-    setImageSrc(src)
-    setModalContent(content)
-    setOpenModal(true)
-
-  }
-
+    setImageSrc(src);
+    setModalContent(content);
+    setOpenModal(true);
+  };
 
   return (
-    <div className="max-w-7xl mx-auto pt-16 pb-20 px-4 sm:px-6 lg:pt-24 lg:pb-28 lg:px-8">
-      <nav className="my-9 border-b border-gray-200 px-4 flex items-center justify-between sm:px-0">
-        <div className="-mt-px w-0 flex-1 flex">
-          <Link href={`/gallery/${currentPageNumber - 1}`}>
-            <a className="border-b-2 border-transparent pb-4 pr-1 inline-flex items-center text-sm font-medium text-gray-500 hover:text-gray-700 hover:border-gray-300">
-              {hasPreviousPage && (
-                <>
-                  <ArrowNarrowLeftIcon
-                    className="mr-3 h-5 w-5 text-gray-400"
-                    aria-hidden="true"
-                  />{" "}
-                  Previous{" "}
-                </>
-              )}
-            </a>
-          </Link>
-        </div>
-        <div className="hidden md:-mt-px md:flex">
-          {/* Current: "border-indigo-500 text-indigo-600", Default: "border-transparent text-gray-500 hover:text-gray-700 hover:border-gray-300" */}
-          {/* {getPaginationArray(numberOfPages, 'top')}
-          {console.log("pagination: ", pagination(currentPage, numberOfPages, 'top'))} */}
-          {pagination(currentPage, numberOfPages, 'top')}
-      
-        </div>
-        <div className="-mt-px w-0 flex-1 flex justify-end">
-          <Link href={`/gallery/${currentPageNumber + 1}`}>
-            <a className="border-b-2 border-transparent pb-4 pl-1 inline-flex items-center text-sm font-medium text-gray-500 hover:text-gray-700 hover:border-gray-300">
-              {hasNextPage && (
-                <>
-                  Next{" "}
-                  <ArrowNarrowRightIcon
-                    className="ml-3 h-5 w-5 text-gray-400"
-                    aria-hidden="true"
-                  />
-                </>
-              )}
-            </a>
-          </Link>
-        </div>
-      </nav>
-      <div
-        // className="grid grid-cols-7 gap-4 grid-rows-6 "
-        className={styles.container}
-      >
-        <ModalTailwind imageUrl={imageSrc} content={modalContent} open={openModal} onClose={() => setOpenModal(false)}/>
-
-        {images.map((image, index) => (
-          <div
-            // className={styles.div + index}
-            key={image.node.id}
-            className={`div${index}` + " relative "}
-            onClick={() => handleOpen(image.node.image.url, image)}
-          >
-           
-           
-            <Image
-              // className="h-64  object-cover"
-              src={image.node.image.url}
-              alt=""
-              placeholder="blur"
-              key={image.node.id}
-              blurDataURL={`data:image/svg+xml;base64,${toBase64(
-                shimmer(300, 200)
-              )}`}
-              // width={300}
-              // height={200}
-              layout="fill"
-              objectFit="cover"
-              objectPosition={image?.node.position || "center"}
-              quality="75"
-              
-            />
-          
-            <div className="absolute bottom-0 min-w-full left-0 p-2  text-slate-900 font-third backdrop-blur-sm backdrop-hue-rotate-180 bg-white/50 ">
-              <h4 className="border-b border-yellow-500"> {image.node.title}</h4>
-              <span className="text-xs">Styled by:{" "} {image.node.stylist.name}</span>
+    <div className="relative ">
+      <div className="hidden sm:block absolute -top-20 right-0 bg-gradient-to-r from-gray-400 to-third sm:h-[40rem] opacity-20 lg:h-[50rem] w-1/2 sm:w-1/3  z-[2] "></div>
+      <div className="relative bg-gradient-to-r from-gray-50 to-secondary dark:from-gray-900   dark:to-primary-dark mx-auto max-w-7xl w-full pt-16 pb-20 px-4 sm:px-6 lg:px-8  text-center lg:py-48 lg:text-left z-[3]">
+        <div className="flex flex-col sm:flex-row gap-5 ">
+          <div className="flex flex-col sm:w-2/3  lg:w-[60%]">
+            <div className="text-sm mb-8 font-bold text-gray-600 dark:text-gray-300">
+              {/* in-house photagraphy */}
+              IN-HOUSE PHOTAGRAPHY
             </div>
+            <h1 className=" bg-clip-text text-transparent bg-gradient-to-r from-gray-600 to-red-600 dark:from-primary dark:to-gray-50 font-primary text-4xl tracking-tight font-extrabold text-gray-900  sm:text-5xl md:text-6xl lg:text-5xl xl:text-6xl">
+              {" "}
+              More than just a salon. In-House Headshot photographer{" "}
+            </h1>
           </div>
-        ))}
+          <div className="flex flex-col sm:w-1/3 lg:w-[40%] leading-7 ">
+            <p className="text-left text-gray-50">
+              Let us connect you with an in-house photagraphy session. Get
+              booked. Professional Headshots. High-end headshot studio located
+              in-house
+            </p>
+            <button className="mt-8 text-gray-100 text-left bg-primary hover:bg-primary-dark p-2 rounded-lg w-fit z-20 ">
+              Meet our team, the finest Los Angeles has to offer.
+            </button>
+          </div>
+        </div>
       </div>
-      {/* <pre>{images}</pre> */}
-      {/* <pre>{JSON.stringify(images, 2, null)}</pre> */}
-      <nav className="my-9 border-t border-gray-200 px-4 flex items-center justify-between sm:px-0">
-        <div className="-mt-px w-0 flex-1 flex">
-          <Link href={`/gallery/${currentPageNumber - 1}`}>
-            <a className="border-t-2 border-transparent pt-4 pr-1 inline-flex items-center text-sm font-medium text-gray-500 hover:text-gray-700 hover:border-gray-300">
-              {hasPreviousPage && (
-                <>
-                  <ArrowNarrowLeftIcon
-                    className="mr-3 h-5 w-5 text-gray-400"
-                    aria-hidden="true"
-                  />{" "}
-                  Previous{" "}
-                </>
-              )}
-            </a>
-          </Link>
+      <div className="relative max-w-7xl mx-auto pt-6 pb-20 px-4 sm:px-6 lg:pt-2 lg:pb-28 lg:px-8">
+        <nav className="my-9 mt-20 border-b border-gray-200 px-4 flex items-center justify-between sm:px-0">
+          <div className="-mt-px w-0 flex-1 flex">
+            <Link href={`/gallery/${currentPageNumber - 1}`}>
+              <a className="border-b-2 border-transparent pb-4 pr-1 inline-flex items-center font-primary text-lg font-medium text-gray-500 dark:text-gray-300 hover:text-gray-700 hover:border-gray-300">
+                {hasPreviousPage && (
+                  <>
+                    <ArrowNarrowLeftIcon
+                      className="mr-3 h-5 w-5 text-gray-500 dark:text-gray-300"
+                      aria-hidden="true"
+                    />{" "}
+                    Previous{" "}
+                  </>
+                )}
+              </a>
+            </Link>
+          </div>
+          <div className="hidden md:-mt-px md:flex">
+          
+            {pagination(currentPage, numberOfPages, "top")}
+          </div>
+          <div className="-mt-px w-0 flex-1 flex justify-end">
+            <Link href={`/gallery/${currentPageNumber + 1}`}>
+              <a className="border-b-2 border-transparent pb-4 pl-1 inline-flex items-center text-lg font-primary font-medium text-gray-500 hover:text-gray-700 dark:text-gray-300 hover:border-gray-300">
+                {hasNextPage && (
+                  <>
+                    Next{" "}
+                    <ArrowNarrowRightIcon
+                      className="ml-3 h-5 w-5 text-gray-500 dark:text-gray-300"
+                      aria-hidden="true"
+                    />
+                  </>
+                )}
+              </a>
+            </Link>
+          </div>
+        </nav>
+
+        <div
+          // className="grid grid-cols-7 gap-4 grid-rows-6 "
+          className={styles.container}
+        >
+          <ModalTailwind
+            imageUrl={imageSrc}
+            content={modalContent}
+            open={openModal}
+            onClose={() => setOpenModal(false)}
+          />
+
+          {images.map((image, index) => (
+            <div
+              // className={styles.div + index}
+              key={image.node.id}
+              className={`div${index}` + " relative "}
+              onClick={() => handleOpen(image.node.image.url, image)}
+            >
+              <Image
+                // className="h-64  object-cover"
+                src={image.node.image.url}
+                alt=""
+                placeholder="blur"
+                key={image.node.id}
+                blurDataURL={`data:image/svg+xml;base64,${toBase64(
+                  shimmer(300, 200)
+                )}`}
+                // width={300}
+                // height={200}
+                layout="fill"
+                objectFit="cover"
+                objectPosition={image?.node.position || "center"}
+                quality="75"
+              />
+
+              <div className="absolute bottom-0 min-w-full left-0 p-2  text-slate-900 font-third backdrop-blur-sm backdrop-hue-rotate-180 bg-white/50 ">
+                <h4 className="border-b border-yellow-500">
+                  {" "}
+                  {image.node.title}
+                </h4>
+                <span className="text-xs">
+                  Styled by: {image.node.stylist.name}
+                </span>
+              </div>
+            </div>
+          ))}
         </div>
-        <div className="hidden md:-mt-px md:flex">
-          {/* Current: "border-indigo-500 text-indigo-600", Default: "border-transparent text-gray-500 hover:text-gray-700 hover:border-gray-300" */}
-          {getPaginationArray(numberOfPages, "bottom")}
-        </div>
-        <div className="-mt-px w-0 flex-1 flex justify-end">
-          <Link href={`/gallery/${currentPageNumber + 1}`}>
-            <a className="border-t-2 border-transparent pt-4 pl-1 inline-flex items-center text-sm font-medium text-gray-500 hover:text-gray-700 hover:border-gray-300">
-              {hasNextPage && (
-                <>
-                  Next{" "}
-                  <ArrowNarrowRightIcon
-                    className="ml-3 h-5 w-5 text-gray-400"
-                    aria-hidden="true"
-                  />
-                </>
-              )}
-            </a>
-          </Link>
-        </div>
-      </nav>
+        {/* <pre>{images}</pre> */}
+        {/* <pre>{JSON.stringify(images, 2, null)}</pre> */}
+        <nav className="my-9 mt-20 border-b border-gray-200 px-4 flex items-center justify-between sm:px-0">
+          <div className="-mt-px w-0 flex-1 flex">
+            <Link href={`/gallery/${currentPageNumber - 1}`}>
+              <a className="border-b-2 border-transparent pb-4 pr-1 inline-flex items-center font-primary text-lg font-medium text-gray-500 dark:text-gray-300 hover:text-gray-700 hover:border-gray-300">
+                {hasPreviousPage && (
+                  <>
+                    <ArrowNarrowLeftIcon
+                      className="mr-3 h-5 w-5 text-gray-500 dark:text-gray-300"
+                      aria-hidden="true"
+                    />{" "}
+                    Previous{" "}
+                  </>
+                )}
+              </a>
+            </Link>
+          </div>
+          <div className="hidden md:-mt-px md:flex">
+            {/* Current: "border-indigo-500 text-indigo-600", Default: "border-transparent text-gray-500 hover:text-gray-700 hover:border-gray-300" */}
+            {/* {getPaginationArray(numberOfPages, 'top')}
+          {console.log("pagination: ", pagination(currentPage, numberOfPages, 'top'))} */}
+            {pagination(currentPage, numberOfPages, "bottom")}
+          </div>
+          <div className="-mt-px w-0 flex-1 flex justify-end">
+            <Link href={`/gallery/${currentPageNumber + 1}`}>
+              <a className="border-b-2 border-transparent pb-4 pl-1 inline-flex items-center text-lg font-primary font-medium text-gray-500 dark:text-gray-300 hover:text-gray-700 hover:border-gray-300">
+                {hasNextPage && (
+                  <>
+                    Next{" "}
+                    <ArrowNarrowRightIcon
+                      className="ml-3 h-5 w-5 text-gray-400 dark:text-gray-300"
+                      aria-hidden="true"
+                    />
+                  </>
+                )}
+              </a>
+            </Link>
+          </div>
+        </nav>
+      </div>
     </div>
   );
 }
@@ -296,7 +295,7 @@ function GalleryPage({
 export async function getStaticPaths() {
   const query = gql`
     {
-        galleriesConnection {
+      galleriesConnection {
         aggregate {
           count
         }
@@ -335,7 +334,6 @@ export async function getStaticPaths() {
 
 //Paths passing in taking in limit and offset
 export async function getStaticProps({ params }) {
-
   const query = gql`
     query imagePageQuery($limit: Int!, $offset: Int!) {
       galleriesConnection(first: $limit, skip: $offset) {

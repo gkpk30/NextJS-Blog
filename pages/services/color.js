@@ -1,14 +1,14 @@
 import Image from "next/image";
 import blowout from "../../public/images/blowout.jpeg";
 import cappucino from "../../public/images/cappucino.jpeg";
-import conditioning from "../../public/images/conditioning.jpg";
+import coloring from "../../public/images/coloring.jpg";
 import robe from "../../public/images/robe.jpeg";
 import BreadCrumbs from "../../components/BreadCrumbs";
 
 export default function Coloring() {
   const pages = [
     { name: "services", href: "/services", current: false },
-    { name: "coloring", href: "/services/coloring", current: true },
+    { name: "color", href: "/services/color", current: true },
   ];
 
   return (
@@ -19,9 +19,9 @@ export default function Coloring() {
         </div>
         <div className="text-base max-w-prose mx-auto lg:max-w-none">
           <h2 className="text-base text-indigo-700 dark:text-indigo-300 font-semibold tracking-wide uppercase">
-            Coloring
+            Color
           </h2>
-          <p className="mt-2 text-3xl leading-8 font-extrabold tracking-tight text-gray-900 dark:text-gray-50 sm:text-4xl">
+          <p className="mt-2 font-primary text-3xl leading-8 font-extrabold tracking-tight text-gray-900 dark:text-gray-50 sm:text-4xl">
           SHERMAN OAKS MOST VIVID FULL SERVICE HAIRCOLOR
           </p>
         </div>
@@ -116,7 +116,7 @@ export default function Coloring() {
             <div className=" grid grid-cols-2 gap-4">
               <Image src={cappucino} />
               <Image src={robe} />
-              <Image src={conditioning} />
+              <Image src={coloring} />
               <Image src={blowout} />
             </div>
           </div>

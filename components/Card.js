@@ -11,7 +11,7 @@ export default function Card({ post }) {
     const readingTime = words / 200;
     // console.log("readingTime: ", readingTime.toFixed(0));
 
-    return readingTime.toFixed(0);
+    return Math.ceil(readingTime).toFixed(0);
   };
 
   return (

@@ -95,6 +95,14 @@ export default function TopBar() {
                           Home
                         </a>
                       </Link>
+                      <Link href="/services" >
+                      <a
+                       
+                        className={classNames(router.pathname === '/services' || router.pathname === '/services/' ? "border-primary font-semibold" : "border-transparent font-medium", " hover:border-gray-300 text-gray-500  dark:text-gray-50 inline-flex items-center px-1 pt-1 border-b-2 text-sm ")}
+                        >
+                        Services
+                      </a>
+                      </Link>
                       <Link href="/blogs"   >
                         <a  
                         className={classNames(router.pathname === '/blogs' || router.pathname === '/post/[slug]' ? "border-primary  font-semibold" : "border-transparent font-medium ", " hover:border-gray-300 text-gray-500  dark:text-gray-50 inline-flex items-center px-1 pt-1 border-b-2 text-sm ")}
@@ -109,25 +117,18 @@ export default function TopBar() {
                           Gallery
                         </a>
                       </Link>
-                      <Link href="/artists" >
+                      <Link href="/artist/" >
                       <a
                        
-                        className={classNames(router.pathname === '/artists' || router.pathname === '/artist/[page].js' ? "border-primary font-semibold" : "border-transparent font-medium", " hover:border-gray-300 text-gray-500  dark:text-gray-50 inline-flex items-center px-1 pt-1 border-b-2 text-sm ")}
+                        className={classNames(router.pathname === '/artist' || router.pathname === '/artist/[page].js' ? "border-primary font-semibold" : "border-transparent font-medium", " hover:border-gray-300 text-gray-500  dark:text-gray-50 inline-flex items-center px-1 pt-1 border-b-2 text-sm ")}
                         >
                         Artists
                       </a>
                       </Link>
-                      <Link href="/services" >
-                      <a
-                       
-                        className={classNames(router.pathname === '/services' || router.pathname === '/artist/[page].js' ? "border-primary font-semibold" : "border-transparent font-medium", " hover:border-gray-300 text-gray-500  dark:text-gray-50 inline-flex items-center px-1 pt-1 border-b-2 text-sm ")}
-                        >
-                        Services
-                      </a>
-                      </Link>
+                    
                     </div>
                   </div>
-                  <div className="flex self-center " style={{}}>
+                  <div className="flex self-center z-20 " style={{}}>
                     {renderThemeChanger()}
                   </div>
                 </div>
