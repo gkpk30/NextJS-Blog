@@ -62,8 +62,6 @@ function GalleryPage({
   const numberOfPages = Math.ceil(numberOfPhotos / limit);
   console.log("Number of Pages: ", numberOfPages);
 
-  
-
   const pagination = (current, total, position) => {
     let at = "";
     if (position === "top") {
@@ -97,7 +95,7 @@ function GalleryPage({
           <a
             className={classNames(
               router.asPath === `/gallery/${item}`
-                ? "border-primary text-indigo-300 font-bold"
+                ? "border-primary text-indigo-300 font-bold text-lg"
                 : "border-transparent text-gray-500 dark:text-gray-300 hover:text-gray-700 hover:border-gray-300",
               `border-${at}-2 p${at}-4 px-4 inline-flex items-center text-sm font-medium`
             )}
@@ -137,8 +135,9 @@ function GalleryPage({
 
   return (
     <div className="relative ">
-      <div className="hidden sm:block absolute -top-20 right-0 bg-gradient-to-r from-gray-400 to-third sm:h-[40rem] opacity-20 lg:h-[50rem] w-1/2 sm:w-1/3  z-[2] "></div>
-      <div className="relative bg-gradient-to-r from-gray-50 to-secondary dark:from-gray-900   dark:to-primary-dark mx-auto max-w-7xl w-full pt-16 pb-20 px-4 sm:px-6 lg:px-8  text-center lg:py-48 lg:text-left z-[3]">
+      
+      <div className={classNames(currentPage == '1' ? "hidden sm:block" : "hidden" , " absolute -top-20 right-0 bg-gradient-to-r from-gray-400 to-third sm:h-[40rem] opacity-20 lg:h-[50rem] w-1/2 sm:w-1/3  z-[2] ")}></div>
+      <div className={classNames(currentPage == '1' ? "hidden sm:block" : "hidden" , "relative bg-gradient-to-r from-gray-50 to-secondary dark:from-gray-900   dark:to-primary-dark mx-auto mb-10 max-w-7xl w-full pt-16 pb-20 px-4 sm:px-6 lg:px-8  text-center lg:py-48 lg:text-left z-[3]")}>
         <div className="flex flex-col sm:flex-row gap-5 ">
           <div className="flex flex-col sm:w-2/3  lg:w-[60%]">
             <div className="text-sm mb-8 font-bold text-gray-600 dark:text-gray-300">
@@ -156,12 +155,27 @@ function GalleryPage({
               booked. Professional Headshots. High-end headshot studio located
               in-house
             </p>
-            <button className="mt-8 text-gray-100 text-left bg-primary hover:bg-primary-dark p-2 rounded-lg w-fit z-20 ">
+            <button className=" mt-8 text-gray-100 text-left bg-primary hover:bg-primary-dark p-2 rounded-lg w-fit z-20 ">
               Meet our team, the finest Los Angeles has to offer.
+              <svg
+                xmlns="http://www.w3.org/2000/svg"
+                className="h-4 w-4"
+                fill="none"
+                viewBox="0 0 24 24"
+                stroke="currentColor"
+                strokeWidth={2}
+              >
+                <path
+                  strokeLinecap="round"
+                  strokeLinejoin="round"
+                  d="M19 13l-7 7-7-7m14-8l-7 7-7-7"
+                />
+              </svg>
             </button>
           </div>
         </div>
       </div>
+
       <div className="relative max-w-7xl mx-auto pt-6 pb-20 px-4 sm:px-6 lg:pt-2 lg:pb-28 lg:px-8">
         <nav className="my-9 mt-20 border-b border-gray-200 px-4 flex items-center justify-between sm:px-0">
           <div className="-mt-px w-0 flex-1 flex">
@@ -180,7 +194,6 @@ function GalleryPage({
             </Link>
           </div>
           <div className="hidden md:-mt-px md:flex">
-          
             {pagination(currentPage, numberOfPages, "top")}
           </div>
           <div className="-mt-px w-0 flex-1 flex justify-end">
