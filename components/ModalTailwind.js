@@ -1,7 +1,8 @@
 /* This example requires Tailwind CSS v2.0+ */
 import { Fragment, useState } from "react";
 import { Dialog, Transition } from "@headlessui/react";
-import { ExclamationIcon, XIcon } from "@heroicons/react/outline";
+import { ExclamationIcon, XIcon, CameriaIcon } from "@heroicons/react/outline";
+
 import Image from "next/image";
 import Link from "next/link";
 import logo from "../public/images/headbetterlogo.png";
@@ -138,7 +139,7 @@ export default function ModalTailwind({ open, onClose, imageUrl, content }) {
                 </div>
                 <div className="mt-5 sm:mt-4 sm:flex sm:flex-row-reverse relative">
                   {console.log("imageurl", imageUrl)}
-
+                          
                   <span className="absolute bottom-2 left-2">
                     By: {content?.node.stylist.name}
                   </span>

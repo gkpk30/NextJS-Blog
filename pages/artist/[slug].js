@@ -1,5 +1,6 @@
 import Link from "next/link";
 import { useRouter } from "next/router";
+import { CameraIcon } from "@heroicons/react/outline";
 import Image from "next/image";
 import { gql } from "graphql-request";
 import { GraphQLClient } from "graphql-request";
