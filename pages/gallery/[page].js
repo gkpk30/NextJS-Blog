@@ -137,7 +137,7 @@ function GalleryPage({
     <div className="relative ">
       
       <div className={classNames(currentPage == '1' ? "hidden sm:block" : "hidden" , " absolute -top-20 right-0 bg-gradient-to-r from-gray-400 to-third sm:h-[40rem] opacity-20 lg:h-[50rem] w-1/2 sm:w-1/3  z-[2] ")}></div>
-      <div className={classNames(currentPage == '1' ? "hidden sm:block" : "hidden" , "relative bg-gradient-to-r from-gray-50 to-secondary dark:from-gray-900   dark:to-primary-dark mx-auto mb-10 max-w-7xl w-full pt-16 pb-20 px-4 sm:px-6 lg:px-8  text-center lg:py-48 lg:text-left z-[3]")}>
+      <div className={classNames(currentPage == '1' ? "block" : "hidden" , "relative bg-gradient-to-r from-gray-50 to-secondary dark:from-gray-900   dark:to-primary-dark mx-auto mb-10 max-w-7xl w-full pt-16 pb-20 px-4 sm:px-6 lg:px-8  text-center lg:py-48 lg:text-left z-[3]")}>
         <div className="flex flex-col sm:flex-row gap-5 ">
           <div className="flex flex-col sm:w-2/3  lg:w-[60%]">
             <div className="text-sm mb-8 font-bold text-gray-600 dark:text-gray-300">
