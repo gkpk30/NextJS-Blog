@@ -1,8 +1,5 @@
-
 import { GraphQLClient } from "graphql-request";
 import { gql } from "graphql-request";
-
-
 
 export const people = [
   {
@@ -64,34 +61,38 @@ const QUERY = gql`
 `;
 
 export async function getStaticProps() {
-  const { stylists} = await graphcms.request(QUERY);
+  const { stylists } = await graphcms.request(QUERY);
   return {
     props: {
-      stylists
+      stylists,
     },
   };
 }
-export default function Artists({stylists}) {
- 
-
+export default function Artists({ stylists }) {
   return (
     <div className="relative">
       <div className="hidden sm:block absolute -top-20 right-0 bg-gradient-to-r from-gray-400 to-third sm:h-[40rem] opacity-20 lg:h-[50rem] w-1/2 sm:w-1/3  z-10 "></div>
       <div className="relative bg-gradient-to-r from-third to-secondary dark:from-gray-900   dark:to-primary-dark mx-auto max-w-7xl w-full pt-16 pb-20 px-4 sm:px-6 lg:px-8  text-center lg:py-48 lg:text-left z-20">
-        <div className="flex flex-col sm:flex-row gap-5 ">
-          <div className="flex flex-col sm:w-1/2 ">
+        <div className="flex flex-col lg:flex-row gap-5 ">
+          <div className="flex flex-col lg:w-2/3 xl:w-1/2 ">
             <div className="text-sm mb-8 font-bold text-gray-300">ABOUT US</div>
-            <h1 className=" bg-clip-text text-transparent bg-gradient-to-r from-gray-100 to-red-200 dark:from-primary dark:to-gray-50 font-primary text-4xl tracking-tight font-extrabold text-gray-900  sm:text-5xl md:text-6xl lg:text-5xl xl:text-6xl"> HeadBetter is where the heart is </h1>
+            <h1 className=" bg-clip-text text-transparent bg-gradient-to-r from-gray-100 to-red-200 dark:from-primary dark:to-gray-50 font-primary text-4xl tracking-tight font-extrabold text-gray-900  sm:text-5xl md:text-6xl lg:text-5xl xl:text-6xl">
+              {" "}
+              HeadBetter is where the heart is{" "}
+            </h1>
           </div>
-          <div className="flex flex-col sm:w-1/2 leading-7 ">
-            <p className="text-left text-gray-50">
+          <div className="flex flex-col lg:w-1/3 xl:w-1/2 text-center lg:text-left leading-7 mt-4 ">
+            <p className="  font-semibold text-lg text-gray-200 dark:text-gray-100 lg:text-gray-50">
               HeadBetter Salon is a boutique person collective of influential
               Hairstylists who specialize in Balayage Highlights, Extension,
-              HairCutting and Red Carpet Styling. We are located in the heart of
-              Sherman Oaks on Ventura Boulevards hottest block for Fashion,
-              Culture and Nightlife
+              HairCutting and Red Carpet Styling.
             </p>
-            <button className="mt-8 text-gray-100 text-left bg-primary hover:bg-primary-dark p-2 rounded-lg w-fit z-20 ">
+            <p className="text-center lg:text-left text-sm mt-6 text-gray-50 dark:text-gray-300  ">
+              {" "}
+              We are located in the heart of Sherman Oaks on Ventura Boulevards
+              hottest block for Fashion, Culture and Nightlife
+            </p>
+            <button className="mt-8 text-xs text-gray-100 text-left bg-primary hover:bg-primary-dark p-2 rounded-lg w-fit z-20 ">
               Meet our team, the finest Los Angeles has to offer.
             </button>
           </div>
@@ -130,12 +131,21 @@ export default function Artists({stylists}) {
                       <div className="sm:col-span-2">
                         <div className="space-y-4">
                           <div className="text-lg leading-6 font-medium space-y-1">
-                            <h3 className="text-gray-500 dark:text-gray-300 font-semibold font-primary">{stylist.name}</h3>
-                            <p className="text-indigo-600">{stylist.position}</p>
+                            <h3 className="text-gray-500 dark:text-gray-300 font-semibold font-primary">
+                              {stylist.name}
+                            </h3>
+                            <p className="text-indigo-600">
+                              {stylist.position}
+                            </p>
                           </div>
                           <div className="text-lg">
                             {/* <p className="text-gray-500">{stylist.bio.html}</p> */}
-                            <div className="text-gray-500 dark:text-gray-400 "  dangerouslySetInnerHTML={{ __html: stylist.bio.html }} />
+                            <div
+                              className="text-gray-500 dark:text-gray-400 "
+                              dangerouslySetInnerHTML={{
+                                __html: stylist.bio.html,
+                              }}
+                            />
                           </div>
                           <ul role="list" className="flex space-x-5">
                             <li>

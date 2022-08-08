@@ -1,11 +1,10 @@
 /* This example requires Tailwind CSS v2.0+ */
 import { useEffect, useState } from "react";
 import { Disclosure, Menu, Transition } from "@headlessui/react";
-import {MenuIcon, XIcon } from "@heroicons/react/outline";
+import { MenuIcon, XIcon } from "@heroicons/react/outline";
 import { MoonIcon, SunIcon } from "@heroicons/react/solid";
 import Link from "next/link";
-import { useRouter } from 'next/router'
-
+import { useRouter } from "next/router";
 
 import { useTheme } from "next-themes";
 
@@ -14,17 +13,17 @@ function classNames(...classes) {
 }
 
 export default function TopBar() {
-  const router = useRouter()
-  console.log("router: " , router.pathname)
+  const router = useRouter();
+  console.log("router: ", router.pathname);
   // const pathname = location.pathname
   // console.log("pathname: ", pathname)
-  
+
   const { systemTheme, theme, setTheme } = useTheme();
-  const [mounted, setMounted] = useState()
+  const [mounted, setMounted] = useState();
 
   useEffect(() => {
-    setMounted(true)
-  },[])
+    setMounted(true);
+  }, []);
 
   const renderThemeChanger = () => {
     if (!mounted) return null;
@@ -49,8 +48,6 @@ export default function TopBar() {
       );
     }
   };
-
-  
 
   return (
     <header>
@@ -85,47 +82,72 @@ export default function TopBar() {
                       />
                     </div>
 
-                    <div className="hidden sm:ml-12 sm:flex sm:space-x-6 ">
+                    <div className="hidden sm:ml-12 sm:flex sm:space-x-6 z-20  ">
                       {/* Current: "border-indigo-500 text-gray-900", Default: "border-transparent text-gray-500 hover:border-gray-300 hover:text-gray-700" */}
                       <Link href="/">
-                     
-                        <a  
-                        className={classNames(router.pathname === '/' ? "border-primary font-semibold" : "border-transparent font-medium ", " hover:border-gray-300  text-gray-500 dark:text-gray-50 inline-flex items-center px-1 pt-1 border-b-2 text-sm ")}
+                        <a
+                          className={classNames(
+                            router.pathname === "/"
+                              ? "border-primary font-semibold"
+                              : "border-transparent font-medium ",
+                            " hover:border-gray-300  text-gray-500 dark:text-gray-50 inline-flex items-center px-1 pt-1 border-b-2 text-sm "
+                          )}
                         >
                           Home
                         </a>
                       </Link>
-                      <Link href="/services" >
-                      <a
-                       
-                        className={classNames(router.pathname === '/services' || router.pathname === '/services/' ? "border-primary font-semibold" : "border-transparent font-medium", " hover:border-gray-300 text-gray-500  dark:text-gray-50 inline-flex items-center px-1 pt-1 border-b-2 text-sm ")}
+                      <Link href="/services">
+                        <a
+                          className={classNames(
+                            router.pathname === "/services" ||
+                              router.pathname === "/services/"
+                              ? "border-primary font-semibold"
+                              : "border-transparent font-medium",
+                            " hover:border-gray-300 text-gray-500  dark:text-gray-50 inline-flex items-center px-1 pt-1 border-b-2 text-sm "
+                          )}
                         >
-                        Services
-                      </a>
-                      </Link>
-                      <Link href="/blogs"   >
-                        <a  
-                        className={classNames(router.pathname === '/blogs' || router.pathname === '/post/[slug]' ? "border-primary  font-semibold" : "border-transparent font-medium ", " hover:border-gray-300 text-gray-500  dark:text-gray-50 inline-flex items-center px-1 pt-1 border-b-2 text-sm ")}
-                        >
-                          Blogs
+                          Services
                         </a>
                       </Link>
                       <Link href="/gallery/1">
-                        <a 
-                         className={classNames(router.pathname === '/gallery/[page]' ? "border-primary font-semibold" : "border-transparent font-medium ", " hover:border-gray-300 text-gray-500  dark:text-gray-50 inline-flex items-center px-1 pt-1 border-b-2 text-sm ")}
+                        <a
+                          className={classNames(
+                            router.pathname === "/gallery/[page]"
+                              ? "border-primary font-semibold"
+                              : "border-transparent font-medium ",
+                            " hover:border-gray-300 text-gray-500  dark:text-gray-50 inline-flex items-center px-1 pt-1 border-b-2 text-sm "
+                          )}
                         >
                           Gallery
                         </a>
                       </Link>
-                      <Link href="/artist/" >
-                      <a
-                       
-                        className={classNames(router.pathname === '/artist' || router.pathname === '/artist/[page].js' ? "border-primary font-semibold" : "border-transparent font-medium", " hover:border-gray-300 text-gray-500  dark:text-gray-50 inline-flex items-center px-1 pt-1 border-b-2 text-sm ")}
+                      <Link href="/blogs">
+                        <a
+                          className={classNames(
+                            router.pathname === "/blogs" ||
+                              router.pathname === "/post/[slug]"
+                              ? "border-primary  font-semibold"
+                              : "border-transparent font-medium ",
+                            " hover:border-gray-300 text-gray-500  dark:text-gray-50 inline-flex items-center px-1 pt-1 border-b-2 text-sm "
+                          )}
                         >
-                        Artists
-                      </a>
+                          Blogs
+                        </a>
                       </Link>
-                    
+                  
+                      <Link href="/artist/">
+                        <a
+                          className={classNames(
+                            router.pathname === "/artist" ||
+                              router.pathname === "/artist/[page].js"
+                              ? "border-primary font-semibold"
+                              : "border-transparent font-medium",
+                            " hover:border-gray-300 text-gray-500  dark:text-gray-50 inline-flex items-center px-1 pt-1 border-b-2 text-sm "
+                          )}
+                        >
+                          Artists
+                        </a>
+                      </Link>
                     </div>
                   </div>
                   <div className="flex self-center z-20 " style={{}}>
@@ -142,7 +164,13 @@ export default function TopBar() {
                   // as={Link}
                   as="a"
                   href="/"
-                  className="bg-indigo-50 dark:bg-gray-600 border-primary text-indigo-700 dark:text-gray-50  block pl-3 pr-4 py-2 border-l-4 text-base font-medium"
+                  className={classNames(
+                    router.pathname === "/"
+                      ? "border-primary font-semibold bg-indigo-50 dark:bg-gray-600 text-indigo-700 dark:text-gray-50"
+                      : "border-transparent text-gray-500 dark:text-gray-50",
+                    "hover:bg-gray-50 hover:border-gray-300 hover:text-gray-700 block pl-3 pr-4 py-2 border-l-4 text-base font-medium"
+                  )}
+                  // className="bg-indigo-50 dark:bg-gray-600 border-primary text-indigo-700 dark:text-gray-50  block pl-3 pr-4 py-2 border-l-4 text-base font-medium"
                 >
                   Home
                 </Disclosure.Button>
@@ -150,32 +178,54 @@ export default function TopBar() {
                   // as={Link}
                   as="a"
                   href="/services"
-                  className="border-transparent text-gray-500 hover:bg-gray-50 hover:border-gray-300 hover:text-gray-700 dark:text-gray-50 block pl-3 pr-4 py-2 border-l-4 text-base font-medium"
+                  className={classNames(
+                    router.pathname === "/services"
+                      ? "border-primary font-semibold bg-indigo-50 dark:bg-gray-600 text-indigo-700 dark:text-gray-50"
+                      : "border-transparent text-gray-500 dark:text-gray-50",
+                    "hover:bg-gray-50 hover:border-gray-300 hover:text-gray-700 block pl-3 pr-4 py-2 border-l-4 text-base font-medium"
+                  )}
                 >
                   Services
+                </Disclosure.Button>
+                <Disclosure.Button
+                  // as={Link}
+                  as="a"
+                  href="/gallery/1"
+                  className={classNames(
+                    router.pathname === "/gallery/[page]"
+                      ? "border-primary font-semibold bg-indigo-50 dark:bg-gray-600 text-indigo-700 dark:text-gray-50"
+                      : "border-transparent text-gray-500 dark:text-gray-50",
+                    "hover:bg-gray-50 hover:border-gray-300 hover:text-gray-700 block pl-3 pr-4 py-2 border-l-4 text-base font-medium"
+                  )}
+                >
+                  Gallery
                 </Disclosure.Button>
                 <Disclosure.Button
                   id="blogs"
                   // as={Link}
                   as="a"
                   href="/blogs"
-                  className=" border-transparent text-gray-500 hover:bg-gray-50 hover:border-gray-300 hover:text-gray-700 dark:text-gray-50 block pl-3 pr-4 py-2 border-l-4 text-base font-medium"
+                  className={classNames(
+                    router.pathname === "/blogs" ||
+                      router.pathname === "/post/[slug]"
+                      ? "border-primary font-semibold bg-indigo-50 dark:bg-gray-600 text-indigo-700 dark:text-gray-50"
+                      : "border-transparent text-gray-500 dark:text-gray-50",
+                    "hover:bg-gray-50 hover:border-gray-300 hover:text-gray-700 block pl-3 pr-4 py-2 border-l-4 text-base font-medium"
+                  )}
                 >
                   Blogs
                 </Disclosure.Button>
-                <Disclosure.Button
-                  // as={Link}
-                  as="a"
-                  href="/gallery/1"
-                  className="border-transparent text-gray-500 hover:bg-gray-50 hover:border-gray-300 hover:text-gray-700 dark:text-gray-50 block pl-3 pr-4 py-2 border-l-4 text-base font-medium"
-                >
-                  Gallery
-                </Disclosure.Button>
+
                 <Disclosure.Button
                   // as={Link}
                   as="a"
                   href="/artist/"
-                  className="border-transparent text-gray-500 hover:bg-gray-50 hover:border-gray-300 hover:text-gray-700 dark:text-gray-50 block pl-3 pr-4 py-2 border-l-4 text-base font-medium"
+                  className={classNames(
+                    router.pathname === "/artist"
+                      ? "border-primary font-semibold bg-indigo-50 dark:bg-gray-600 text-indigo-700 dark:text-gray-50"
+                      : "border-transparent text-gray-500 dark:text-gray-50",
+                    "hover:bg-gray-50 hover:border-gray-300 hover:text-gray-700 block pl-3 pr-4 py-2 border-l-4 text-base font-medium"
+                  )}
                 >
                   Artists
                 </Disclosure.Button>

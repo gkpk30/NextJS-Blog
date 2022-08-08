@@ -72,9 +72,8 @@ export default function BlogCard({ posts }) {
           <h2 className="text-3xl tracking-tight font-extrabold text-gray-900 dark:text-gray-200 sm:text-4xl">
             Latest From the blog
           </h2>
-          <p className="mt-3 max-w-2xl mx-auto text-xl text-gray-500 sm:mt-4">
-            Lorem ipsum dolor sit amet consectetur, adipisicing elit. Ipsa
-            libero labore natus atque, ducimus sed.
+          <p className="mt-3 max-w-2xl mx-auto text-xl font-semibold text-gray-500 sm:mt-4">
+          Beauty secrets from Headbetter Salon in Los Angeles
           </p>
         </div>
 

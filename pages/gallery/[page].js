@@ -135,28 +135,45 @@ function GalleryPage({
 
   return (
     <div className="relative ">
-      
-      <div className={classNames(currentPage == '1' ? "hidden sm:block" : "hidden" , " absolute -top-20 right-0 bg-gradient-to-r from-gray-400 to-third sm:h-[40rem] opacity-20 lg:h-[50rem] w-1/2 sm:w-1/3  z-[2] ")}></div>
-      <div className={classNames(currentPage == '1' ? "block" : "hidden" , "relative bg-gradient-to-r from-gray-50 to-secondary dark:from-gray-900   dark:to-primary-dark mx-auto mb-10 max-w-7xl w-full pt-16 pb-20 px-4 sm:px-6 lg:px-8  text-center lg:py-48 lg:text-left z-[3]")}>
-        <div className="flex flex-col sm:flex-row gap-5 ">
-          <div className="flex flex-col sm:w-2/3  lg:w-[60%]">
+      <div
+        className={classNames(
+          currentPage == "1" ? "hidden sm:block" : "hidden",
+          " absolute -top-20 right-0 bg-gradient-to-r from-gray-400 to-third sm:h-[40rem] opacity-20 lg:h-[50rem] w-1/2 sm:w-1/3  z-[2] "
+        )}
+      ></div>
+      <div
+        className={classNames(
+          currentPage == "1" ? "block" : "hidden",
+          "relative bg-gradient-to-r from-gray-50 to-secondary dark:from-gray-900   dark:to-primary-dark mx-auto mb-10 max-w-7xl w-full pt-16 pb-20 px-4 sm:px-6 lg:px-8  text-center lg:py-48 lg:text-left z-[3]"
+        )}
+      >
+        <div className="absolute top-0 right-0 h-1/5 w-1/5 bg-primary opacity-30"></div>
+        <div className="absolute bottom-0 right-0 h-1/5 w-1/5 bg-secondary opacity-60 dark:opacity-20"></div>
+
+        <div className="flex flex-col lg:flex-row gap-5 ">
+          <div className="flex flex-col lg:w-2/3  ">
             <div className="text-sm mb-8 font-bold text-gray-600 dark:text-gray-300">
               {/* in-house photagraphy */}
-              IN-HOUSE PHOTAGRAPHY
+              IN-HOUSE PHOTOGRAPHY
             </div>
             <h1 className=" bg-clip-text text-transparent bg-gradient-to-r from-gray-600 to-red-600 dark:from-primary dark:to-gray-50 font-primary text-4xl tracking-tight font-extrabold text-gray-900  sm:text-5xl md:text-6xl lg:text-5xl xl:text-6xl">
               {" "}
-              More than just a salon. In-House Headshot photographer{" "}
+              More than just a salon with In-House Headshot photography{" "}
             </h1>
           </div>
-          <div className="flex flex-col sm:w-1/3 lg:w-[40%] leading-7 ">
-            <p className="text-left text-gray-50">
+          <div className="flex flex-col lg:w-1/3  leading-7 ">
+            <p className="text-center font-semibold text-lg  lg:text-left text-gray-600 dark:text-gray-100 lg:text-gray-50 mt-4 ">
               Let us connect you with an in-house photagraphy session. Get
-              booked. Professional Headshots. High-end headshot studio located
-              in-house
+              booked. High-end Professional headshot studio located in-house
             </p>
-            <button className=" mt-8 text-gray-100 text-left bg-primary hover:bg-primary-dark p-2 rounded-lg w-fit z-20 ">
-              Meet our team, the finest Los Angeles has to offer.
+            <div>
+              <p className="text-center lg:text-left text-sm mt-6 text-gray-600 dark:text-gray-300 lg:text-gray-50  ">
+                {" "}
+                Meet our team, the finest Los Angeles has to offer.
+              </p>
+            </div>
+            {/* <button className=" mt-8 text-gray-100 text-left bg-primary hover:bg-primary-dark p-2 rounded-lg w-fit z-20 ">
+             
               <svg
                 xmlns="http://www.w3.org/2000/svg"
                 className="h-4 w-4"
@@ -171,7 +188,7 @@ function GalleryPage({
                   d="M19 13l-7 7-7-7m14-8l-7 7-7-7"
                 />
               </svg>
-            </button>
+            </button> */}
           </div>
         </div>
       </div>
@@ -179,37 +196,37 @@ function GalleryPage({
       <div className="relative max-w-7xl mx-auto pt-6 pb-20 px-4 sm:px-6 lg:pt-2 lg:pb-28 lg:px-8">
         <nav className="my-9 mt-20 border-b border-gray-200 px-4 flex items-center justify-between sm:px-0">
           <div className="-mt-px w-0 flex-1 flex">
-            <Link href={`/gallery/${currentPageNumber - 1}`}>
-              <a className="border-b-2 border-transparent pb-4 pr-1 inline-flex items-center font-primary text-lg font-medium text-gray-500 dark:text-gray-300 hover:text-gray-700 hover:border-gray-300">
-                {hasPreviousPage && (
-                  <>
+            <>
+              {hasPreviousPage && (
+                <Link href={`/gallery/${currentPageNumber - 1}`}>
+                  <a className="border-b-2 border-transparent pb-4 pr-1 inline-flex items-center font-primary text-lg font-medium text-gray-500 dark:text-gray-200 hover:text-gray-700 hover:border-gray-300">
                     <ArrowNarrowLeftIcon
-                      className="mr-3 h-5 w-5 text-gray-500 dark:text-gray-300"
+                      className="mr-3 h-5 w-5 text-gray-500 dark:text-gray-200"
                       aria-hidden="true"
                     />{" "}
                     Previous{" "}
-                  </>
-                )}
-              </a>
-            </Link>
+                  </a>
+                </Link>
+              )}
+            </>
           </div>
           <div className="hidden md:-mt-px md:flex">
             {pagination(currentPage, numberOfPages, "top")}
           </div>
           <div className="-mt-px w-0 flex-1 flex justify-end">
-            <Link href={`/gallery/${currentPageNumber + 1}`}>
-              <a className="border-b-2 border-transparent pb-4 pl-1 inline-flex items-center text-lg font-primary font-medium text-gray-500 hover:text-gray-700 dark:text-gray-300 hover:border-gray-300">
-                {hasNextPage && (
-                  <>
+            <>
+              {hasNextPage && (
+                <Link href={`/gallery/${currentPageNumber + 1}`}>
+                  <a className="border-b-2 border-transparent pb-4 pl-1 inline-flex items-center text-lg font-primary font-medium text-gray-500 hover:text-gray-700 dark:text-gray-200 hover:border-gray-300">
                     Next{" "}
                     <ArrowNarrowRightIcon
-                      className="ml-3 h-5 w-5 text-gray-500 dark:text-gray-300"
+                      className="ml-3 h-5 w-5 text-gray-500 dark:text-gray-200"
                       aria-hidden="true"
                     />
-                  </>
-                )}
-              </a>
-            </Link>
+                  </a>
+                </Link>
+              )}
+            </>
           </div>
         </nav>
 
@@ -264,19 +281,19 @@ function GalleryPage({
         {/* <pre>{JSON.stringify(images, 2, null)}</pre> */}
         <nav className="my-9 mt-20 border-b border-gray-200 px-4 flex items-center justify-between sm:px-0">
           <div className="-mt-px w-0 flex-1 flex">
-            <Link href={`/gallery/${currentPageNumber - 1}`}>
-              <a className="border-b-2 border-transparent pb-4 pr-1 inline-flex items-center font-primary text-lg font-medium text-gray-500 dark:text-gray-300 hover:text-gray-700 hover:border-gray-300">
-                {hasPreviousPage && (
-                  <>
+            <>
+              {hasPreviousPage && (
+                <Link href={`/gallery/${currentPageNumber - 1}`}>
+                  <a className="border-b-2 border-transparent pb-4 pr-1 inline-flex items-center font-primary text-lg font-medium text-gray-500 dark:text-gray-200 hover:text-gray-700 hover:border-gray-300">
                     <ArrowNarrowLeftIcon
-                      className="mr-3 h-5 w-5 text-gray-500 dark:text-gray-300"
+                      className="mr-3 h-5 w-5 text-gray-500 dark:text-gray-200"
                       aria-hidden="true"
                     />{" "}
                     Previous{" "}
-                  </>
-                )}
-              </a>
-            </Link>
+                  </a>
+                </Link>
+              )}
+            </>
           </div>
           <div className="hidden md:-mt-px md:flex">
             {/* Current: "border-indigo-500 text-indigo-600", Default: "border-transparent text-gray-500 hover:text-gray-700 hover:border-gray-300" */}
@@ -285,19 +302,19 @@ function GalleryPage({
             {pagination(currentPage, numberOfPages, "bottom")}
           </div>
           <div className="-mt-px w-0 flex-1 flex justify-end">
-            <Link href={`/gallery/${currentPageNumber + 1}`}>
-              <a className="border-b-2 border-transparent pb-4 pl-1 inline-flex items-center text-lg font-primary font-medium text-gray-500 dark:text-gray-300 hover:text-gray-700 hover:border-gray-300">
-                {hasNextPage && (
-                  <>
+            <>
+              {hasNextPage && (
+                <Link href={`/gallery/${currentPageNumber + 1}`}>
+                  <a className="border-b-2 border-transparent pb-4 pl-1 inline-flex items-center text-lg font-primary font-medium text-gray-500 dark:text-gray-200 hover:text-gray-700 hover:border-gray-300">
                     Next{" "}
                     <ArrowNarrowRightIcon
-                      className="ml-3 h-5 w-5 text-gray-400 dark:text-gray-300"
+                      className="ml-3 h-5 w-5 text-gray-500 dark:text-gray-200"
                       aria-hidden="true"
                     />
-                  </>
-                )}
-              </a>
-            </Link>
+                  </a>
+                </Link>
+              )}
+            </>
           </div>
         </nav>
       </div>

@@ -67,8 +67,7 @@ const Blog = ({ posts, categories }) => {
               All the blogs
             </h2>
             <p className="mt-3 max-w-2xl mx-auto text-xl text-gray-500 sm:mt-4">
-              Lorem ipsum dolor sit amet consectetur, adipisicing elit. Ipsa
-              libero labore natus atque, ducimus sed.
+            All the Beauty secrets from Headbetter Salon in Los Angeles
             </p>
           </div>
           
