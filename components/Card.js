@@ -17,7 +17,7 @@ export default function Card({ post }) {
   return (
     <div
       key={post.title}
-      className="flex flex-col rounded-lg shadow-lg overflow-hidden"
+      className="flex flex-col  shadow-lg overflow-hidden"
     >
       <div className="flex-shrink-0 ">
         <Image
