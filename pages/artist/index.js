@@ -1,5 +1,6 @@
 import { GraphQLClient } from "graphql-request";
 import { gql } from "graphql-request";
+import Link from 'next/link'
 
 export const people = [
   {
@@ -50,6 +51,7 @@ const QUERY = gql`
     stylists {
       name
       position
+      slug
       bio {
         html
       }
@@ -73,7 +75,7 @@ export default function Artists({ stylists }) {
     <div className="relative">
       <div className="hidden sm:block absolute -top-20 right-0 bg-gradient-to-r from-gray-400 to-third sm:h-[40rem] opacity-20 lg:h-[50rem] w-1/2 sm:w-1/3  z-10 "></div>
       <div className="relative bg-gradient-to-r from-third to-secondary dark:from-gray-900   dark:to-primary-dark mx-auto max-w-7xl w-full pt-16 pb-20 px-4 sm:px-6 lg:px-8  text-center lg:py-48 lg:text-left z-20">
-        <div className="flex flex-col lg:flex-row gap-5 ">
+        <div className="flex flex-col lg:flex-row gap-5 p-2  ">
           <div className="flex flex-col lg:w-2/3 xl:w-1/2 ">
             <div className="text-sm mb-8 font-bold text-gray-300">ABOUT US</div>
             <h1 className=" bg-clip-text text-transparent bg-gradient-to-r from-gray-100 to-red-200 dark:from-primary dark:to-gray-50 font-primary text-4xl tracking-tight font-extrabold text-gray-900  sm:text-5xl md:text-6xl lg:text-5xl xl:text-6xl">
@@ -137,6 +139,11 @@ export default function Artists({ stylists }) {
                             <p className="text-indigo-600">
                               {stylist.position}
                             </p>
+                            <Link href={`/artist/${stylist.slug}`}>
+                          <a className="text-xs font-medium text-gray-200 hover:text-gray-600 ml-3 bg-gray-500 p-1 pl-2 pr-2 rounded-xl ">
+                            View profile
+                          </a>
+                        </Link>
                           </div>
                           <div className="text-lg">
                             {/* <p className="text-gray-500">{stylist.bio.html}</p> */}

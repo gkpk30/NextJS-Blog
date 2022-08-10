@@ -150,20 +150,20 @@ function GalleryPage({
         <div className="absolute top-0 right-0 h-1/5 w-1/5 bg-primary opacity-30"></div>
         <div className="absolute bottom-0 right-0 h-1/5 w-1/5 bg-secondary opacity-60 dark:opacity-20"></div>
 
-        <div className="flex flex-col lg:flex-row gap-5 ">
+        <div className="flex flex-col lg:flex-row gap-5 p-2">
           <div className="flex flex-col lg:w-2/3  ">
             <div className="text-sm mb-8 font-bold text-gray-600 dark:text-gray-300">
               {/* in-house photagraphy */}
               IN-HOUSE PHOTOGRAPHY
             </div>
-            <h1 className=" bg-clip-text text-transparent bg-gradient-to-r from-gray-600 to-red-600 dark:from-primary dark:to-gray-50 font-primary text-4xl tracking-tight font-extrabold text-gray-900  sm:text-5xl md:text-6xl lg:text-5xl xl:text-6xl">
+            <h1 className="p-2 bg-clip-text text-transparent bg-gradient-to-r from-gray-600 to-red-600 dark:from-primary dark:to-gray-50 font-primary text-4xl tracking-tight font-extrabold text-gray-900  sm:text-5xl md:text-6xl lg:text-5xl xl:text-6xl">
               {" "}
-              More than just a salon with In-House Headshot photography{" "}
+              In-House Headshot photography now Available{" "}
             </h1>
           </div>
           <div className="flex flex-col lg:w-1/3  leading-7 ">
             <p className="text-center font-semibold text-lg  lg:text-left text-gray-600 dark:text-gray-100 lg:text-gray-50 mt-4 ">
-              Let us connect you with an in-house photagraphy session. Get
+              Let us connect you with an in-house photography session. Get
               booked. High-end Professional headshot studio located in-house
             </p>
             <div>
@@ -373,6 +373,7 @@ export async function getStaticProps({ params }) {
             title
             stylist {
               name
+              slug
               avatar {
                 url
               }

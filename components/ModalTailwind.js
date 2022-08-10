@@ -102,7 +102,7 @@ export default function ModalTailwind({ open, onClose, imageUrl, content }) {
                         <p className="text-xs font-medium text-gray-700  p-1 ">
                           {content.node.stylist.name}
                         </p>
-                        <Link href={`/artist/${content.node.stylist.name}`}>
+                        <Link href={`/artist/${content.node.stylist.slug}`}>
                           <a className="text-xs font-medium text-gray-200 hover:text-gray-600 ml-3 bg-gray-500 p-1 pl-2 pr-2 rounded-xl ">
                             View profile
                           </a>
@@ -118,7 +118,7 @@ export default function ModalTailwind({ open, onClose, imageUrl, content }) {
                     >
                       {content?.node.title || `Title of Image`}
                     </Dialog.Title>
-                    <Dialog.Description>
+                    <Dialog.Description as={Fragment}>
                     <div className="mt-2">
                       <p className="text-sm text-gray-500">
                         {content?.node.description

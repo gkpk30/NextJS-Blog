@@ -134,7 +134,7 @@ export default function TopBar() {
                           Blogs
                         </a>
                       </Link>
-                  
+
                       <Link href="/artist/">
                         <a
                           className={classNames(
@@ -149,6 +149,16 @@ export default function TopBar() {
                         </a>
                       </Link>
                     </div>
+                  </div>
+                  <div className="self-center mr-4 z-20">
+                    <Link  href="#">
+                    <a
+                     
+                      className="flex items-center justify-center px-4 py-2 border border-transparent rounded-md shadow-sm text-sm font-semibold text-gray-600 bg-gray-50 hover:bg-indigo-50 "
+                    >
+                      Book New Appointment
+                    </a>
+                    </Link>
                   </div>
                   <div className="flex self-center z-20 " style={{}}>
                     {renderThemeChanger()}

@@ -1,6 +1,7 @@
 import Footer from "./Footer";
 import TopBar from "./TopBar";
 import Head from "next/head"
+import Banner from "./Banner"
 
 
 
@@ -13,6 +14,7 @@ const Layout = ({children}) => {
 
           </Head>
           <div className=" min-h-screen flex flex-col font-fourth  ">
+              <Banner/>
               <TopBar className=""/>
                   <main className="flex-grow">
                   {children}

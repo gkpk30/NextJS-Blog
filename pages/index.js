@@ -64,7 +64,7 @@ export default function Home({ posts }) {
       <div className="relative  font-primary">
         <main className="lg:relative">
           <div className="relative mx-auto max-w-7xl w-full pt-16 pb-20 text-center lg:py-48 lg:text-left">
-            <div className="px-4 lg:w-1/2 sm:px-8 xl:pr-16 z-10">
+            <div className="px-4 lg:w-[70%]  sm:px-8 xl:pr-16 z-10">
               <h1 className="relative text-4xl tracking-tight font-extrabold text-gray-900 sm:text-5xl md:text-6xl lg:text-5xl xl:text-6xl">
                 <div className="absolute -left-20  -top-20  lg:block   ">
                   {
@@ -1653,14 +1653,14 @@ export default function Home({ posts }) {
                     </svg>
                   }
                 </div>
-                <span className="inline relative xl:inline dark:text-gray-50 ">
-                  Get booked.
-                </span>{" "}
-                <span className="inline relative text-primary xl:inline">
-                  Enrich your style and professional brand
+                <span className="inline relative xl:inline dark:text-gray-50 z-20 ">
+                More than just a salon. {""} 
+                </span>
+                <span className="inline relative text-primary xl:inline z-20">
+                  Develop your style and professional brand
                 </span>
               </h1>
-              <h2 className="mt-3 max-w-md mx-auto text-lg dark:text-red-700  text-gray-500 bg sm:text-xl md:mt-5 md:max-w-3xl">
+              <h2 className="relative mt-3 max-w-md mx-auto md:mx-0 text-lg font-medium dark:text-red-700  text-gray-500  sm:text-xl md:mt-5 md:max-w-3xl z-20">
                 The most technically advanced haircutting salon in Los Angeles.
                 With High-end Professional headshot studio located in-house
               </h2>
