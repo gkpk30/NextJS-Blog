@@ -1,6 +1,6 @@
 import { GraphQLClient } from "graphql-request";
 import { gql } from "graphql-request";
-import Link from 'next/link'
+import Link from "next/link";
 
 export const people = [
   {
@@ -52,7 +52,10 @@ const QUERY = gql`
       name
       position
       slug
-      bio {
+      shortBio {
+        html
+      }
+      longBio {
         html
       }
       avatar {
@@ -139,18 +142,23 @@ export default function Artists({ stylists }) {
                             <p className="text-indigo-600">
                               {stylist.position}
                             </p>
-                            <Link href={`/artist/${stylist.slug}`}>
-                          <a className="text-xs font-medium text-gray-200 hover:text-gray-600 ml-3 bg-gray-500 p-1 pl-2 pr-2 rounded-xl ">
-                            View profile
-                          </a>
-                        </Link>
+                          
+                              <Link
+                                href={`/artist/${stylist.slug}`}
+                                className="mt-3"
+                              >
+                                <a className="text-xs font-medium text-gray-200 hover:text-gray-600  bg-gray-500 p-1 pl-2 pr-2 rounded-xl ">
+                                  View full profile
+                                </a>
+                              </Link>
+                           
                           </div>
                           <div className="text-lg">
                             {/* <p className="text-gray-500">{stylist.bio.html}</p> */}
                             <div
                               className="text-gray-500 dark:text-gray-400 "
                               dangerouslySetInnerHTML={{
-                                __html: stylist.bio.html,
+                                __html: stylist.shortBio.html,
                               }}
                             />
                           </div>

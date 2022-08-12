@@ -150,7 +150,7 @@ export default function TopBar() {
                       </Link>
                     </div>
                   </div>
-                  <div className="self-center mr-4 z-20">
+                  {/* <div className="self-center mr-4 z-20">
                     <Link  href="#">
                     <a
                      
@@ -159,7 +159,7 @@ export default function TopBar() {
                       Book New Appointment
                     </a>
                     </Link>
-                  </div>
+                  </div> */}
                   <div className="flex self-center z-20 " style={{}}>
                     {renderThemeChanger()}
                   </div>
