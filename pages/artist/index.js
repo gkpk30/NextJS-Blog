@@ -139,13 +139,13 @@ export default function Artists({ stylists }) {
                             <h3 className="text-gray-500 dark:text-gray-300 font-semibold font-primary">
                               {stylist.name}
                             </h3>
-                            <p className="text-indigo-600">
+                            <p className="text-indigo-600 !mb-2">
                               {stylist.position}
                             </p>
                           
                               <Link
                                 href={`/artist/${stylist.slug}`}
-                                className="mt-3"
+                              
                               >
                                 <a className="text-xs font-medium text-gray-200 hover:text-gray-600  bg-gray-500 p-1 pl-2 pr-2 rounded-xl ">
                                   View full profile

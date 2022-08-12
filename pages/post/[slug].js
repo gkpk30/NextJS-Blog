@@ -19,6 +19,7 @@ const QUERY = gql`
       publishDate
       author {
         name
+        slug
         avatar {
           url
         }
@@ -131,10 +132,12 @@ export default function Post({ post }) {
                 Author:{" "}
                 {
                   <Link
-                    className=" ml-3 hover:font-black cursor-pointer"
-                    href={`/?user=${post.author.name}`}
+                    
+                    href={`/artist/${post.author.slug}`}
                   >
+                    <a className=" ml-3 hover:font-black cursor-pointer">
                     <b>{post.author.name}</b>
+                    </a>
                   </Link>
                 }
               </div>
