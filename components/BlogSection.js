@@ -1,19 +1,6 @@
-/*
-  This example requires Tailwind CSS v2.0+ 
-  
-  This example requires some changes to your config:
-  
-  ```
-  // tailwind.config.js
-  module.exports = {
-    // ...
-    plugins: [
-      // ...
-      require('@tailwindcss/forms'),
-    ],
-  }
-  ```
-*/
+import Link from 'next/Link'
+
+
 const posts = [
     {
       title: 'Boost your conversion rate',
@@ -48,7 +35,8 @@ const posts = [
     },
   ]
   
-  export default function BlogSection() {
+  export default function BlogSection({ latestPosts }) {
+      
     return (
       <div className="bg-gray-50 dark:bg-gray-900 pt-16 pb-20 px-4 sm:px-6 lg:pt-24 lg:pb-28 lg:px-8">
         <div className="relative max-w-lg mx-auto divide-y-2 divide-gray-200 lg:max-w-7xl">
@@ -83,19 +71,21 @@ const posts = [
             </div>
           </div>
           <div className="mt-6 pt-10 grid gap-16 lg:grid-cols-2 lg:gap-x-5 lg:gap-y-12">
-            {posts.map((post) => (
+            {latestPosts.map((post) => (
               <div key={post.title}>
                 <p className="text-sm text-gray-500">
-                  <time dateTime={post.datetime}>{post.date}</time>
+                  <time dateTime={post.publishDate}>{new Date(post.publishDate).toDateString()}</time>
                 </p>
                 <a href="#" className="mt-2 block">
                   <p className="text-xl font-semibold text-gray-900 dark:text-gray-300">{post.title}</p>
-                  <p className="mt-3 text-base text-gray-500 dark:text-gray-300">{post.description}</p>
+                  <p className="mt-3 text-base text-gray-500 dark:text-gray-300">{post.excerpt}</p>
                 </a>
                 <div className="mt-3">
-                  <a href={post.href} className="text-base font-semibold text-indigo-600 hover:text-indigo-500">
+                    <Link href={`/post/${post.slug}`} >
+                  <a  className="text-base font-semibold dark:text-gray-300 text-gray-700 hover:text-gray-600">
                     Read full story
                   </a>
+                  </Link>
                 </div>
               </div>
             ))}

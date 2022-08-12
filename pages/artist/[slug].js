@@ -28,6 +28,13 @@ const QUERY = gql`
         url
       }
     }
+    posts(orderBy: publishedAt_DESC, first: 4) {
+      excerpt
+      title
+      publishDate
+      slug
+    }
+    
   }
 `;
 
@@ -45,10 +52,13 @@ export async function getStaticProps({ params }) {
   const data = await graphcms.request(QUERY, { slug });
 
   const stylist = data.stylist;
+  const latestPosts = data.posts
+  
 
   return {
     props: {
       stylist,
+      latestPosts,
     }, // will be passed to the page component as props
   };
 }
@@ -85,7 +95,7 @@ const toBase64 = (str) =>
     ? Buffer.from(str).toString("base64")
     : window.btoa(str);
 
-const ArtistPage = ({ stylist }) => {
+const ArtistPage = ({ stylist, latestPosts }) => {
   const breadcrumbData = [
     { name: "artists", href: "/artist", current: false },
     {
@@ -94,6 +104,7 @@ const ArtistPage = ({ stylist }) => {
       current: true,
     },
   ];
+  
   // {
   //   console.log("artists: ", stylist);
   // }
@@ -183,7 +194,7 @@ const ArtistPage = ({ stylist }) => {
           </div>
         </div>
       </div>
-      <BlogSection/>
+      <BlogSection latestPosts={latestPosts}/>
     </div>
   );
 };
