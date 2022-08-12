@@ -94,9 +94,9 @@ const ArtistPage = ({ stylist }) => {
       current: true,
     },
   ];
-  {
-    console.log("artists: ", stylist);
-  }
+  // {
+  //   console.log("artists: ", stylist);
+  // }
   const bio = stylist.longBio?.html
     ? stylist.longBio.html
     : stylist.shortBio.html;

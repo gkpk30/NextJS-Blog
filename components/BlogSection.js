@@ -48,12 +48,12 @@ const posts = [
     },
   ]
   
-  export default function Example() {
+  export default function BlogSection() {
     return (
       <div className="bg-gray-50 dark:bg-gray-900 pt-16 pb-20 px-4 sm:px-6 lg:pt-24 lg:pb-28 lg:px-8">
         <div className="relative max-w-lg mx-auto divide-y-2 divide-gray-200 lg:max-w-7xl">
           <div>
-            <h2 className="text-3xl tracking-tight font-bold text-gray-900 sm:text-4xl sm:tracking-tight">Subscribe</h2>
+            <h2 className="text-3xl font-fourth tracking-tight font-bold text-gray-900 sm:text-4xl sm:tracking-tight">Subscribe</h2>
             <div className="mt-3 sm:mt-4 lg:grid lg:grid-cols-2 lg:gap-5 lg:items-center">
               <p className="text-xl text-gray-500 dark:text-gray-300">Get weekly articles in your inbox on the latest industry secrets from HeadBetter.</p>
               <form className="mt-6 flex flex-col sm:flex-row lg:mt-0 lg:justify-end">
