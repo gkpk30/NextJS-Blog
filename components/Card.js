@@ -55,8 +55,9 @@ export default function Card({ post }) {
         </div>
         <div className="mt-6 flex items-center ">
           <div className="flex-shrink-0">
+           
             <Link 
-            href={`/artist/${post.author.slug}`}
+            href={post.author.slug !== null ? `/artist/${post.author.slug}` : '/artist'}
             
             >
               <a>
@@ -76,7 +77,7 @@ export default function Card({ post }) {
           <div className="ml-3">
             <p className="text-sm font-medium text-gray-900 dark:text-gray-200">
                 <Link 
-                    href={`/artist/${post.author.slug}`}
+                   href={post.author.slug !== null ? `/artist/${post.author.slug}` : '/artist'}
                 >
                     <a  className="hover:underline">
                         {post.author.name}

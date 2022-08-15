@@ -1653,7 +1653,7 @@ export default function Home({ posts }) {
                     </svg>
                   }
                 </div>
-                <span className="inline relative xl:inline dark:text-gray-50 z-20 ">
+                <span className="inline relative xl:inline dark:text-gray-50 z-20 text-gray-800">
                 More than just a salon. {""} 
                 </span>
                 <span className="inline relative text-primary xl:inline z-20">

@@ -178,7 +178,7 @@ export default function TopBar() {
                     router.pathname === "/"
                       ? "border-primary font-semibold bg-indigo-50 dark:bg-gray-600 text-indigo-700 dark:text-gray-50"
                       : "border-transparent text-gray-500 dark:text-gray-50",
-                    "hover:bg-gray-50 hover:border-gray-300 hover:text-gray-700 block pl-3 pr-4 py-2 border-l-4 text-base font-medium"
+                    "hover:bg-gray-50 dark:hover:bg-gray-800 hover:border-gray-300 hover:text-gray-700 block pl-3 pr-4 py-2 border-l-4 text-base font-medium"
                   )}
                   // className="bg-indigo-50 dark:bg-gray-600 border-primary text-indigo-700 dark:text-gray-50  block pl-3 pr-4 py-2 border-l-4 text-base font-medium"
                 >
@@ -192,7 +192,7 @@ export default function TopBar() {
                     router.pathname === "/services"
                       ? "border-primary font-semibold bg-indigo-50 dark:bg-gray-600 text-indigo-700 dark:text-gray-50"
                       : "border-transparent text-gray-500 dark:text-gray-50",
-                    "hover:bg-gray-50 hover:border-gray-300 hover:text-gray-700 block pl-3 pr-4 py-2 border-l-4 text-base font-medium"
+                    "hover:bg-gray-50 dark:hover:bg-gray-800 hover:border-gray-300 hover:text-gray-700 block pl-3 pr-4 py-2 border-l-4 text-base font-medium"
                   )}
                 >
                   Services
@@ -205,7 +205,7 @@ export default function TopBar() {
                     router.pathname === "/gallery/[page]"
                       ? "border-primary font-semibold bg-indigo-50 dark:bg-gray-600 text-indigo-700 dark:text-gray-50"
                       : "border-transparent text-gray-500 dark:text-gray-50",
-                    "hover:bg-gray-50 hover:border-gray-300 hover:text-gray-700 block pl-3 pr-4 py-2 border-l-4 text-base font-medium"
+                    "hover:bg-gray-50 dark:hover:bg-gray-800 hover:border-gray-300 hover:text-gray-700 block pl-3 pr-4 py-2 border-l-4 text-base font-medium"
                   )}
                 >
                   Gallery
@@ -220,7 +220,7 @@ export default function TopBar() {
                       router.pathname === "/post/[slug]"
                       ? "border-primary font-semibold bg-indigo-50 dark:bg-gray-600 text-indigo-700 dark:text-gray-50"
                       : "border-transparent text-gray-500 dark:text-gray-50",
-                    "hover:bg-gray-50 hover:border-gray-300 hover:text-gray-700 block pl-3 pr-4 py-2 border-l-4 text-base font-medium"
+                    "hover:bg-gray-50 dark:hover:bg-gray-800 hover:border-gray-300 hover:text-gray-700 block pl-3 pr-4 py-2 border-l-4 text-base font-medium"
                   )}
                 >
                   Blogs
@@ -234,7 +234,7 @@ export default function TopBar() {
                     router.pathname === "/artist"
                       ? "border-primary font-semibold bg-indigo-50 dark:bg-gray-600 text-indigo-700 dark:text-gray-50"
                       : "border-transparent text-gray-500 dark:text-gray-50",
-                    "hover:bg-gray-50 hover:border-gray-300 hover:text-gray-700 block pl-3 pr-4 py-2 border-l-4 text-base font-medium"
+                    "hover:bg-gray-50 dark:hover:bg-gray-800 hover:border-gray-300 hover:text-gray-700 block pl-3 pr-4 py-2 border-l-4 text-base font-medium"
                   )}
                 >
                   Artists

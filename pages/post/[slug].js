@@ -133,7 +133,7 @@ export default function Post({ post }) {
                 {
                   <Link
                     
-                    href={`/artist/${post.author.slug}`}
+                  href={post.author.slug !== null ? `/artist/${post.author.slug}` : '/artist'}
                   >
                     <a className=" ml-3 hover:font-black cursor-pointer">
                     <b>{post.author.name}</b>
@@ -157,9 +157,7 @@ export default function Post({ post }) {
           </div>
           <div className="md:grid grid-cols-2 gap-14">
             <div
-              className=" text-lg first-line:uppercase first-line:tracking-widest
-                          first-letter:text-7xl first-letter:font-bold first-letter:text-slate-900 dark:first-letter:text-gray-200
-                          first-letter:mr-3 first-letter:float-left "
+              className=" text-lg  "
             >
               {/* {post.content.html} */}
               <div className={`post ${styles.post}`} dangerouslySetInnerHTML={{ __html: post.content.html }} />

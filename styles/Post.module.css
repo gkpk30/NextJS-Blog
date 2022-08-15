@@ -7,5 +7,44 @@
 }
 
 .post h2 {
+    @apply my-2 text-2xl text-primary font-extrabold
+}
+
+.post h3 {
     @apply my-2 text-xl text-primary font-extrabold
 }
+
+.post h4 {
+    @apply my-2 text-lg text-primary font-extrabold
+}
+.post h5 {
+    @apply my-2 text-lg text-gray-500 dark:text-gray-50 font-extrabold
+}
+
+.post h6 {
+    @apply my-2 text-lg text-primary font-extrabold
+}
+
+.post ol, .post ul {
+    @apply  my-2 text-sm
+}
+
+.post a {
+    @apply text-indigo-700 font-bold
+}
+
+/* .post blockquote:before {
+    content: '“';
+    font-family: "Cormorant Garamond",serif;
+    position: absolute;
+    top: 23px;
+    left: 1%;
+    height: 0.37em;
+    font-size: 80px;
+    line-height: 1;
+    font-weight: 400;
+    letter-spacing: -.05em;
+    color: #85817b;
+    transform: translateY(-50%);
+    z-index: -1;
+} */

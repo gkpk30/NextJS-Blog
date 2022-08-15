@@ -3,8 +3,9 @@ import { SpeakerphoneIcon, XIcon } from '@heroicons/react/outline'
 import {useState} from 'react'
 
 export default function Banner() {
-  const [close, setClose] = useState(false)
+ 
 
+  
 
   return (
     <div className="bg-gray-800 z-20 ">
@@ -31,6 +32,7 @@ export default function Banner() {
             <button
               type="button"
               className="-mr-1 flex p-2 rounded-md hover:bg-indigo-500 focus:outline-none focus:ring-2 focus:ring-white sm:-mr-2"
+              // onClick={() =>}
             >
               <span className="sr-only">Dismiss</span>
               <XIcon className="h-6 w-6 text-white" aria-hidden="true" />
