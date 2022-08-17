@@ -45,4 +45,166 @@ a {
     @apply    bg-gray-50 text-gray-900 dark:bg-gray-900 dark:text-gray-100
     
   }
+ .post a {
+   @apply dark:!text-indigo-300
+ }
+ .post .red {
+   @apply bg-red-700
+ }
+
+ .post .yellow p {
+  @apply bg-yellow-500
+ }
+
+.artists-Area .gallery-three-image img{
+  @apply hidden
+}
+
+
+
+ .artist .gallery-three-image{
+   @apply grid grid-cols-3 gap-4
+ }
+
+ .artist .gallery-three-image img {
+ 
+ }
+
+ .grid-wrapper{
+   /* @apply max-w-xl max-h-11 w-[50vw] grid m-auto gap-4 -rotate-45 grid-cols-8 grid-rows-6 */
+  max-width: 25em;
+  max-height: 35em;
+  width: 50vw;
+  display: grid;
+  margin: auto;
+  grid-template-columns: 1fr 1fr 1fr 1fr 1fr 1fr 1fr 1fr;
+  grid-template-rows: 1fr 1fr 1fr 1fr 1fr 1fr;
+  grid-gap: 1em;
+  transform: rotate(-45deg);
+  
+  
+}
+
+.thing1{
+  font-size: 4em;
+  text-transform: uppercase;
+  grid-column: 1 / span 6;
+  grid-row: 2;
+  align-self: end;
+}
+
+ .thing2{
+  font-size: 2em;
+  grid-column: 2 / span 2;
+  grid-row: 3;
+}
+
+.thing3{
+  font-size: 5em;
+  grid-column: 2;
+  grid-row: 4 / span 3;
+  align-self: end;
+  writing-mode: vertical-rl;
+}
+
+.thing4{
+  font-size: 2em;
+  grid-column: 3 / span 6;
+  grid-row: 6;
+  align-self: start;
+  text-align: right;
+  
+}
+.thing span{
+  display: block;
+  text-transform: uppercase;
+}
+
+ .thing5{
+  font-size: 1em;
+  grid-column: 8;
+  grid-row: 3 / span 2;
+  justify-self: start;
+  writing-mode: vertical-rl;
+}
+
+ .red-bar1{
+  display: block;
+  min-width: 3em;
+  width: 100%;
+  height: 100%;
+  @apply bg-yellow-600;
+  grid-column: 1;
+  grid-row: 3 / span 4;
+}
+
+ .red-bar2{
+  display: block;
+  width: 100%;
+  height: .5em;
+  @apply bg-yellow-600;
+  grid-column: 3 / span 6;
+  grid-row: 6;
+  align-self: end;
+  z-index: -1;
+}
+
+ .red-circle{
+  display: block;
+  width: 13em;
+  height: 13em;
+  border-radius: 100%;
+  @apply bg-gray-400;
+  grid-column: 4 / span 3;
+  grid-row: 1 / span 3;
+  align-self: center;
+  z-index: -1;
+}
+
+@media (max-width: 1024px){
+ 
+  .grid-wrapper .thing1{
+      font-size: 3em;
+    }
+     .grid-wrapper .thing2, .thing4{
+      font-size: 1.75em;
+    }
+    .grid-wrapper .red-circle{
+      width: 10em;
+      height: 10em;
+    }
+}
+
+@media (max-width: 768px){
+  .grid-wrapper{
+    transform: rotate(0deg);
+    width: auto;
+  }
+}
+
+@media (max-width: 570px){
+  .grid-wrapper{
+    grid-template-rows: 1fr 1fr 1fr 1fr 1fr 1fr 1fr;
+    
+  }
+   .grid-wrapper .thing4{
+      grid-column: 1 / span 8;
+      grid-row: 7;
+    }
+     .grid-wrapper  .red-bar2{
+      grid-column: 1 / span 8;
+      grid-row: 7;
+    }
+}
+
+@media (max-width: 425px){
+  
+  .grid-wrapper .thing1{
+      font-size: 2.75em;
+    }
+     .grid-wrapper  .thing3{
+      font-size: 4em;
+    }
+}
+ 
 }

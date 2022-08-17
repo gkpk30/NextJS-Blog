@@ -174,13 +174,13 @@ const ArtistPage = ({ stylist, latestPosts }) => {
                     height={1376}
                   />
                 </div>
-                <figcaption className="mt-3 flex text-sm text-gray-500">
+                {/* <figcaption className="mt-3 flex text-sm text-gray-500">
                   <CameraIcon
                     className="flex-none w-5 h-5 text-gray-400"
                     aria-hidden="true"
                   />
-                  <span className="ml-2">Photograph by Marcus O’Leary</span>
-                </figcaption>
+                  <span className="ml-2">Photograph by John Ciccone</span>
+                </figcaption> */}
               </figure>
             </div>
           </div>

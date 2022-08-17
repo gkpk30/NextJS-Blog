@@ -31,7 +31,7 @@ export default function Card({ post }) {
       </div>
       <div className="flex-1 bg-white dark:bg-gray-800 p-6 flex flex-col justify-between">
         <div className="flex-1">
-          <p className="text-sm font-medium text-indigo-600">
+          <p className="text-sm font-semibold text-indigo-600 dark:text-indigo-300">
             {post.categories.map((cat, index) => {
               return (
                 <Link href={`/${cat.categoryTitle}`} key={index} >
@@ -84,7 +84,7 @@ export default function Card({ post }) {
                     </a>
                 </Link>
             </p>
-            <div className="flex space-x-1 text-sm text-gray-500">
+            <div className="flex space-x-1 text-sm text-gray-500 dark:text-gray-300">
               <time dateTime={post.publishDate}>
                 {new Date(post.publishDate).toDateString()}
               </time>

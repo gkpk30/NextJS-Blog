@@ -76,7 +76,7 @@ const Blog = ({ posts, categories }) => {
          
           <Tabs className="mt-12  " posts={posts} categories={categories} />
          
-          <Pagination className="dark:bg-gray-900 mt-8" />
+         
         </div>
       </div>
     </>

@@ -30,15 +30,15 @@
 }
 
 .post a {
-    @apply text-indigo-700 font-bold
+    @apply text-indigo-500 dark:text-indigo-400  font-bold
 }
 
-/* .post blockquote:before {
+.post blockquote:before {
     content: '“';
     font-family: "Cormorant Garamond",serif;
     position: absolute;
-    top: 23px;
-    left: 1%;
+    top: -40px;
+    left: -5%;
     height: 0.37em;
     font-size: 80px;
     line-height: 1;
@@ -47,4 +47,22 @@
     color: #85817b;
     transform: translateY(-50%);
     z-index: -1;
-} */
+} 
+
+
+.post blockquote {
+    @apply  relative 2xl:-left-10 lg:-left-7 mt-7 
+}
+.post blockquote p {
+   @apply text-xl lg:text-2xl
+}
+
+.post blockquote + p {
+    @apply mb-5 text-lg
+}
+
+.post a {
+    @apply dark:!text-indigo-300
+}
+
+

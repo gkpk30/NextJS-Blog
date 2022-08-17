@@ -156,7 +156,7 @@ export default function Artists({ stylists }) {
                           <div className="text-lg">
                             {/* <p className="text-gray-500">{stylist.bio.html}</p> */}
                             <div
-                              className="text-gray-500 dark:text-gray-400 "
+                              className="artists-Area text-gray-500 dark:text-gray-400 "
                               dangerouslySetInnerHTML={{
                                 __html: stylist.shortBio.html,
                               }}
