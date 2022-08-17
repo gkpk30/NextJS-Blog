@@ -34,11 +34,12 @@ export default function Card({ post }) {
           <p className="text-sm font-semibold text-indigo-600 dark:text-indigo-300">
             {post.categories.map((cat, index) => {
               return (
-                <Link href={`/${cat.categoryTitle}`} key={index} >
-                  <a className="hover:underline mr-2 lowercase ">
-                    {cat.categoryTitle}
-                  </a>
-                </Link>
+                // <Link href={`/${cat.categoryTitle}`} key={index} >
+                //   <a className="hover:underline mr-2 lowercase ">
+                //     {cat.categoryTitle}
+                //   </a>
+                // </Link>
+                <span key={index} className="mr-2 lowercase">{cat.categoryTitle}</span>
               );
             })}
           </p>
