@@ -187,7 +187,7 @@ const ArtistPage = ({ stylist, latestPosts }) => {
           <div className="mt-8 lg:mt-0">
             <div className="text-base max-w-prose mx-auto lg:max-w-none">
               <div
-                className={`artist ${styles.artist} mt-5 text-gray-500 prose`}
+                className={`artist ${styles.artist} mt-5 text-gray-500 dark:text-gray-300 prose`}
                 dangerouslySetInnerHTML={{ __html: bio }}
               />
             </div>

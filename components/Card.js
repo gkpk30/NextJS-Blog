@@ -21,7 +21,7 @@ export default function Card({ post }) {
     >
       <div className="flex-shrink-0 ">
         <Image
-          className="h-48 w-full object-cover"
+          className="h-48 w-full object-cover object-top"
           src={post.coverPhoto.url}
           height={"192px"}
           width={"300px"}

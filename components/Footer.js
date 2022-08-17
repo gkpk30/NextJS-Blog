@@ -4,7 +4,7 @@ const navigation = {
       
       { name: 'Services', href: '/services' },
       { name: 'Blogs', href: '/blogs' },
-      { name: 'Gallery', href: '/gallery' },
+      { name: 'Gallery', href: '/gallery/1' },
       { name: 'Artists', href: '/artists' },
     
     ],
