@@ -58,7 +58,7 @@ export default function Card({ post }) {
           <div className="flex-shrink-0">
            
             <Link 
-            href={post.author.slug !== null ? `/artist/${post.author.slug}` : '/artist'}
+            href={post.author.slug !== null || undefined ? `/artist/${post.author.slug}` : '/artist'}
             
             >
               <a>

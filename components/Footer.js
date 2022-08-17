@@ -6,6 +6,7 @@ const navigation = {
       { name: 'Blogs', href: '/blogs' },
       { name: 'Gallery', href: '/gallery/1' },
       { name: 'Artists', href: '/artists' },
+      {name: 'Appointments', href: '/appointments'},
     
     ],
     social: [
@@ -94,7 +95,7 @@ const navigation = {
               </a>
             ))}
           </div>
-          <p className="mt-8 text-center text-base text-gray-400">&copy; 2020 Workflow, Inc. All rights reserved.</p>
+          <p className="mt-8 text-center text-base text-gray-400">&copy; 2022 Headbetter, Inc. All rights reserved.</p>
         </div>
       </footer>
     )

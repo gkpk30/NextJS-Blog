@@ -169,7 +169,7 @@ export default function Post({ post }) {
                 dangerouslySetInnerHTML={{ __html: post.content.html }}
               />
             </div>
-            <div >
+            <div  >
               <div className="h-[20rem] w-full relative xl:h-[40rem] ">
                 <Image
                   src={post.coverPhoto.url}
@@ -183,7 +183,7 @@ export default function Post({ post }) {
                 />
               </div>
               {/* Jan Tchichold design */}
-              <div className="grid-wrapper mt-52 ">
+              <div className="grid-wrapper mt-52  ">
                 <p className="thing1">A Devines</p>
                 <p className="thing2">Exclusive</p>
                 <p className="thing3">Salon</p>

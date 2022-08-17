@@ -1,10 +1,14 @@
 /* This example requires Tailwind CSS v2.0+ */
 import { useEffect, useState } from "react";
-import { Disclosure, Menu, Transition } from "@headlessui/react";
+import { Disclosure } from "@headlessui/react";
 import { MenuIcon, XIcon } from "@heroicons/react/outline";
 import { MoonIcon, SunIcon } from "@heroicons/react/solid";
 import Link from "next/link";
+import Image from "next/image"
 import { useRouter } from "next/router";
+import logo from "../public/images/headbetterlogo.png"
+
+console.log("Logo: ",logo)
 
 import { useTheme } from "next-themes";
 
@@ -70,7 +74,14 @@ export default function TopBar() {
                 <div className="flex justify-between " style={{ flex: "auto" }}>
                   <div className="flex-1 flex items-center justify-center sm:items-stretch sm:justify-start">
                     <div className="flex-shrink-0 flex items-center">
-                      <img
+                      <Image
+                      className="block  h-8 w-auto"
+                      src={logo}
+                      alt="HeadBetter Logo"
+                      height="32px"
+                      width="100px"
+                       />
+                      {/* <img
                         className="block lg:hidden h-8 w-auto"
                         src="https://tailwindui.com/img/logos/workflow-mark-indigo-600.svg"
                         alt="Workflow"
@@ -79,7 +90,7 @@ export default function TopBar() {
                         className="hidden lg:block h-8 w-auto"
                         src="https://tailwindui.com/img/logos/workflow-logo-indigo-600-mark-gray-800-text.svg"
                         alt="Workflow"
-                      />
+                      /> */}
                     </div>
 
                     <div className="hidden sm:ml-12 sm:flex sm:space-x-6 z-20  ">
