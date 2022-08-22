@@ -17,7 +17,7 @@ export default function Card({ post }) {
   return (
     <div
       key={post.title}
-      className="flex flex-col  shadow-lg overflow-hidden"
+      className=" flex flex-col  shadow-lg overflow-hidden"
     >
       <div className="flex-shrink-0 ">
         <Image
@@ -29,7 +29,7 @@ export default function Card({ post }) {
           alt=""
         />
       </div>
-      <div className="flex-1 bg-white dark:bg-gray-800 p-6 flex flex-col justify-between">
+      <div className="flex-1 bg-gray-50 dark:bg-gray-900 p-6 flex flex-col justify-between">
         <div className="flex-1">
           <p className="text-sm font-semibold text-indigo-600 dark:text-indigo-300">
             {post.categories.map((cat, index) => {

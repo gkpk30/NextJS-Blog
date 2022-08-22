@@ -96,6 +96,15 @@ const features = [
     price: "$500-$2500",
     href: "/services/wedding",
   },
+  {
+    name: "SuperModel Makeover",
+    subHeader: "We will work with you together in terms of Creative Direction, and you are in charge of the vibes.",
+    description: "Supermodel Makeover is a service provided by headbetter stylists. It includes any and all hair services, Make up and a full photoshoot.",
+    imageSrc: wedding,
+    imageAlt: "Detail of zipper pull with tan leather and silver rivet.",
+    price: "$500-$2000",
+    href: "/services/supermodel-makeover",
+  },
 ];
 
 function classNames(...classes) {
@@ -182,7 +191,7 @@ export default function services() {
                   <Image
                     src={feature.imageSrc}
                     alt={feature.imageAlt}
-                    className="object-center object-cover"
+                    className="object-top object-cover"
                     width={1000}
                     height={500}
                     layout="responsive"

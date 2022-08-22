@@ -1,27 +1,38 @@
+import sideImage from '../public/images/services-banner.jpeg'
+import Image from 'next/image'
 
-export default function Apopinments() {
+export default function Appointments() {
+  console.log(sideImage)
     return (
-      <div className="relative bg-white">
+      <div className="relative bg-gray-50 dark:bg-gray-900">
         <div className="lg:absolute lg:inset-0">
-          <div className="lg:absolute lg:inset-y-0 lg:right-0 lg:w-1/2">
-            <img
+          <div className="lg:absolute lg:inset-y-0 lg:right-0 lg:w-1/2"
+          >
+            {/* <img
               className="h-56 w-full object-cover lg:absolute lg:h-full"
               src="https://images.unsplash.com/photo-1556761175-4b46a572b786?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=1567&q=80"
               alt=""
+            /> */}
+            <Image
+              className="h-56 w-full object-cover lg:absolute lg:h-full"
+              src={sideImage}
+              height={1800}
+              width={2000}
+              objectFit='cover'
+              quality='100'
             />
           </div>
         </div>
         <div className="relative py-16 px-4 sm:py-24 sm:px-6 lg:px-8 lg:max-w-7xl lg:mx-auto lg:py-32 lg:grid lg:grid-cols-2">
           <div className="lg:pr-8">
             <div className="max-w-md mx-auto sm:max-w-lg lg:mx-0">
-              <h2 className="text-3xl font-bold tracking-tight sm:text-4xl sm:tracking-tight">Let's work together</h2>
-              <p className="mt-4 text-lg text-gray-500 sm:mt-3">
-                We’d love to hear from you! Send us a message using the form opposite, or email us. We’d love to hear from
-                you! Send us a message using the form opposite, or email us.
+              <h2 className="text-gray-900 dark:text-gray-300 text-3xl font-bold tracking-tight sm:text-4xl sm:tracking-tight">Let's work together</h2>
+              <p className="mt-4 text-lg text-gray-500 dark:text-gray-400 sm:mt-3">
+                We’d love to hear from you! Send us a message using the form below, or email us. 
               </p>
               <form action="#" method="POST" className="mt-9 grid grid-cols-1 gap-y-6 sm:grid-cols-2 sm:gap-x-8">
                 <div>
-                  <label htmlFor="first-name" className="block text-sm font-medium text-gray-700">
+                  <label htmlFor="first-name" className="block text-sm font-medium text-gray-700 dark:text-gray-300">
                     First name
                   </label>
                   <div className="mt-1">
@@ -35,7 +46,7 @@ export default function Apopinments() {
                   </div>
                 </div>
                 <div>
-                  <label htmlFor="last-name" className="block text-sm font-medium text-gray-700">
+                  <label htmlFor="last-name" className="block text-sm font-medium text-gray-700 dark:text-gray-300">
                     Last name
                   </label>
                   <div className="mt-1">
@@ -49,7 +60,7 @@ export default function Apopinments() {
                   </div>
                 </div>
                 <div className="sm:col-span-2">
-                  <label htmlFor="email" className="block text-sm font-medium text-gray-700">
+                  <label htmlFor="email" className="block text-sm font-medium text-gray-700 dark:text-gray-300">
                     Email
                   </label>
                   <div className="mt-1">
@@ -63,7 +74,7 @@ export default function Apopinments() {
                   </div>
                 </div>
                 <div className="sm:col-span-2">
-                  <label htmlFor="company" className="block text-sm font-medium text-gray-700">
+                  <label htmlFor="company" className="block text-sm font-medium text-gray-700 dark:text-gray-300">
                     Company
                   </label>
                   <div className="mt-1">
@@ -78,10 +89,10 @@ export default function Apopinments() {
                 </div>
                 <div className="sm:col-span-2">
                   <div className="flex justify-between">
-                    <label htmlFor="phone" className="block text-sm font-medium text-gray-700">
+                    <label htmlFor="phone" className="block text-sm font-medium text-gray-700 dark:text-gray-300">
                       Phone
                     </label>
-                    <span id="phone-description" className="text-sm text-gray-500">
+                    <span id="phone-description" className="text-sm text-gray-500 dark:text-gray-300">
                       Optional
                     </span>
                   </div>
@@ -98,10 +109,10 @@ export default function Apopinments() {
                 </div>
                 <div className="sm:col-span-2">
                   <div className="flex justify-between">
-                    <label htmlFor="how-can-we-help" className="block text-sm font-medium text-gray-700">
+                    <label htmlFor="how-can-we-help" className="block text-sm font-medium text-gray-700 dark:text-gray-300">
                       How can we help you?
                     </label>
-                    <span id="how-can-we-help-description" className="text-sm text-gray-500">
+                    <span id="how-can-we-help-description" className="text-sm text-gray-500 dark:text-gray-300">
                       Max. 500 characters
                     </span>
                   </div>
@@ -117,7 +128,7 @@ export default function Apopinments() {
                   </div>
                 </div>
                 <fieldset className="sm:col-span-2">
-                  <legend className="block text-sm font-medium text-gray-700">Expected budget</legend>
+                  <legend className="block text-sm font-medium text-gray-700 dark:text-gray-300">Expected budget</legend>
                   <div className="mt-4 grid grid-cols-1 gap-y-4">
                     <div className="flex items-center">
                       <input
@@ -128,7 +139,7 @@ export default function Apopinments() {
                         className="focus:ring-indigo-500 h-4 w-4 text-indigo-600 border-gray-300"
                       />
                       <label htmlFor="budget-under-25k" className="ml-3">
-                        <span className="block text-sm text-gray-700">Less than $25K</span>
+                        <span className="block text-sm text-gray-700 dark:text-gray-300">Less than $25K</span>
                       </label>
                     </div>
                     <div className="flex items-center">
@@ -140,7 +151,7 @@ export default function Apopinments() {
                         className="focus:ring-indigo-500 h-4 w-4 text-indigo-600 border-gray-300"
                       />
                       <label htmlFor="budget-25k-50k" className="ml-3">
-                        <span className="block text-sm text-gray-700">$25K – $50K</span>
+                        <span className="block text-sm text-gray-700 dark:text-gray-300">$25K – $50K</span>
                       </label>
                     </div>
                     <div className="flex items-center">
@@ -152,7 +163,7 @@ export default function Apopinments() {
                         className="focus:ring-indigo-500 h-4 w-4 text-indigo-600 border-gray-300"
                       />
                       <label htmlFor="budget-50k-100k" className="ml-3">
-                        <span className="block text-sm text-gray-700">$50K – $100K</span>
+                        <span className="block text-sm text-gray-700 dark:text-gray-300">$50K – $100K</span>
                       </label>
                     </div>
                     <div className="flex items-center">
@@ -164,13 +175,13 @@ export default function Apopinments() {
                         className="focus:ring-indigo-500 h-4 w-4 text-indigo-600 border-gray-300"
                       />
                       <label htmlFor="budget-over-100k" className="ml-3">
-                        <span className="block text-sm text-gray-700">$100K+</span>
+                        <span className="block text-sm text-gray-700 dark:text-gray-300">$100K+</span>
                       </label>
                     </div>
                   </div>
                 </fieldset>
                 <div className="sm:col-span-2">
-                  <label htmlFor="how-did-you-hear-about-us" className="block text-sm font-medium text-gray-700">
+                  <label htmlFor="how-did-you-hear-about-us" className="block text-sm font-medium text-gray-700 dark:text-gray-300">
                     How did you hear about us?
                   </label>
                   <div className="mt-1">
@@ -185,7 +196,7 @@ export default function Apopinments() {
                 <div className="text-right sm:col-span-2">
                   <button
                     type="submit"
-                    className="inline-flex justify-center py-2 px-4 border border-transparent shadow-sm text-sm font-medium rounded-md text-white bg-indigo-600 hover:bg-indigo-700 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-indigo-500"
+                    className="inline-flex justify-center py-2 px-4 border border-transparent shadow-sm text-sm font-medium rounded-md text-white dark:text-gray-300 bg-indigo-600 hover:bg-indigo-700 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-indigo-500"
                   >
                     Submit
                   </button>

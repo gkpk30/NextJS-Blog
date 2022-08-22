@@ -1,8 +1,10 @@
 import Head from "next/head";
 import Image from "next/image";
+import Incentives from "../components/Incentives";
 import Link from "next/link";
 import Blonde from "../public/images/Banner-Blond-Black-Dress-min.jpeg";
 import YellowBlonde from "../public/images/model-pink-hair-yellow-background-min.jpeg";
+import ecoGirl from '../public/images/ecoGirl.jpeg'
 import styles from "../styles/Home.module.css";
 import BlogPreviewSection from "../components/BlogPreviewSection";
 import { GraphQLClient } from "graphql-request";
@@ -1654,7 +1656,7 @@ export default function Home({ posts }) {
                   }
                 </div>
                 <span className="inline relative xl:inline dark:text-gray-50 z-20 text-gray-800">
-                More than just a salon. {""} 
+                  More than just a salon. {""}
                 </span>
                 <span className="inline relative text-primary xl:inline z-20">
                   Develop your style and professional brand
@@ -1662,7 +1664,8 @@ export default function Home({ posts }) {
               </h1>
               <h2 className="relative mt-3 max-w-md mx-auto md:mx-0 text-lg font-medium dark:text-red-700  text-gray-500  sm:text-xl md:mt-5 md:max-w-3xl z-20">
                 The most technically advanced haircutting salon in Los Angeles.
-                With High-end Professional headshot studio located in-house
+                With a High-end Professional headshot studio located in-house.
+                Headbetter Salon is a full service hair, make up and photography studio, offering a wide range of beauty services.
               </h2>
               <div className="mt-10 sm:flex sm:justify-center lg:justify-start">
                 <div>
@@ -1724,7 +1727,7 @@ export default function Home({ posts }) {
         </main>
 
         {/* Blog Section */}
-        <div className="mt-36 sm:mt-96 ">
+        <div className="mt-36 sm:mt-96 bg-gray-200 dark:bg-gray-800">
           <div
             name="latestBlogs"
             className="flex flex-col justify-center items-center w-full "
@@ -1732,7 +1735,20 @@ export default function Home({ posts }) {
             <BlogPreviewSection posts={posts} />
           </div>
         </div>
+        <div className="">
+        <div 
+          className="overflow-hidden  relative before:content-[''] before:bg-incentive-bg before:absolute  lg:before:left-2/3 before:left-[20%] before:top-0 before:w-full before:h-full before:opacity-30 before:bg-cover lg:before:bg-contain before:bg-no-repeat  after:brightness-100 after:dark:brightness-[75%] after:right-0  after:top-0   " 
+          >
+          <Incentives />
+        {/* <div className="  hidden lg:block absolute -top-10 -right-[20%] opacity-90  ">
+                <Image 
+                    src={ecoGirl}
+                />     
+        </div> */}
       </div>
+      </div>
+      </div>
+      
     </>
   );
 }

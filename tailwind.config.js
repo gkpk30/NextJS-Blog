@@ -36,7 +36,7 @@ module.exports = {
         
       },
       backgroundImage: {
-        'login-BgImage': "url('/assets/images/ecological-hair-care-min.jpeg')",
+        'incentive-bg': "url('/images/ecoGirl.jpeg')",
         
       }
     },
