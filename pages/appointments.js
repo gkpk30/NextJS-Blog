@@ -28,7 +28,7 @@ export default function Appointments() {
             <div className="max-w-md mx-auto sm:max-w-lg lg:mx-0">
               <h2 className="text-gray-900 dark:text-gray-300 text-3xl font-bold tracking-tight sm:text-4xl sm:tracking-tight">Let's work together</h2>
               <p className="mt-4 text-lg text-gray-500 dark:text-gray-400 sm:mt-3">
-                We’d love to hear from you! Send us a message using the form below, or email us. 
+                We&apos;d love to hear from you! Send us a message using the form below, or email us. 
               </p>
               <form action="#" method="POST" className="mt-9 grid grid-cols-1 gap-y-6 sm:grid-cols-2 sm:gap-x-8">
                 <div>

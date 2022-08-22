@@ -98,8 +98,8 @@ const features = [
   },
   {
     name: "SuperModel Makeover",
-    subHeader: "We will work with you together in terms of Creative Direction, and you are in charge of the vibes.",
-    description: "Supermodel Makeover is a service provided by headbetter stylists. It includes any and all hair services, Make up and a full photoshoot.",
+    subHeader: "Supermodel Makeover is a service provided by headbetter stylists, it includes any and all hair services, Make up and a full photoshoot.",
+    description: "Headbetter Salon in Sherman Oaks is the only salon in the world that is equipped with a fashion photography studio in-house and offers a full makeover with a professional photoshoot all in one package along with your hairstyle.",
     imageSrc: wedding,
     imageAlt: "Detail of zipper pull with tan leather and silver rivet.",
     price: "$500-$2000",
