@@ -3,7 +3,7 @@ import Image from "next/image";
 import Incentives from "../components/Incentives";
 import Link from "next/link";
 import Blonde from "../public/images/Banner-Blond-Black-Dress-min.jpeg";
-import YellowBlonde from "../public/images/model-pink-hair-yellow-background-min.jpeg";
+import YellowBlonde from "../public/images/model-pink-hair-yellow-background.jpeg";
 import ecoGirl from '../public/images/ecoGirl.jpeg'
 import styles from "../styles/Home.module.css";
 import BlogPreviewSection from "../components/BlogPreviewSection";

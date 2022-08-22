@@ -11,6 +11,7 @@ import cutting from "../../public/images/cutting.jpg";
 import styling from "../../public/images/styling.jpg";
 import wedding from "../../public/images/wedding.jpg";
 import makeup from "../../public/images/makeup.jpeg";
+import camera from "../../public/images/holdingCamera.jpg";
 
 const features = [
   {
@@ -20,6 +21,7 @@ const features = [
     description:
       "Headbetter stylists pride themselves on precision haircutting. All cuts include a full service shampoo and are finished with a proper blow-out. You will leave the salon ready for a big night out.",
     imageSrc: cutting,
+    imagePosition: 'center',
     imageAlt:
       "White canvas laptop sleeve with gray felt interior, silver zipper, and tan leather zipper pull.",
     price: "$90-$150",
@@ -31,6 +33,7 @@ const features = [
     description:
       "Headbetter stylists have over 20 years experience doing traditional balayage in Los Angeles, and were among the first to get notoriety on social media for changing the look of Los Angeles. If you want the best, and you want a stylist that will design a look that's all your own... you found it.",
     imageSrc: balayage,
+    imagePosition: 'center',
     imageAlt: "Detail of zipper pull with tan leather and silver rivet.",
     price: "$200-$500",
     href: "/services/balayage",
@@ -42,6 +45,7 @@ const features = [
     description:
       "All haircolor brands are of the highest quality and are luxuriously conditioning. Let us work with you to find the perfect tone and depth that flatters your skin tone.",
     imageSrc: coloring,
+    imagePosition: 'center',
     imageAlt: "Detail of zipper pull with tan leather and silver rivet.",
     price: "$100-$200",
     href: "/services/color",
@@ -53,6 +57,7 @@ const features = [
     description:
       "Do not hesitate to ask us to create a work of art with your hair, you will make our day. There's nothing that would make us happier than to test the limits of fashion with you and your locks",
     imageSrc: creativeColor,
+    imagePosition: 'center',
     imageAlt: "Detail of zipper pull with tan leather and silver rivet.",
     price: "$200-$1000",
     href: "/services/creative-color",
@@ -63,6 +68,7 @@ const features = [
     description:
       "Headbetter stylists are regularly hired for events like the Grammys and the Oscars, so rest assured that we take our styling seriously. We offer the absolute best hair styling services available in Los Angeles.<br><br> Also, every Cut or Color service done at Headbetter gets the red carpet treatment, a perfect blow dry free of additional charge.",
     imageSrc: styling,
+    imagePosition: 'center',
     imageAlt: "Detail of zipper pull with tan leather and silver rivet.",
     price: "$75-$200",
   },
@@ -73,6 +79,7 @@ const features = [
     description:
       "Our make-up artists are top of the line. We carry the best make-up options in the industry. ",
     imageSrc: makeup,
+    imagePosition: 'center',
     imageAlt: "Detail of zipper pull with tan leather and silver rivet.",
     price: "$150-$250",
   },
@@ -83,6 +90,7 @@ const features = [
     description:
       "Come sit down for a consultation with our experts and together we'll determine the new length, color and fullness that you desire. Do yourself a favor let us make your dream hair a reality.",
     imageSrc: extensions,
+    imagePosition: 'center',
     imageAlt: "Detail of zipper pull with tan leather and silver rivet.",
     price: "$500-$2500",
    
@@ -92,6 +100,7 @@ const features = [
     subHeader: "Weddings! You bet",
     description: "We got this. Call John Michael for more info.",
     imageSrc: wedding,
+    imagePosition: 'top',
     imageAlt: "Detail of zipper pull with tan leather and silver rivet.",
     price: "$500-$2500",
     href: "/services/wedding",
@@ -100,8 +109,9 @@ const features = [
     name: "SuperModel Makeover",
     subHeader: "Supermodel Makeover is a service provided by headbetter stylists, it includes any and all hair services, Make up and a full photoshoot.",
     description: "Headbetter Salon in Sherman Oaks is the only salon in the world that is equipped with a fashion photography studio in-house and offers a full makeover with a professional photoshoot all in one package along with your hairstyle.",
-    imageSrc: wedding,
-    imageAlt: "Detail of zipper pull with tan leather and silver rivet.",
+    imageSrc: camera,
+    imagePosition: 'center',
+    imageAlt: "photo holding slr camera",
     price: "$500-$2000",
     href: "/services/supermodel-makeover",
   },
@@ -191,7 +201,7 @@ export default function services() {
                   <Image
                     src={feature.imageSrc}
                     alt={feature.imageAlt}
-                    className="object-top object-cover"
+                    className={`object-${feature.imagePosition} object-cover`}
                     width={1000}
                     height={500}
                     layout="responsive"
