@@ -1,5 +1,7 @@
 /* This example requires Tailwind CSS v2.0+ */
 import { useEffect, useState } from "react";
+import FlyoutMenu from './FlyoutMenu'
+import Example from './Example'
 import { Disclosure } from "@headlessui/react";
 import { MenuIcon, XIcon } from "@heroicons/react/outline";
 import { MoonIcon, SunIcon } from "@heroicons/react/solid";
@@ -19,6 +21,9 @@ function classNames(...classes) {
 export default function TopBar() {
   const router = useRouter();
   console.log("router: ", router.pathname);
+
+  const pathnameArray = router.pathname.split("/")
+  console.log("pathname: ", pathnameArray[2])
   // const pathname = location.pathname
   // console.log("pathname: ", pathname)
 
@@ -107,19 +112,25 @@ export default function TopBar() {
                           Home
                         </a>
                       </Link>
-                      <Link href="/services">
-                        <a
+                     
+                        <div
                           className={classNames(
                             router.pathname === "/services" ||
-                              router.pathname === "/services/"
+                            router.pathname.split("/")[1] === "services"
                               ? "border-primary font-semibold"
                               : "border-transparent font-medium",
                             " hover:border-gray-300 text-gray-500  dark:text-gray-50 inline-flex items-center px-1 pt-1 border-b-2 text-sm "
                           )}
                         >
-                          Services
-                        </a>
-                      </Link>
+                         {/* <Example linkName='Services'/> */}
+                         <FlyoutMenu linkName = "Services"/>
+                        </div>
+                      
+                      {/* <Link href="/services"> */}
+                        {/* <Example linkName='Services'/> */}
+                       {/* <FlyoutMenu menuLink = "Services"/> */}
+                       {/* </Link> */}
+                     
                       <Link href="/gallery/1">
                         <a
                           className={classNames(
@@ -200,7 +211,7 @@ export default function TopBar() {
                   as="a"
                   href="/services"
                   className={classNames(
-                    router.pathname === "/services"
+                    router.pathname === "/services" || router.pathname.split("/")[1] === "services"
                       ? "border-primary font-semibold bg-indigo-50 dark:bg-gray-600 text-indigo-700 dark:text-gray-50"
                       : "border-transparent text-gray-500 dark:text-gray-50",
                     "hover:bg-gray-50 dark:hover:bg-gray-800 hover:border-gray-300 hover:text-gray-700 block pl-3 pr-4 py-2 border-l-4 text-base font-medium"

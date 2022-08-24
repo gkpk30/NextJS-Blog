@@ -41,7 +41,7 @@ const Layout = ({ children }) => {
           />
         </div>
         <TopBar className="" />
-        <main className="flex-grow">{children}</main>
+        <main className="flex-grow isolate">{children}</main>
         <Footer />
       </div>
     </>

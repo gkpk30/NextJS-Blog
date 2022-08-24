@@ -76,8 +76,8 @@ export async function getStaticProps() {
 export default function Artists({ stylists }) {
   return (
     <div className="relative">
-      <div className="hidden sm:block absolute -top-20 right-0 bg-gradient-to-r from-gray-400 to-third sm:h-[40rem] opacity-20 lg:h-[50rem] w-1/2 sm:w-1/3  z-10 "></div>
-      <div className="relative bg-gradient-to-r from-third to-secondary dark:from-gray-900   dark:to-primary-dark mx-auto max-w-7xl w-full pt-16 pb-20 px-4 sm:px-6 lg:px-8  text-center lg:py-48 lg:text-left z-20">
+      <div className="hidden sm:block absolute -top-20 right-0 bg-gradient-to-r from-gray-400 to-third sm:h-[40rem] opacity-20 lg:h-[50rem] w-1/2 sm:w-1/3  "></div>
+      <div className="relative bg-gradient-to-r from-third to-secondary dark:from-gray-900   dark:to-primary-dark mx-auto max-w-7xl w-full pt-16 pb-20 px-4 sm:px-6 lg:px-8  text-center lg:py-48 lg:text-left ">
         <div className="flex flex-col lg:flex-row gap-5 p-2  ">
           <div className="flex flex-col lg:w-2/3 xl:w-1/2 ">
             <div className="text-sm mb-8 font-bold text-gray-300">ABOUT US</div>
