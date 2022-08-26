@@ -9,6 +9,7 @@ import Link from "next/link";
 import Image from "next/image"
 import { useRouter } from "next/router";
 import logo from "../public/images/headbetterlogo.png"
+import logoWhite from "../public/images/headbetterlogoWhite.png"
 
 console.log("Logo: ",logo)
 
@@ -58,6 +59,33 @@ export default function TopBar() {
     }
   };
 
+  //renders a logo color based on color theme light vs dark
+  const renderLogoChanger = () => {
+    if(!mounted) return null;
+    const currentTheme = theme === "system" ? systemTheme : theme;
+    if (currentTheme === "dark") { 
+      return (
+        <Image
+        className="block  h-8 w-auto"
+        src={logoWhite}
+        alt="HeadBetter Logo"
+        height="32px"
+        width="100px"
+         />
+      )
+    } else {
+      return (
+        <Image
+        className="block  h-8 w-auto"
+        src={logo}
+        alt="HeadBetter Logo"
+        height="32px"
+        width="100px"
+         />
+      )
+    }
+  }
+
   return (
     <header>
       <Disclosure as="nav" className="shadow">
@@ -79,23 +107,8 @@ export default function TopBar() {
                 <div className="flex justify-between " style={{ flex: "auto" }}>
                   <div className="flex-1 flex items-center justify-center sm:items-stretch sm:justify-start">
                     <div className="flex-shrink-0 flex items-center">
-                      <Image
-                      className="block  h-8 w-auto"
-                      src={logo}
-                      alt="HeadBetter Logo"
-                      height="32px"
-                      width="100px"
-                       />
-                      {/* <img
-                        className="block lg:hidden h-8 w-auto"
-                        src="https://tailwindui.com/img/logos/workflow-mark-indigo-600.svg"
-                        alt="Workflow"
-                      />
-                      <img
-                        className="hidden lg:block h-8 w-auto"
-                        src="https://tailwindui.com/img/logos/workflow-logo-indigo-600-mark-gray-800-text.svg"
-                        alt="Workflow"
-                      /> */}
+                        {renderLogoChanger()}
+                     
                     </div>
 
                     <div className="hidden sm:ml-12 sm:flex sm:space-x-6 z-20  ">

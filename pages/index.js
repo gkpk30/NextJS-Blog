@@ -65,6 +65,7 @@ export default function Home({ posts }) {
 
       <div className="relative  font-primary">
         <main className="lg:relative">
+          
           <div className="relative mx-auto max-w-7xl w-full pt-16 pb-20 text-center lg:py-48 lg:text-left">
             <div className="px-4 lg:w-[70%]  sm:px-8 xl:pr-16 z-10">
               <h1 className="relative text-4xl tracking-tight font-extrabold text-gray-900 sm:text-5xl md:text-6xl lg:text-5xl xl:text-6xl">
@@ -1669,21 +1670,19 @@ export default function Home({ posts }) {
               </h2>
               <div className="mt-10 sm:flex sm:justify-center lg:justify-start">
                 <div>
-                  <div className="rounded-md shadow">
-                    <ScrollLink
-                      spy={true}
-                      smooth={true}
-                      duration={500}
-                      // href="latestBlog"
-                      to="latestBlogs"
-                      className="cursor-pointer w-full flex items-center justify-center px-8 py-3 border border-transparent text-base font-medium rounded-md text-white bg-primary    hover:bg-primary-dark md:py-4 md:text-lg md:px-10"
+                  <div className="rounded-md shadow min-w-[10rem]">
+                    
+                    <Link
+                      href="/services"    
                     >
-                      Latest Blogs
-                    </ScrollLink>
+                      <a  className="cursor-pointer w-full flex items-center justify-center px-8 py-3 border border-transparent text-base font-medium rounded-md text-white bg-primary    hover:bg-primary-dark md:py-4 md:text-lg md:px-10">
+                      Services
+                      </a>
+                    </Link>
                   </div>
                   <div className="hidden sm:block">
                     <svg
-                      width="190"
+                      width="160"
                       height="42"
                       viewBox="0 0 490 42"
                       fill="none"
@@ -1702,12 +1701,21 @@ export default function Home({ posts }) {
                   </div>
                 </div>
 
-                <div className="mt-3 rounded-md shadow sm:mt-0 sm:ml-3">
-                  <Link href="/blogs">
-                    <a className="w-full flex items-center justify-center px-8 py-3 border border-transparent text-base font-medium rounded-md text-primary bg-white hover:bg-gray-50 dark:bg-inherit dark:hover:bg-black md:py-4 md:text-lg md:px-10">
-                      See All Blogs
-                    </a>
-                  </Link>
+                <div className="min-w-[10rem] mt-3 rounded-md shadow sm:mt-0 sm:ml-3">
+
+                  <ScrollLink
+                     spy={true}
+                     smooth={true}
+                     duration={500}
+                     
+                     to="latestBlogs"
+                  >
+                  
+                    <div className="cursor-pointer w-full flex items-center justify-center px-8 py-3 border border-transparent text-base font-medium rounded-md text-primary bg-white hover:bg-gray-50 dark:bg-inherit dark:hover:bg-black md:py-4 md:text-lg md:px-10">
+                     Latest Blogs
+                    </div>
+                 
+                  </ScrollLink>
                 </div>
               </div>
             </div>
@@ -1737,7 +1745,7 @@ export default function Home({ posts }) {
         </div>
         <div className="">
         <div 
-          className="overflow-hidden  relative before:content-[''] before:bg-incentive-bg before:absolute  lg:before:left-2/3 before:left-[20%] before:top-0 before:w-full before:h-full before:opacity-30 before:bg-cover lg:before:bg-contain before:bg-no-repeat  after:brightness-100 after:dark:brightness-[75%] after:right-0  after:top-0   " 
+          className="overflow-hidden  relative before:content-[''] before:bg-incentive-bg before:absolute  lg:before:left-2/3 before:left-[20%] before:top-0 before:w-full before:h-full before:opacity-50  lg:before:opacity-60  before:bg-cover lg:before:bg-contain before:bg-no-repeat  after:brightness-100 after:dark:brightness-[75%] after:right-0  after:top-0   " 
           >
           <Incentives />
         {/* <div className="  hidden lg:block absolute -top-10 -right-[20%] opacity-90  ">

@@ -45,6 +45,7 @@ const resources = [
     icon: GlobeAltIcon,
   },
   { name: "Price Menu", href: "/services", icon: BookmarkAltIcon },
+  { name: "Stylists", href: "/artis", icon: BookmarkAltIcon },
  
 ];
 const blogPosts = [
@@ -86,7 +87,7 @@ export default function FlyoutMenu(props) {
             <span>{props.linkName}</span>
             <ChevronDownIcon
               className={classNames(
-                open ? "text-gray-600" : "text-gray-400",
+                open ? "text-gray-600" : "text-gray-50",
                 "ml-2 h-5 w-5 group-hover:text-gray-500"
               )}
               aria-hidden="true"
