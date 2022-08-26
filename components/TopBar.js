@@ -1,7 +1,7 @@
 /* This example requires Tailwind CSS v2.0+ */
 import { useEffect, useState } from "react";
 import FlyoutMenu from './FlyoutMenu'
-import Example from './Example'
+
 import { Disclosure } from "@headlessui/react";
 import { MenuIcon, XIcon } from "@heroicons/react/outline";
 import { MoonIcon, SunIcon } from "@heroicons/react/solid";
