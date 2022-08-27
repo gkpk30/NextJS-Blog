@@ -87,7 +87,7 @@ export default function FlyoutMenu(props) {
             <span>{props.linkName}</span>
             <ChevronDownIcon
               className={classNames(
-                open ? "text-gray-600" : "text-gray-50",
+                open ? "text-gray-600" : "text-gray-500 dark:text-gray-50",
                 "ml-2 h-5 w-5 group-hover:text-gray-500"
               )}
               aria-hidden="true"
