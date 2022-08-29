@@ -165,7 +165,7 @@ export default function Post({ post }) {
             <div className=" text-lg  ">
               {/* {post.content.html} */}
               <div
-                className={`post ${styles.post}`}
+                className={`post ${styles.post} dark:text-gray-200 text-color`} 
                 dangerouslySetInnerHTML={{ __html: post.content.html }}
               />
             </div>

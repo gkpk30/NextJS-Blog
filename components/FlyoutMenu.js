@@ -81,7 +81,7 @@ export default function FlyoutMenu(props) {
               open
                 ? "text-gray-500 dark:text-gray-50 "
                 : "text-gray-500 dark:text-gray-50 ",
-              "group bg-gray-50 dark:bg-gray-900 rounded-md inline-flex items-center text-base font-medium hover:text-gray-900 "
+              "group bg-gray-50 dark:bg-gray-900 rounded-md inline-flex items-center text-sm font-medium hover:text-gray-900 "
             )}
           >
             <span>{props.linkName}</span>
@@ -127,7 +127,7 @@ export default function FlyoutMenu(props) {
                     Services Menu
                   </h2>
                   <div>
-                    <h3 className="text-base font-semibold text-gray-500 hover:bg-gray-200 ">
+                    <h3 className="text-sm font-semibold text-gray-500 hover:bg-gray-200 ">
                       <Link href="/services">
                         <a onClick={() => close()}>Services</a>
                       </Link>

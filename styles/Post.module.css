@@ -3,11 +3,11 @@
 }
 
 .post h1 {
-    @apply my-2 text-3xl text-primary font-extrabold
+    @apply my-2 text-3xl  font-extrabold
 }
 
 .post h2 {
-    @apply my-2 text-2xl text-primary font-extrabold
+    @apply my-2 text-2xl font-extrabold
 }
 
 .post h3 {
@@ -18,11 +18,11 @@
     @apply my-2 text-lg text-primary font-extrabold
 }
 .post h5 {
-    @apply my-2 text-lg text-gray-500 dark:text-gray-50 font-extrabold
+    @apply my-2 text-lg  font-extrabold
 }
 
 .post h6 {
-    @apply my-2 text-lg text-primary font-extrabold
+    @apply my-2 text-lg  font-extrabold
 }
 
 .post ol, .post ul {
