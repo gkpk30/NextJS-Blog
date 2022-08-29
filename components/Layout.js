@@ -11,10 +11,7 @@ function classNames(...classes) {
 const Layout = ({ children }) => {
   const [visible, setVisible] = useState(true);
 
-  //our callback function
-  const getVisible = (visibility) => {
-    setVisible(visibility);
-  };
+  const timeout = setTimeout(() => setVisible(false), 60000);
 
   return (
     <>
@@ -23,22 +20,8 @@ const Layout = ({ children }) => {
         <meta name="description" content="some content here" />
       </Head>
       <div className=" min-h-screen flex flex-col font-fourth  ">
-        <div 
-        className={classNames(
-              visible
-                ? "block"
-                : "hidden",
-              ""
-            )}
-        >
-          <Banner
-          // className={classNames(
-          //     visible
-          //       ? "block"
-          //       : "hidden",
-          //     ""
-          //   )}
-          />
+        <div className={classNames(visible ? "block" : "hidden", "")}>
+          <Banner setVisible={setVisible} />
         </div>
         <TopBar className="" />
         <main className="flex-grow isolate">{children}</main>

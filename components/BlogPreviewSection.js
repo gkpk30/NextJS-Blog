@@ -59,7 +59,7 @@ import Card from "./Card";
 //     },
 //   ]
 
-export default function BlogCard({ posts }) {
+export default function BlogPreviewSection({ posts }) {
   return (
     <div className="relative  pt-16 pb-20 px-4 sm:px-6 lg:pt-48 lg:pb-48 lg:px-8">
       <div className="absolute inset-0">

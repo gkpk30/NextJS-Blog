@@ -1,11 +1,11 @@
 /* This example requires Tailwind CSS v2.0+ */
 import { Fragment, useEffect } from "react";
 import Link from "next/link";
-import Image from "next/image"
-import balayage from "../public/images/balayage.jpg"
-import photoShootImage from "../public/images/holdingCamera.jpg"
+import Image from "next/image";
+import balayage from "../public/images/balayage.jpg";
+import photoShootImage from "../public/images/holdingCamera.jpg";
 import { Popover, Transition } from "@headlessui/react";
-import { ChevronDownIcon } from "@heroicons/react/solid";
+import { ChevronDownIcon, ChevronUpIcon } from "@heroicons/react/solid";
 import {
   BookmarkAltIcon,
   BriefcaseIcon,
@@ -45,13 +45,12 @@ const resources = [
     icon: GlobeAltIcon,
   },
   { name: "Price Menu", href: "/services", icon: BookmarkAltIcon },
-  { name: "Stylists", href: "/artis", icon: BookmarkAltIcon },
- 
+  { name: "Stylists", href: "/artist", icon: BookmarkAltIcon },
 ];
 const blogPosts = [
   {
     id: 1,
-    name: 'Learn About Headbetter Photoshoots and the Supermodel Makeover.',
+    name: "Learn About Headbetter Photoshoots and the Supermodel Makeover.",
     href: "/services/supermodel-makeover",
     preview:
       "Provided by headbetter stylists, it includes any and all hair services, Make up and a full photoshoot.",
@@ -65,7 +64,6 @@ const blogPosts = [
       "Okay, So your hairdresser has Balayaged your hair, Most likely they have used bleach to lighten your hair",
     imageUrl: balayage,
   },
- 
 ];
 
 function classNames(...classes) {
@@ -73,25 +71,37 @@ function classNames(...classes) {
 }
 
 export default function FlyoutMenu(props) {
-  console.log("camera", photoShootImage)
+  console.log("camera", photoShootImage);
   return (
     <Popover className="relative">
       {({ open, close }) => (
         <>
           <Popover.Button
             className={classNames(
-              open ? "text-gray-500 dark:text-gray-50 " : "text-gray-500 dark:text-gray-50 ",
+              open
+                ? "text-gray-500 dark:text-gray-50 "
+                : "text-gray-500 dark:text-gray-50 ",
               "group bg-gray-50 dark:bg-gray-900 rounded-md inline-flex items-center text-base font-medium hover:text-gray-900 "
             )}
           >
             <span>{props.linkName}</span>
-            <ChevronDownIcon
-              className={classNames(
-                open ? "text-gray-600" : "text-gray-500 dark:text-gray-50",
-                "ml-2 h-5 w-5 group-hover:text-gray-500"
-              )}
-              aria-hidden="true"
-            />
+            {open ? (
+              <ChevronUpIcon
+                className={classNames(
+                  open ? "text-gray-600" : "text-gray-500 dark:text-gray-50",
+                  "ml-2 h-5 w-5 group-hover:text-gray-500"
+                )}
+                aria-hidden="true"
+              />
+            ) : (
+              <ChevronDownIcon
+                className={classNames(
+                  open ? "text-gray-600" : "text-gray-500 dark:text-gray-50",
+                  "ml-2 h-5 w-5 group-hover:text-gray-500"
+                )}
+                aria-hidden="true"
+              />
+            )}
           </Popover.Button>
 
           <Transition
@@ -117,7 +127,7 @@ export default function FlyoutMenu(props) {
                     Services Menu
                   </h2>
                   <div>
-                    <h3 className="text-base font-semibold text-gray-500 ">
+                    <h3 className="text-base font-semibold text-gray-500 hover:bg-gray-200 ">
                       <Link href="/services">
                         <a onClick={() => close()}>Services</a>
                       </Link>
@@ -128,7 +138,7 @@ export default function FlyoutMenu(props) {
                           <Link href={item.href}>
                             <a
                               onClick={() => close()}
-                              className="-m-3 p-3 flex items-center rounded-md text-base font-medium text-gray-900 hover:bg-gray-50 transition ease-in-out duration-150"
+                              className="-m-3 p-3 flex items-center rounded-md text-base font-medium text-gray-900 hover:bg-gray-200 transition ease-in-out duration-150"
                             >
                               <item.icon
                                 className="flex-shrink-0 h-6 w-6 text-gray-400"
@@ -142,7 +152,7 @@ export default function FlyoutMenu(props) {
                     </ul>
                   </div>
                   <div>
-                    <h3 className="text-base font-semibold text-gray-500">
+                    <h3 className="text-base font-semibold text-gray-500 ">
                       Resources
                     </h3>
                     <ul role="list" className="mt-5 space-y-6">
@@ -151,7 +161,7 @@ export default function FlyoutMenu(props) {
                           <Link href={item.href}>
                             <a
                               onClick={() => close()}
-                              className="-m-3 p-3 flex items-center rounded-md text-base font-medium text-gray-900 hover:bg-gray-50 transition ease-in-out duration-150"
+                              className="-m-3 p-3 flex items-center rounded-md text-base font-medium text-gray-900 hover:bg-gray-200 transition ease-in-out duration-150"
                             >
                               <item.icon
                                 className="flex-shrink-0 h-6 w-6 text-gray-400"
@@ -167,7 +177,7 @@ export default function FlyoutMenu(props) {
                 </nav>
                 <div className="bg-gray-100 px-4 py-8 sm:py-12 sm:px-6 lg:px-8 xl:pl-12">
                   <div>
-                    <h3 className="text-base font-semibold text-gray-500">
+                    <h3 className="text-base font-semibold text-gray-500 ">
                       From the blog
                     </h3>
                     <ul role="list" className="mt-6 space-y-6">
@@ -176,7 +186,7 @@ export default function FlyoutMenu(props) {
                           <Link href={post.href}>
                             <a
                               onClick={() => close()}
-                              className="-m-3 p-3 flex rounded-lg hover:bg-gray-100 transition ease-in-out duration-150"
+                              className="-m-3 p-3 flex rounded-lg hover:bg-gray-200  transition ease-in-out duration-150"
                             >
                               <div className="hidden sm:block flex-shrink-0">
                                 <Image
@@ -184,7 +194,6 @@ export default function FlyoutMenu(props) {
                                   src={post.imageUrl}
                                   alt={post.imageUrl.src}
                                   layout="fixed"
-
                                   height="75px"
                                   width="150px"
                                 />
@@ -194,7 +203,10 @@ export default function FlyoutMenu(props) {
                                   {post.name}
                                 </h4>
                                 <p className="mt-1 text-sm text-gray-500 font-medium">
-                                  {post.preview}<span className="font-normal">...read more</span>
+                                  {post.preview}
+                                  <span className="font-normal">
+                                    ...read more
+                                  </span>
                                 </p>
                               </div>
                             </a>
@@ -207,7 +219,7 @@ export default function FlyoutMenu(props) {
                     <Link href="/blogs">
                       <a
                         onClick={() => close()}
-                        className="text-indigo-600 hover:text-indigo-500 transition ease-in-out duration-150"
+                        className="text-indigo-600 hover:text-indigo-500 hover:bg-gray-200 transition ease-in-out duration-150"
                       >
                         View all posts <span aria-hidden="true">&rarr;</span>
                       </a>

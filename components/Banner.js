@@ -7,7 +7,8 @@ import {
 import { useState } from "react";
 import Link from "next/link";
 
-export default function Banner() {
+export default function Banner({setVisible}) {
+  
   return (
     <div className="bg-gray-800 z-20 text-sm relative">
       <div className="max-w-7xl mx-auto py-3 px-3 sm:px-6 lg:px-8">
@@ -49,7 +50,7 @@ export default function Banner() {
             <button
               type="button"
               className="-mr-1 flex p-2 rounded-md hover:bg-indigo-500 focus:outline-none focus:ring-2 focus:ring-white sm:-mr-2"
-              // onClick={() =>}
+              onClick={()=>setVisible(false)}
             >
               <span className="sr-only">Dismiss</span>
               <XIcon className="h-6 w-6 text-white" aria-hidden="true" />

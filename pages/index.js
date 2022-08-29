@@ -27,6 +27,7 @@ const QUERY = gql`
       id
       author {
         name
+        slug
         avatar {
           url
         }
