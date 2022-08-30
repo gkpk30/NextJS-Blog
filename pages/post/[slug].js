@@ -110,7 +110,7 @@ export default function Post({ post }) {
           <div className="mt-5 mb-20">
             <BreadCrumbs pages={pages} />
           </div>
-          <h1 className=" md:w-[70%] text-left font-third font-bold text-3xl mr-3 mt-5 mb-3">
+          <h1 className=" md:w-[70%] text-left font-third font-extrabold text-6xl sm:text-7xl  mr-3 mt-5 mb-3">
             {post.title}
           </h1>
 
@@ -129,7 +129,7 @@ export default function Post({ post }) {
             ))}
           </div>
 
-          <div className="mt-14 mb-4 flex flex-col sm:flex-row justify-between text-sm lg:text-lg font-fourth mr-20 items-center ">
+          <div className="mt-14 mb-4 flex flex-col sm:flex-row justify-between text-sm lg:text-lg font-fourth mr-20  ">
             <div className="singlePostAuthor flex  flex-wrap-reverse sm:flex-nowrap items-center ">
               <div>
                 Author:{" "}
@@ -147,7 +147,7 @@ export default function Post({ post }) {
                   </Link>
                 }
               </div>
-              <div className="ml-3 ">
+              <div className="ml-3 flex ">
                 <Image
                   className="h-10 w-10 rounded-full text-gray-500 dark:text-gray-200"
                   width={40}
@@ -157,7 +157,7 @@ export default function Post({ post }) {
                 />
               </div>
             </div>
-            <div className="singlePostDate">
+            <div className="singlePostDate flex self-start sm:self-center sm:block ">
               {new Date(post.publishDate).toDateString()}
             </div>
           </div>

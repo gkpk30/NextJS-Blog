@@ -111,7 +111,7 @@ export default function TopBar() {
                      
                     </div>
 
-                    <div className="hidden sm:ml-12 sm:flex sm:space-x-6 z-20  ">
+                    <div className="hidden sm:ml-12 sm:flex sm:space-x-6 z-10  ">
                       {/* Current: "border-indigo-500 text-gray-900", Default: "border-transparent text-gray-500 hover:border-gray-300 hover:text-gray-700" */}
                       <Link href="/">
                         <a
