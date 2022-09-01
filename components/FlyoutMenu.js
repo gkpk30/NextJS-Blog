@@ -2,39 +2,43 @@
 import { Fragment, useEffect } from "react";
 import Link from "next/link";
 import Image from "next/image";
+import hair from "../public/images/hair.svg";
+import scissors from "../public/images/scissors.svg";
+import makeup from "../public/images/makeup.svg";
+import color from "../public/images/color.svg";
+import table from "../public/images/table.svg";
+import wedding from "../public/images/wedding.svg";
+import hairDryer from "../public/images/hairDryer.svg"
+
 import balayage from "../public/images/balayage.jpg";
 import photoShootImage from "../public/images/holdingCamera.jpg";
 import { Popover, Transition } from "@headlessui/react";
 import { ChevronDownIcon, ChevronUpIcon } from "@heroicons/react/solid";
 import {
+  CameraIcon,
+  BookOpenIcon,
   BookmarkAltIcon,
-  BriefcaseIcon,
-  DesktopComputerIcon,
-  GlobeAltIcon,
-  InformationCircleIcon,
   NewspaperIcon,
-  OfficeBuildingIcon,
-  ShieldCheckIcon,
   UserGroupIcon,
 } from "@heroicons/react/outline";
 
 const services = [
-  { name: "Cutting", href: "/services/cutting", icon: InformationCircleIcon },
-  { name: "Balayage", href: "/services/balayage", icon: BriefcaseIcon },
-  { name: "Coloring", href: "/services/color", icon: OfficeBuildingIcon },
+  { name: "Cutting", href: "/services/cutting", icon: scissors },
+  { name: "Balayage", href: "/services/balayage", icon: color },
+  { name: "Coloring", href: "/services/color", icon: color },
   {
     name: "Creative Color",
     href: "/services/creative-color",
-    icon: NewspaperIcon,
+    icon: color,
   },
-  { name: "Styling", href: "/services", icon: ShieldCheckIcon },
-  { name: "Makeup", href: "/services", icon: ShieldCheckIcon },
-  { name: "Extensions", href: "/services", icon: ShieldCheckIcon },
-  { name: "Weddings", href: "/services", icon: ShieldCheckIcon },
+  { name: "Styling", href: "/services", icon: hairDryer },
+  { name: "Makeup", href: "/services", icon: makeup },
+  { name: "Extensions", href: "/services", icon: hair },
+  { name: "Weddings", href: "/services", icon: wedding },
   {
     name: "SuperModel Makeover",
     href: "/services/supermodel-makeover",
-    icon: ShieldCheckIcon,
+    icon: table,
   },
 ];
 const resources = [
@@ -42,9 +46,9 @@ const resources = [
   {
     name: "Photo Shoots",
     href: "/services/supermodel-makeover",
-    icon: GlobeAltIcon,
+    icon: CameraIcon,
   },
-  { name: "Price Menu", href: "/services", icon: BookmarkAltIcon },
+  { name: "Blogs", href: "/blogs", icon: NewspaperIcon },
   { name: "Stylists", href: "/artist", icon: BookmarkAltIcon },
 ];
 const blogPosts = [
@@ -127,7 +131,7 @@ export default function FlyoutMenu(props) {
                     Services Menu
                   </h2>
                   <div>
-                    <h3 className="text-sm font-semibold text-gray-500 hover:bg-gray-200 ">
+                    <h3 className="text-base font-semibold text-gray-500 hover:bg-gray-200 ">
                       <Link href="/services">
                         <a onClick={() => close()}>Services</a>
                       </Link>
@@ -140,10 +144,11 @@ export default function FlyoutMenu(props) {
                               onClick={() => close()}
                               className="-m-3 p-3 flex items-center rounded-md text-base font-medium text-gray-900 hover:bg-gray-200 transition ease-in-out duration-150"
                             >
-                              <item.icon
+                              <Image src={item.icon} height={24} width={24} />
+                              {/* <item.icon
                                 className="flex-shrink-0 h-6 w-6 text-gray-400"
                                 aria-hidden="true"
-                              />
+                              />  */}
                               <span className="ml-4">{item.name}</span>
                             </a>
                           </Link>
@@ -164,7 +169,7 @@ export default function FlyoutMenu(props) {
                               className="-m-3 p-3 flex items-center rounded-md text-base font-medium text-gray-900 hover:bg-gray-200 transition ease-in-out duration-150"
                             >
                               <item.icon
-                                className="flex-shrink-0 h-6 w-6 text-gray-400"
+                                className="flex-shrink-0 h-6 w-6 text-gray-900 stroke-1 stroke-gray-900"
                                 aria-hidden="true"
                               />
                               <span className="ml-4">{item.name}</span>

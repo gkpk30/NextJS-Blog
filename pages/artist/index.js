@@ -97,9 +97,7 @@ export default function Artists({ stylists }) {
               We are located in the heart of Sherman Oaks on Ventura Boulevards
               hottest block for Fashion, Culture and Nightlife
             </p>
-            <button className="mt-8 text-xs text-gray-100 text-left bg-primary hover:bg-primary-dark p-2 rounded-lg w-fit z-20 ">
-              Meet our team, the finest Los Angeles has to offer.
-            </button>
+            
           </div>
         </div>
       </div>

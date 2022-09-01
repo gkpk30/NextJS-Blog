@@ -128,54 +128,66 @@ export default function Appointments() {
                   </div>
                 </div>
                 <fieldset className="sm:col-span-2">
-                  <legend className="block text-sm font-medium text-gray-700 dark:text-gray-300">Expected budget</legend>
+                  <legend className="block text-sm font-medium text-gray-700 dark:text-gray-300">What Service are You Interested In?</legend>
                   <div className="mt-4 grid grid-cols-1 gap-y-4">
                     <div className="flex items-center">
                       <input
-                        id="budget-under-25k"
-                        name="budget"
-                        defaultValue="under_25k"
+                        id="cut"
+                        name="service"
+                        defaultValue="cut"
                         type="radio"
                         className="focus:ring-indigo-500 h-4 w-4 text-indigo-600 border-gray-300"
                       />
-                      <label htmlFor="budget-under-25k" className="ml-3">
-                        <span className="block text-sm text-gray-700 dark:text-gray-300">Less than $25K</span>
+                      <label htmlFor="cut" className="ml-3">
+                        <span className="block text-sm text-gray-700 dark:text-gray-300">Cut</span>
                       </label>
                     </div>
                     <div className="flex items-center">
                       <input
-                        id="budget-25k-50k"
-                        name="budget"
-                        defaultValue="25k-50k"
+                        id="color"
+                        name="service"
+                        defaultValue="color"
                         type="radio"
                         className="focus:ring-indigo-500 h-4 w-4 text-indigo-600 border-gray-300"
                       />
-                      <label htmlFor="budget-25k-50k" className="ml-3">
-                        <span className="block text-sm text-gray-700 dark:text-gray-300">$25K – $50K</span>
+                      <label htmlFor="color" className="ml-3">
+                        <span className="block text-sm text-gray-700 dark:text-gray-300">Color</span>
                       </label>
                     </div>
                     <div className="flex items-center">
                       <input
-                        id="budget-50k-100k"
-                        name="budget"
-                        defaultValue="50k-100k"
+                        id="makeover"
+                        name="service"
+                        defaultValue="makeover"
                         type="radio"
                         className="focus:ring-indigo-500 h-4 w-4 text-indigo-600 border-gray-300"
                       />
-                      <label htmlFor="budget-50k-100k" className="ml-3">
-                        <span className="block text-sm text-gray-700 dark:text-gray-300">$50K – $100K</span>
+                      <label htmlFor="makeover" className="ml-3">
+                        <span className="block text-sm text-gray-700 dark:text-gray-300">Makeover</span>
                       </label>
                     </div>
                     <div className="flex items-center">
                       <input
-                        id="budget-over-100k"
-                        name="budget"
-                        defaultValue="over_100k"
+                        id="extensions"
+                        name="service"
+                        defaultValue="extension"
                         type="radio"
                         className="focus:ring-indigo-500 h-4 w-4 text-indigo-600 border-gray-300"
                       />
-                      <label htmlFor="budget-over-100k" className="ml-3">
-                        <span className="block text-sm text-gray-700 dark:text-gray-300">$100K+</span>
+                      <label htmlFor="extensions" className="ml-3">
+                        <span className="block text-sm text-gray-700 dark:text-gray-300">Extension</span>
+                      </label>
+                    </div>
+                    <div className="flex items-center">
+                      <input
+                        id="concierge"
+                        name="service"
+                        defaultValue="concierge"
+                        type="radio"
+                        className="focus:ring-indigo-500 h-4 w-4 text-indigo-600 border-gray-300"
+                      />
+                      <label htmlFor="extensions" className="ml-3">
+                        <span className="block text-sm text-gray-700 dark:text-gray-300">Concierge</span>
                       </label>
                     </div>
                   </div>
