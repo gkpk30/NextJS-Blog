@@ -51,8 +51,10 @@ export default function Incentives() {
           <div className="relative mt-16 grid grid-cols-1 gap-y-10 gap-x-8 lg:grid-cols-3">
             {incentives.map((incentive) => (
               <div key={incentive.name} className="sm:flex lg:block">
-                <div className="sm:flex-shrink-0">
-                  <img className="w-16 h-16" src={incentive.imageSrc} alt="" />
+                <div className="relative sm:flex-shrink-0  ">
+                <span class="block absolute -inset-1  bg-[#ffeac5] w-10 h-10 rounded-full " aria-hidden="true"></span>
+                  <img className="relative w-16 h-16 z-10" src={incentive.imageSrc} alt="" />
+                  
                 </div>
                 <div className="mt-4 sm:mt-0 sm:ml-6 lg:mt-6 lg:ml-0">
                   <h3 className="text-sm font-medium text-gray-900 dark:text-gray-900">
