@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from "react";
+import React from "react";
 import styles from "../../styles/Post.module.css";
 import { GraphQLClient } from "graphql-request";
 import { gql } from "graphql-request";
@@ -78,10 +78,8 @@ export default function Post({ post }) {
 
   // const [post, setPost] = useState({})
 
-  // useEffect(() => {
-
-  // }, [])
-  console.log("slug post: ", post);
+  
+  // console.log("slug post: ", post);
 
   const pages = [
     { name: "all blogs", href: "/blogs", current: false },

@@ -2,6 +2,7 @@ import Head from "next/head";
 import Image from "next/image";
 import Incentives from "../components/Incentives";
 import Link from "next/link";
+import LogoWhite from "../public/images/headbetterlogoWhite.png";
 import Blonde from "../public/images/Banner-Blond-Black-Dress-min.jpeg";
 import YellowBlonde from "../public/images/model-pink-hair-yellow-background.jpeg";
 import ecoGirl from '../public/images/ecoGirl.jpeg'
@@ -46,7 +47,6 @@ const QUERY = gql`
 
 export async function getStaticProps() {
   const { posts } = await graphcms.request(QUERY);
-  console.log(posts);
   return {
     props: {
       posts,
@@ -55,7 +55,7 @@ export async function getStaticProps() {
 }
 
 export default function Home({ posts }) {
-  console.log("index page posts Load? : ", posts);
+  // console.log("index page posts Load? : ", posts);
   return (
     <>
       {/* <Head>
@@ -1736,7 +1736,16 @@ export default function Home({ posts }) {
         </main>
 
         {/* Blog Section */}
-        <div className="mt-36 sm:mt-96 bg-gray-200 dark:bg-gray-800">
+        <div className="relative mt-36 sm:mt-96 bg-gray-200 dark:bg-gray-800">
+          <div className="hidden lg:block    opacity-[.04] absolute inset-10  ">
+          
+                  <Image
+                    src={LogoWhite}
+                    layout="intrinsic"
+                    width={504}
+                    height={150}
+                  />
+          </div>
           <div
             name="latestBlogs"
             className="flex flex-col justify-center items-center w-full "

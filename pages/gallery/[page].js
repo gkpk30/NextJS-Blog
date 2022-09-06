@@ -55,12 +55,12 @@ function GalleryPage({
   const [modalContent, setModalContent] = useState("");
 
   const currentPage = +router.asPath.split("/")[2];
-  console.log("current path: ", router.asPath.split("/")[2]);
+  // console.log("current path: ", router.asPath.split("/")[2]);
 
-  console.log("numberOfPhotos: ", numberOfPhotos);
+  // console.log("numberOfPhotos: ", numberOfPhotos);
 
   const numberOfPages = Math.ceil(numberOfPhotos / limit);
-  console.log("Number of Pages: ", numberOfPages);
+  // console.log("Number of Pages: ", numberOfPages);
 
   const pagination = (current, total, position) => {
     let at = "";
@@ -102,7 +102,7 @@ function GalleryPage({
             // className={classNames(current === index ? " border-primary text-indigo-600 font-bold" : "border-transparent text-gray-500 hover:text-gray-700 hover:border-gray-300" ,  `border-${at}-2 p${at}-4 px-4 inline-flex items-center text-sm font-medium` )}
           >
             {item}
-            {console.log("at: ", at)}
+           
           </a>
         </Link>
       ) : (
