@@ -1,4 +1,5 @@
 import Image from "next/image";
+import Link from "next/link";
 import balayage from "../../public/images/balayage.jpg";
 import cappucino from "../../public/images/cappucino.jpeg";
 import conditioning from "../../public/images/conditioning.jpg";
