@@ -1,4 +1,5 @@
 import Image from "next/image";
+import Link from "next/link";
 import blowout from "../../public/images/blowout.jpeg";
 import cappucino from "../../public/images/cappucino.jpeg";
 import conditioning from "../../public/images/conditioning.jpg";
