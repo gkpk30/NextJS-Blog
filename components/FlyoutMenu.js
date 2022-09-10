@@ -75,7 +75,7 @@ function classNames(...classes) {
 }
 
 export default function FlyoutMenu(props) {
-  console.log("camera", photoShootImage);
+  
   return (
     <Popover className="relative">
       {({ open, close }) => (

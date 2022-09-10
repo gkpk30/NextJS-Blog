@@ -1,31 +1,6 @@
 import Card from "../components/Card";
 import { useState, useEffect } from "react";
-/*
-  This example requires Tailwind CSS v2.0+ 
-  
-  This example requires some changes to your config:
-  
-  ```
-  // tailwind.config.js
-  module.exports = {
-    // ...
-    plugins: [
-      // ...
-      require('@tailwindcss/forms'),
-    ],
-  }
-  ```
-*/
 
-// const tabs = [
-//   { name: "Blonde", href: "#", count: "12", current: false },
-//   { name: "Product", href: "#", count: "6", current: false },
-//   { name: "Color Correction", href: "#", count: "4", current: true },
-//   { name: "Offers", href: "#", current: false },
-//   { name: "Style", href: "#", current: false },
-// ];
-
-// console.log("tabs: " , tabs)
 
 function classNames(...classes) {
   return classes.filter(Boolean).join(" ");
@@ -35,17 +10,10 @@ export default function Tabs({ className, categories, posts }) {
   const [blogData, setBlogData] = useState(posts);
   const [currentTabIndex, setCurrentTabIndex] = useState("0");
 
-  console.log("blogData: ", blogData);
-
   const numberOfPosts = Object.keys(posts).length;
-  console.log("number of Posts: ", numberOfPosts);
-  // console.table("all Posts: ", posts)
-  // console.log("categories prop: ", categories)
-
+ 
   //get list of frequency of categories
   const categoryInfo = posts.map((post) => post.categories);
-
-  // console.log("categoryInfo: ", categoryInfo)
 
   //////////////////////Flatten the multidimensional array
   const flatten = (arr) => {
@@ -63,11 +31,11 @@ export default function Tabs({ className, categories, posts }) {
     return someNewArray;
   };
 
-  console.log("flatten(categoryInfo): ", flatten(categoryInfo));
 
-  ////////////////////////Get count of each caegory used
+  ////////////////////////Get count of each category using a flatten and reduce method
   const categoriesUsed = flatten(categoryInfo);
 
+          //reduce method sums up the number of instances of each category and creates an array of size 0 
   const numberOfPostsByCategory = categoriesUsed.reduce((acc, cur) => {
     const titleName = cur.categoryTitle;
     if (acc[titleName]) {
@@ -78,17 +46,19 @@ export default function Tabs({ className, categories, posts }) {
     return acc;
   }, []);
 
-  console.log("numberOfPostsByCategory :", numberOfPostsByCategory);
+  // console.log("numberOfPostsByCategory", numberOfPostsByCategory);
   ////////////////////////////////////////////////////////////////////
 
-  ///////////////////////////////////////findUnique List of Categories
+
+
+  ///////////////////////////////////////Didn't use the below. But shorter alternative than numberOfPostsByCategory using reduce method. Useing flatten method and New Set method creates a Unique List of Categories for Tab header
+  //get all categories 
   const catList = flatten(categoryInfo).map((item) => item.categoryTitle);
-
+  /////use Set method: Set objects are collections of values. A value in the Set may only occur once; 
   const uniqueCats = [...new Set(catList)];
-  console.log("Unique Cats: ", uniqueCats);
+  /////////////////////////////////////////////////////////////////////////////////
 
-  // console.log("CatList: " , catList )
-
+////Get just the number values from the numberOfPostsByCategory and put it into an array (i.e.  [2, 8, 1, 3, 2, 1]). 
   const count = [];
   for (const key in numberOfPostsByCategory) {
     if (Object.hasOwnProperty.call(numberOfPostsByCategory, key)) {
@@ -96,11 +66,12 @@ export default function Tabs({ className, categories, posts }) {
       count.push(element);
     }
   }
-
-  //  const tabs = uniqueCats.map((category , index) => { return {name: category , href: "#", count: count[index].toString(), current : "false" }})
-
-  // console.log(tabs)
-
+// console.log("count:", count)
+ 
+//Below creates an array of objects called "tabs" that contains the key value pairs of categoryName and count etc
+    //"keys" variable: extracts all the keys from the "numberOfPostsByCategory" array
+    //"values" variable: extracts the values from the "numberOfPostsByCategory" array
+    // The'keys' arrat and a 'values' array are then combined  into an object called 'tabs' using a for loop
   const keys = Object.keys(numberOfPostsByCategory);
   const values = Object.values(numberOfPostsByCategory);
   let tabs = [];
@@ -112,8 +83,9 @@ export default function Tabs({ className, categories, posts }) {
       href: "#",
     });
   }
-
-  console.log("new Obj", tabs);
+  //console.log("tabs" , tabs)
+///////////////////////////////////////////////////////////////////////////////
+  
 
   //add 'All' category with total count of posts
   tabs.unshift({
@@ -125,34 +97,27 @@ export default function Tabs({ className, categories, posts }) {
   tabs[currentTabIndex].current = true;
 
   const handleGetFiltered = (category) => {
-    console.log("handled Tab Click Filter: ", category);
-    console.log("what is posts before filter", posts);
-    console.log("tabs before filter: ", tabs);
+    
     const currentTabTrueIndex = tabs.findIndex((tab) => tab.current === true);
     tabs[currentTabTrueIndex].current = false;
-    // const currentTab = tabs.filter((tab) => tab.categoryName === category);
-    // currentTab.current = true;
+  
     const currentIndex = tabs.findIndex((tab) => tab.categoryName === category);
     setCurrentTabIndex(currentIndex);
     tabs[currentTabIndex].current = true;
-    console.log("tabs after filter: ", tabs);
-    console.log("which index is current: ", currentTabIndex);
-    console.log("tabs after filter is which one is current true: ", tabs);
+    
+  
     if (category === "All") {
       setBlogData(posts);
     } else {
       const blogsFiltered = posts.filter((blog) =>
         blog.categories.some((x) => x.categoryTitle === category)
       );
-      console.log("Blogs Filtered by category :", blogsFiltered);
+      
       setBlogData(blogsFiltered);
     }
   };
 
-  // const setCurrent = (category) => {
-  //   const currentTab = tabs.filter((tab) => tab.categoryName === category);
-  //   currentTab.current = true;
-  // };
+  
 
   return (
     <div className={`${className}`}>

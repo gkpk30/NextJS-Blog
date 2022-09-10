@@ -99,32 +99,14 @@ function GalleryPage({
                 : "border-transparent text-gray-500 dark:text-gray-300 hover:text-gray-700 hover:border-gray-300",
               `border-${at}-2 p${at}-4 px-4 inline-flex items-center text-sm font-medium`
             )}
-            // className={classNames(current === index ? " border-primary text-indigo-600 font-bold" : "border-transparent text-gray-500 hover:text-gray-700 hover:border-gray-300" ,  `border-${at}-2 p${at}-4 px-4 inline-flex items-center text-sm font-medium` )}
           >
             {item}
-           
           </a>
         </Link>
       ) : (
         <span key={index}>{item}</span>
       );
     });
-
-    // return content.map((item, index) => {
-    //   <Link href={`/gallery/${item}`} key={index}>
-    //       <a
-    //         className={classNames(
-    //           router.asPath === `/gallery/${item}`
-    //             ? "border-primary text-indigo-600 font-bold"
-    //             : "border-transparent text-gray-500 hover:text-gray-700 hover:border-gray-300",
-    //           `border-${at}-2 p${at}-4 px-4 inline-flex items-center text-sm font-medium`
-    //         )}
-    //       >
-    //         {item}
-    //         {console.log("at: ", at)}
-    //       </a>
-    //     </Link>
-    // })
   };
 
   const handleOpen = (src, content) => {

@@ -14,7 +14,7 @@ const graphcms = new GraphQLClient(
 
 const QUERY = gql`
   {
-    posts {
+    posts(orderBy: publishDate_DESC) {
       title
       slug
       coverPhoto {
@@ -54,8 +54,8 @@ export async function getStaticProps() {
 }
 
 const Blog = ({ posts, categories }) => {
-  console.log("Blog Page posts: ", posts);
-  console.log("Blog Page Categories Array: ", categories);
+ // console.log("Blog Page posts: ", posts);
+ // console.log("Blog Page Categories Array: ", categories);
   return (
     <>
       <div className="relative  pt-16 pb-20 px-4 sm:px-6 lg:pt-24 lg:pb-28 lg:px-8 ">
@@ -65,7 +65,7 @@ const Blog = ({ posts, categories }) => {
         <div className="relative max-w-7xl mx-auto">
           <div className="text-center">
             <h2 className="text-3xl tracking-tight font-extrabold text-gray-900 dark:text-gray-200 sm:text-4xl">
-              All the blogs
+            Visit our blogs to stay updated on everything that's happening in the world of beauty and wellness
             </h2>
             <p className="mt-3 max-w-2xl mx-auto text-xl text-gray-500 sm:mt-4">
             All the Beauty secrets from Headbetter Salon in Los Angeles

@@ -11,7 +11,7 @@ import { useRouter } from "next/router";
 import logo from "../public/images/headbetterlogo.png"
 import logoWhite from "../public/images/headbetterlogoWhite.png"
 
-console.log("Logo: ",logo)
+
 
 import { useTheme } from "next-themes";
 
@@ -21,10 +21,10 @@ function classNames(...classes) {
 
 export default function TopBar() {
   const router = useRouter();
-  console.log("router: ", router.pathname);
+ // console.log("router: ", router.pathname);
 
   const pathnameArray = router.pathname.split("/")
-  console.log("pathname: ", pathnameArray[2])
+  //console.log("pathname: ", pathnameArray[2])
   // const pathname = location.pathname
   // console.log("pathname: ", pathname)
 
