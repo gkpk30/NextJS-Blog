@@ -65,7 +65,7 @@ const Blog = ({ posts, categories }) => {
         <div className="relative max-w-7xl mx-auto">
           <div className="text-center">
             <h2 className="text-3xl tracking-tight font-extrabold text-gray-900 dark:text-gray-200 sm:text-4xl">
-            Visit our blogs to stay updated on everything that's happening in the world of beauty and wellness
+            Visit our blogs to stay updated on everything that is happening in the world of beauty and wellness
             </h2>
             <p className="mt-3 max-w-2xl mx-auto text-xl text-gray-500 sm:mt-4">
             All the Beauty secrets from Headbetter Salon in Los Angeles

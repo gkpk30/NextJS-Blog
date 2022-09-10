@@ -22,12 +22,17 @@ export default function Coloring() {
             Color
           </h2>
           <p className="mt-2 font-primary text-3xl leading-8 font-extrabold tracking-tight text-gray-900 dark:text-gray-50 sm:text-4xl">
-          SHERMAN OAKS MOST VIVID FULL SERVICE HAIRCOLOR
+            SHERMAN OAKS MOST VIVID FULL SERVICE HAIRCOLOR
           </p>
         </div>
         <div className="relative z-10 text-base max-w-prose mx-auto lg:max-w-5xl lg:mx-0 lg:pr-72">
           <p className="text-lg text-gray-500 dark:text-gray-300">
-          Our stylists take Haircolor seriously,  No expense is spared when it comes to our choices in quality color for our clients. we mainly use L&apos;oreal Professionnel Majirel Line of permanent haircolor, which we believe is the safest and most vivid haircolor on the market. Organic and low- ammonia choices are available with prior consultation
+            Our stylists take Haircolor seriously, No expense is spared when it
+            comes to our choices in quality color for our clients. we mainly use
+            L&apos;oreal Professionnel Majirel Line of permanent haircolor,
+            which we believe is the safest and most vivid haircolor on the
+            market. Organic and low- ammonia choices are available with prior
+            consultation
           </p>
         </div>
         <div className="lg:grid lg:grid-cols-2 lg:gap-8 lg:items-start">
@@ -61,12 +66,11 @@ export default function Coloring() {
             <h3 className="mt-8">We&apos;re here to help</h3>
             <div className="mt-4 flex text-base max-w-prose mx-auto lg:max-w-none">
               <div className="rounded-md shadow">
-                <a
-                  href="/appointments"
-                  className="w-full flex items-center justify-center px-5 py-3 border border-transparent text-base font-medium rounded-md text-white bg-indigo-600 hover:bg-indigo-700"
-                >
-                  Contact Us
-                </a>
+                <Link href="/appointments">
+                  <a className="w-full flex items-center justify-center px-5 py-3 border border-transparent text-base font-medium rounded-md text-white bg-indigo-600 hover:bg-indigo-700">
+                    Contact Us
+                  </a>
+                </Link>
               </div>
               <div className="rounded-md shadow ml-4">
                 <a

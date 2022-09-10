@@ -22,19 +22,29 @@ export default function Coloring() {
             Cutting
           </h2>
           <p className="mt-2 text-3xl leading-8 font-primary font-extrabold tracking-tight text-gray-900 dark:text-gray-50 sm:text-4xl">
-          SHERMAN OAKS MOST LUXURIOUS FULL SERVICE HAIRCUT
+            SHERMAN OAKS MOST LUXURIOUS FULL SERVICE HAIRCUT
           </p>
         </div>
         <div className="relative z-10 text-base max-w-prose mx-auto lg:max-w-5xl lg:mx-0 lg:pr-72">
           <p className="text-lg text-gray-500 dark:text-gray-300">
-          Headbetter Salon prides itself on being the most technically advanced haircutting salon in Los Angeles. Our stylists training is unparalleled, we start with a firm foundation of Vidal Sassoons geometric theory and finish with a flair for fashion. We have poignant and meaningful consultations that set the stage for flawless execution. We take time to get to know our clients, we want to understand you and to work with you to help you uncover the Goddess that you are.  
+            Headbetter Salon prides itself on being the most technically
+            advanced haircutting salon in Los Angeles. Our stylists training is
+            unparalleled, we start with a firm foundation of Vidal Sassoons
+            geometric theory and finish with a flair for fashion. We have
+            poignant and meaningful consultations that set the stage for
+            flawless execution. We take time to get to know our clients, we want
+            to understand you and to work with you to help you uncover the
+            Goddess that you are.
           </p>
         </div>
         <div className="lg:grid lg:grid-cols-2 lg:gap-8 lg:items-start">
           <div className="relative z-10">
             <div className="prose prose-indigo text-gray-500 dark:text-gray-300 mx-auto lg:max-w-none">
               <p>
-                Whether its short and sassy or long and luxurious, Headbetter Salons hairstylists go above and beyond to create a masterpiece that will give you the confidence and character that best suits you.
+                Whether its short and sassy or long and luxurious, Headbetter
+                Salons hairstylists go above and beyond to create a masterpiece
+                that will give you the confidence and character that best suits
+                you.
               </p>
               {/* <p>
                 Our stylists take the time to work with you to discover the look
@@ -58,12 +68,11 @@ export default function Coloring() {
             <h3 className="mt-8">We&apos;re here to help</h3>
             <div className="mt-4 flex text-base max-w-prose mx-auto lg:max-w-none">
               <div className="rounded-md shadow">
-                <a
-                  href="/appointments"
-                  className="w-full flex items-center justify-center px-5 py-3 border border-transparent text-base font-medium rounded-md text-white bg-indigo-600 hover:bg-indigo-700"
-                >
-                  Contact Us
-                </a>
+                <Link href="/appointments">
+                  <a className="w-full flex items-center justify-center px-5 py-3 border border-transparent text-base font-medium rounded-md text-white bg-indigo-600 hover:bg-indigo-700">
+                    Contact Us
+                  </a>
+                </Link>
               </div>
               <div className="rounded-md shadow ml-4">
                 <a

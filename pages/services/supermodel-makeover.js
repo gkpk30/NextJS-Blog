@@ -1,5 +1,5 @@
 import Image from "next/image";
-import Link from "next/link"
+import Link from "next/link";
 import camera from "../../public/images/holdingCamera.png";
 
 const Makeover = () => {
@@ -20,11 +20,12 @@ const Makeover = () => {
               photoshoot. Johnny will work with you together in terms of
               Creative Direction, and you are in charge of the vibes.
             </p>
-           
-              <Link href="/gallery/1">
-              <a className="cursor-pointer w-fit flex  self-center lg:self-start  px-8 py-3 border border-primary text-base font-medium rounded-md text-primary hover:text-white   hover:bg-primary-dark md:py-4 md:text-lg md:px-10">See Gallery</a>
-              </Link>
-            
+
+            <Link href="/gallery/1">
+              <a className="cursor-pointer w-fit flex  self-center lg:self-start  px-8 py-3 border border-primary text-base font-medium rounded-md text-primary hover:text-white   hover:bg-primary-dark md:py-4 md:text-lg md:px-10">
+                See Gallery
+              </a>
+            </Link>
           </div>
           <div className="lg:w-2/3 lg:order-1 mt-6 -rotate-90  lg:transform-none ">
             <div className="lg:hidden">

@@ -69,12 +69,11 @@ export default function Balayage() {
             <h3 className="mt-8">We&apos;re here to help</h3>
             <div className="mt-4 flex text-base max-w-prose mx-auto lg:max-w-none">
               <div className="rounded-md shadow">
-                <a
-                  href="/appointments"
-                  className="w-full flex items-center justify-center px-5 py-3 border border-transparent text-base font-medium rounded-md text-white bg-indigo-600 hover:bg-indigo-700"
-                >
-                  Contact Us
-                </a>
+                <Link href="/appointments">
+                  <a className="w-full flex items-center justify-center px-5 py-3 border border-transparent text-base font-medium rounded-md text-white bg-indigo-600 hover:bg-indigo-700">
+                    Contact Us
+                  </a>
+                </Link>
               </div>
               <div className="rounded-md shadow ml-4">
                 <a
