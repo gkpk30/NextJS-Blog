@@ -105,15 +105,7 @@ export default function ModalTailwind({ open, onClose, imageUrl, content }) {
                       <p className="text-sm text-gray-500">
                         {content?.node.description
                           ? content.node.description
-                          : `Are you sure you want to deactivate your account? All of
-                        your data will be permanently removed from our servers
-                        forever. This action cannot be undone. Lorem ipsum dolor
-                        sit amet consectetur adipisicing elit. Accusantium iste
-                        sunt, voluptate nobis minus inventore ducimus vero amet
-                        laboriosam minima, reiciendis esse iusto, explicabo enim
-                        qui iure reprehenderit commodi nam ullam quidem modi
-                        maxime? Maiores, eveniet? Et minus repellat optio nam
-                        quas nihil minima sit totam itaque quos, fugit rerum.`}
+                          : `We Can't wait to see you here. Call us to schedule your next beauty appointment`}
                       </p>
                     </div>
                     </Dialog.Description>
@@ -127,16 +119,10 @@ export default function ModalTailwind({ open, onClose, imageUrl, content }) {
                   </span>
                   <Image
                     src={imageUrl}
-                    alt=""
-                    // placeholder="blur"
-                    // blurDataURL={`data:image/svg+xml;base64,${toBase64(
-                    //   shimmer(800, 500)
-                    // )}`}
+                    alt="modal image"
                     width={800}
                     height={500}
                     layout="raw"
-                    // objectFit="contain"
-                    // objectPosition={"center"}
                     quality="85"
                   />
                 </div>
