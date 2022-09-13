@@ -1,10 +1,7 @@
 import { GraphQLClient } from "graphql-request";
 import { gql } from "graphql-request";
-import Link from "next/link";
-import Image from "next/image";
-import Card from "../components/Card";
 import Tabs from "../components/Tabs";
-import Pagination from "../components/Pagination";
+
 
 import { Link as ScrollLink } from "react-scroll";
 
@@ -74,7 +71,7 @@ const Blog = ({ posts, categories }) => {
           
           {/* Blog Card  */}
          
-          <Tabs className="mt-12  " posts={posts} categories={categories} />
+          <Tabs className="mt-20  " posts={posts} categories={categories} />
          
          
         </div>

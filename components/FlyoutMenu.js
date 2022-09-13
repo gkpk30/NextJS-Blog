@@ -23,33 +23,36 @@ import {
 } from "@heroicons/react/outline";
 
 const services = [
-  { name: "Cutting", href: "/services/cutting", icon: scissors },
-  { name: "Balayage", href: "/services/balayage", icon: color },
-  { name: "Coloring", href: "/services/color", icon: color },
+  { name: "Cutting", href: "/services/cutting", icon: scissors, alt:"scissors icon" },
+  { name: "Balayage", href: "/services/balayage", icon: color, alt:"color icon" },
+  { name: "Coloring", href: "/services/color", icon: color, alt:"color icon" },
   {
     name: "Creative Color",
     href: "/services/creative-color",
     icon: color,
+    alt:"color icon"
   },
-  { name: "Styling", href: "/services", icon: hairDryer },
-  { name: "Makeup", href: "/services", icon: makeup },
-  { name: "Extensions", href: "/services", icon: hair },
-  { name: "Weddings", href: "/services", icon: wedding },
+  { name: "Styling", href: "/services", icon: hairDryer, alt:"hair dryer icon" },
+  { name: "Makeup", href: "/services", icon: makeup, alt:"makeup icon" },
+  { name: "Extensions", href: "/services", icon: hair, alt:"hair icon" },
+  { name: "Weddings", href: "/services", icon: wedding, alt:"wedding ring icon" },
   {
     name: "SuperModel Makeover",
     href: "/services/supermodel-makeover",
     icon: table,
+    alt:"beauty table mirror icon"
   },
 ];
 const resources = [
-  { name: "Appointments", href: "/appointments", icon: UserGroupIcon },
+  { name: "Appointments", href: "/appointments", icon: UserGroupIcon, alt:"group icon" },
   {
     name: "Photo Shoots",
     href: "/services/supermodel-makeover",
     icon: CameraIcon,
+    alt:"camera icon"
   },
-  { name: "Blogs", href: "/blogs", icon: NewspaperIcon },
-  { name: "Stylists", href: "/artist", icon: BookmarkAltIcon },
+  { name: "Blogs", href: "/blogs", icon: NewspaperIcon, alt:"blog icon" },
+  { name: "Stylists", href: "/artist", icon: BookmarkAltIcon, alt:"book mark icon" },
 ];
 const blogPosts = [
   {
@@ -59,6 +62,7 @@ const blogPosts = [
     preview:
       "Provided by headbetter stylists, it includes any and all hair services, Make up and a full photoshoot.",
     imageUrl: photoShootImage,
+    alt:"photo shoot image"
   },
   {
     id: 2,
@@ -67,6 +71,7 @@ const blogPosts = [
     preview:
       "Okay, So your hairdresser has Balayaged your hair, Most likely they have used bleach to lighten your hair",
     imageUrl: balayage,
+    alt:"balayage image"
   },
 ];
 
@@ -144,7 +149,7 @@ export default function FlyoutMenu(props) {
                               onClick={() => close()}
                               className="-m-3 p-3 flex items-center rounded-md text-base font-medium text-gray-900 hover:bg-gray-200 transition ease-in-out duration-150"
                             >
-                              <Image src={item.icon} height={24} width={24} />
+                              <Image src={item.icon} height={24} width={24} alt={item.alt} />
                               {/* <item.icon
                                 className="flex-shrink-0 h-6 w-6 text-gray-400"
                                 aria-hidden="true"
@@ -197,7 +202,7 @@ export default function FlyoutMenu(props) {
                                 <Image
                                   className="w-32 h-20 object-cover rounded-md"
                                   src={post.imageUrl}
-                                  alt={post.imageUrl.src}
+                                  alt={post.imageUrl.alt}
                                   layout="fixed"
                                   height="75px"
                                   width="150px"

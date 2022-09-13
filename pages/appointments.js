@@ -8,11 +8,7 @@ export default function Appointments() {
         <div className="lg:absolute lg:inset-0">
           <div className="lg:absolute lg:inset-y-0 lg:right-0 lg:w-1/2"
           >
-            {/* <img
-              className="h-56 w-full object-cover lg:absolute lg:h-full"
-              src="https://images.unsplash.com/photo-1556761175-4b46a572b786?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=1567&q=80"
-              alt=""
-            /> */}
+           
             <Image
               className="h-56 w-full object-cover lg:absolute lg:h-full"
               src={sideImage}
@@ -20,6 +16,7 @@ export default function Appointments() {
               width={2000}
               objectFit='cover'
               quality='100'
+              alt="side image"
             />
           </div>
         </div>

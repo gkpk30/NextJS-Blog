@@ -122,10 +122,10 @@ export default function Balayage() {
               />
             </svg>
             <div className=" grid grid-cols-2 gap-4">
-              <Image src={cappucino} />
-              <Image src={robe} />
-              <Image src={conditioning} />
-              <Image src={balayage} />
+              <Image src={cappucino} alt="cappucino" />
+              <Image src={robe} alt="robe"/>
+              <Image src={conditioning} alt="conditioning" />
+              <Image src={balayage}  alt="balayage"/>
             </div>
           </div>
         </div>

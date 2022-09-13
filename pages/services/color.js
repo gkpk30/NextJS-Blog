@@ -119,10 +119,10 @@ export default function Coloring() {
               />
             </svg>
             <div className=" grid grid-cols-2 gap-4">
-              <Image src={cappucino} />
-              <Image src={robe} />
-              <Image src={coloring} />
-              <Image src={blowout} />
+              <Image src={cappucino} alt="cappucino"/>
+              <Image src={robe} alt="robe" />
+              <Image src={coloring} alt="coloring" />
+              <Image src={blowout} alt="blowout" />
             </div>
           </div>
         </div>

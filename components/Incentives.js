@@ -1,5 +1,6 @@
 
 import ecoGirl from '../public/images/ecoGirl.jpeg'
+import Image from 'next/image'
 
 /* This example requires Tailwind CSS v2.0+ */
 const incentives = [
@@ -53,7 +54,7 @@ export default function Incentives() {
               <div key={incentive.name} className="sm:flex lg:block">
                 <div className="relative sm:flex-shrink-0  ">
                 <span className="block absolute -inset-1  bg-[#ffeac5] w-10 h-10 rounded-full " aria-hidden="true"></span>
-                  <img className="relative w-16 h-16 z-10" src={incentive.imageSrc} alt="" />
+                  <Image className="relative w-16 h-16 z-10" src={incentive.imageSrc} width={55} height={55}  alt="Eco friendly icon" />
                   
                 </div>
                 <div className="mt-4 sm:mt-0 sm:ml-6 lg:mt-6 lg:ml-0">

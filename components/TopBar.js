@@ -69,8 +69,8 @@ export default function TopBar() {
         className="block  h-8 w-auto"
         src={logoWhite}
         alt="HeadBetter Logo"
-        height="32px"
-        width="100px"
+        height={38}
+        width={128}
          />
       )
     } else {
@@ -79,8 +79,8 @@ export default function TopBar() {
         className="block  h-8 w-auto"
         src={logo}
         alt="HeadBetter Logo"
-        height="32px"
-        width="100px"
+        height={38}
+        width={128}
          />
       )
     }
@@ -115,7 +115,7 @@ export default function TopBar() {
                      
                     </div>
 
-                    <div className="hidden sm:ml-12 sm:flex sm:space-x-6 z-10  ">
+                    <div className="hidden sm:ml-12 sm:flex sm:space-x-6 z-10   ">
                       {/* Current: "border-indigo-500 text-gray-900", Default: "border-transparent text-gray-500 hover:border-gray-300 hover:text-gray-700" */}
                       <Link href="/">
                         <a
@@ -139,15 +139,10 @@ export default function TopBar() {
                             " hover:border-gray-300 text-gray-500  dark:text-gray-50 inline-flex items-center px-1 pt-1 border-b-2 text-sm "
                           )}
                         >
-                         {/* <Example linkName='Services'/> */}
+                         
                          <FlyoutMenu linkName = "Services"/>
                         </div>
                       
-                      {/* <Link href="/services"> */}
-                        {/* <Example linkName='Services'/> */}
-                       {/* <FlyoutMenu menuLink = "Services"/> */}
-                       {/* </Link> */}
-                     
                       <Link href="/gallery/1">
                         <a
                           className={classNames(
@@ -206,8 +201,8 @@ export default function TopBar() {
               </div>
             </div>
 
-            <Disclosure.Panel className="sm:hidden">
-              <div className="pt-2 pb-4 space-y-1">
+            <Disclosure.Panel className="sm:hidden ">
+              <div className="pt-2 pb-4 space-y-1 ">
                 {/* Current: "bg-indigo-50 border-indigo-500 text-indigo-700", Default: "border-transparent text-gray-500 hover:bg-gray-50 hover:border-gray-300 hover:text-gray-700" */}
                 <Disclosure.Button
                   // as={Link}

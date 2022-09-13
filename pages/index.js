@@ -72,7 +72,7 @@ export default function Home({ posts }) {
             <div className="px-4 lg:w-[70%]  sm:px-8 xl:pr-16 z-10">
               <h1 className="relative text-4xl tracking-tight font-extrabold text-gray-900 sm:text-5xl md:text-6xl lg:text-5xl xl:text-6xl">
                 <div className="absolute -left-20  -top-16  lg:block   ">
-                  <Image src={squareDotPattern} width={279} height={198} />
+                  <Image src={squareDotPattern} width={279} height={198} alt="squareDotPattern" />
                 </div>
                 <span className="inline relative xl:inline dark:text-gray-50 z-20 text-gray-800">
                   More than just a salon. {""}
@@ -97,7 +97,7 @@ export default function Home({ posts }) {
                     </Link>
                   </div>
                   <div className="hidden sm:block">
-                    <Image src={underline} width={160} height={42} />
+                    <Image src={underline} width={160} height={42} alt="underline svg" />
                   </div>
                 </div>
 
@@ -120,9 +120,10 @@ export default function Home({ posts }) {
             <Image
               className="absolute inset-0 w-full h-full object-cover"
               src={YellowBlonde}
-              alt=""
+              alt="Hero Image"
               priority={true}
               layout="fill"
+              
               // width="1042"
               // height="894"
               //if using layout="fill you must wrap Image in a div with a height and width"
@@ -138,6 +139,7 @@ export default function Home({ posts }) {
               layout="intrinsic"
               width={504}
               height={150}
+              alt="Logo Image"
             />
           </div>
           <div
@@ -150,11 +152,7 @@ export default function Home({ posts }) {
         <div className="">
           <div className="overflow-hidden  relative before:content-[''] before:bg-incentive-bg before:absolute  lg:before:left-2/3 before:left-[20%] before:top-0 before:w-full before:h-full before:opacity-50  lg:before:opacity-60  before:bg-cover lg:before:bg-contain before:bg-no-repeat  after:brightness-100 after:dark:brightness-[75%] after:right-0  after:top-0   ">
             <Incentives />
-            {/* <div className="  hidden lg:block absolute -top-10 -right-[20%] opacity-90  ">
-                <Image 
-                    src={ecoGirl}
-                />     
-        </div> */}
+          
           </div>
         </div>
       </div>

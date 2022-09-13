@@ -23,10 +23,10 @@ export default function Card({ post }) {
         <Image
           className="h-48 w-full object-cover object-top"
           src={post.coverPhoto.url}
-          height={"192px"}
-          width={"300px"}
+          height={192}
+          width={300}
           layout="responsive"
-          alt=""
+          alt={`coverPhoto of blog titled ${post.title}`}
         />
       </div>
       <div className="flex-1 bg-gray-50 dark:bg-gray-900 p-6 flex flex-col justify-between">
@@ -34,11 +34,7 @@ export default function Card({ post }) {
           <p className="text-sm font-semibold text-indigo-600 dark:text-indigo-300">
             {post.categories.map((cat, index) => {
               return (
-                // <Link href={`/${cat.categoryTitle}`} key={index} >
-                //   <a className="hover:underline mr-2 lowercase ">
-                //     {cat.categoryTitle}
-                //   </a>
-                // </Link>
+              
                 <span key={index} className="mr-2 lowercase">{cat.categoryTitle}</span>
               );
             })}
@@ -70,7 +66,7 @@ export default function Card({ post }) {
                   width={40}
                   height={40}
                   src={post.author.avatar.url}
-                  alt=""
+                  alt={`avatar of author of blog ${post.author.name}`}
                 />
               </a>
             </Link>

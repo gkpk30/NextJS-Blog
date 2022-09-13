@@ -35,6 +35,7 @@ const Makeover = () => {
                 priority={true}
                 width={1000}
                 height={968}
+                alt="camera from bottom"
               />
             </div>
           </div>
@@ -45,6 +46,7 @@ const Makeover = () => {
               priority={true}
               width={1000}
               height={968}
+              alt="camera from left"
             />
           </div>
         </div>
