@@ -1,6 +1,7 @@
 import { GraphQLClient } from "graphql-request";
 import { gql } from "graphql-request";
 import Link from "next/link";
+import Image from "next/image";
 
 export const people = [
   {
@@ -125,10 +126,12 @@ export default function Artists({ stylists }) {
                   <li key={stylist.name} className="sm:py-8">
                     <div className="space-y-4 sm:grid sm:grid-cols-3 sm:items-start sm:gap-6 sm:space-y-0">
                       <div className="aspect-w-3 aspect-h-2 sm:aspect-w-3 sm:aspect-h-4">
-                        <img
+                        <Image
                           className="object-cover shadow-lg rounded-lg"
                           src={stylist.avatar.url}
-                          alt=""
+                          alt={`stylist avatar for ${stylist.name}`}
+                          layout="intrinsic"
+                          width="250" height="250"
                         />
                       </div>
                       <div className="sm:col-span-2">
