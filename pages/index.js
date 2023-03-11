@@ -7,7 +7,7 @@ import squareDotPattern from "../public/images/squareDotPattern.svg";
 import underline from "../public/images/underline.svg";
 import Blonde from "../public/images/Banner-Blond-Black-Dress-min.jpeg";
 //import YellowBlonde from "../public/images/model-pink-hair-yellow-background.jpeg";
-import YellowBlonde from "../public/images/blonde-yellow-hero.png"
+import YellowBlonde from "../public/images/blonde-yellow-hero.png";
 import ecoGirl from "../public/images/ecoGirl.jpeg";
 import styles from "../styles/Home.module.css";
 import BlogPreviewSection from "../components/BlogPreviewSection";
