@@ -82,7 +82,7 @@ export default function Home({ posts }) {
                   Develop your style and professional brand
                 </span>
               </h1>
-              <h2 className="relative mt-3 max-w-md mx-auto md:mx-0 text-lg font-medium dark:text-red-700  text-gray-500  sm:text-xl md:mt-5 md:max-w-xl z-20">
+              <h2 className="relative mt-3 max-w-md mx-auto lg:mx-0 text-lg font-medium dark:text-red-700  text-gray-500  sm:text-xl md:mt-5 md:max-w-xl z-20">
                 The most technically advanced haircutting salon in Los Angeles.
                 Our Salon is a full service hair, make up and a high-end photography
                 studio located in-house, offering a wide range of beauty services.
