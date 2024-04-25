@@ -82,11 +82,10 @@ export default function Home({ posts }) {
                   Develop your style and professional brand
                 </span>
               </h1>
-              <h2 className="relative mt-3 max-w-md mx-auto md:mx-0 text-lg font-medium dark:text-red-700  text-gray-500  sm:text-xl md:mt-5 md:max-w-3xl z-20">
+              <h2 className="relative mt-3 max-w-md mx-auto md:mx-0 text-lg font-medium dark:text-red-700  text-gray-500  sm:text-xl md:mt-5 md:max-w-xl z-20">
                 The most technically advanced haircutting salon in Los Angeles.
-                With a High-end Professional headshot studio located in-house.
-                Headbetter Salon is a full service hair, make up and photography
-                studio, offering a wide range of beauty services.
+                Our Salon is a full service hair, make up and a high-end photography
+                studio located in-house, offering a wide range of beauty services.
               </h2>
               <div className="mt-10 sm:flex sm:justify-center lg:justify-start">
                 <div>
@@ -117,9 +116,9 @@ export default function Home({ posts }) {
               </div>
             </div>
           </div>
-          <div className="relative w-full h-64 lg:h-screen sm:h-72 md:h-96 lg:absolute lg:inset-y-0 lg:right-0 lg:w-1/2 ">
+          <div className="relative w-full h-96 lg:h-screen sm:h-72 md:h-96 lg:absolute lg:inset-y-0 lg:right-0 lg:w-1/2 ">
             <Image
-              className="absolute inset-0 w-full h-full object-cover"
+              className="absolute inset-0 w-full h-full object-contain"
               src={YellowBlonde}
               alt="Hero Image"
               priority={true}
