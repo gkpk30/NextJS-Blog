@@ -102,7 +102,7 @@ export default function Home({ posts }) {
                   </div>
                 </div>
 
-                <div className="min-w-[10rem] mt-3 rounded-md shadow sm:mt-0 sm:ml-3">
+                <div className="min-w-[10rem] mt-3 rounded-md sm:mt-0 sm:ml-3">
                   <ScrollLink
                     spy={true}
                     smooth={true}
